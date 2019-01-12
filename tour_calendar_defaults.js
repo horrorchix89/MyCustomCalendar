@@ -1,17 +1,10 @@
 var display_calendar_options = {
-header: {
+    header: {
       left: "today prev,next title",
       center: "",
       right: ""
     },
-    aspectRatio: 1.8,
-    fixedWeekCount: false,
-    nowIndicator: true,
-    slotLabelInterval: "01:00",
-    slotLabelFormat: "h A",
-    listDayFormat: "ddd MMM D",
-    listDayAltFormat: false,
-    noEventsMessage: "no events",
+    footer: true,
     buttonText: {
         prev: 'prev',
         next: 'next',
@@ -28,4 +21,20 @@ header: {
         next: 'left-single-arrow',
         prevYear: 'right-double-arrow',
         nextYear: 'left-double-arrow'
+    },
+    aspectRatio: 1.8,
+    fixedWeekCount: false,
+    nowIndicator: true,
+    slotLabelInterval: "01:00",
+    slotLabelFormat: "h A",
+    listDayFormat: "ddd MMM D",
+    listDayAltFormat: false,
+    noEventsMessage: "no events",
+    defaultRangeSeparator: false,
+    views: {
+      listYear: {
+        buttonText: "list",
+        titleFormat: "MMMM",
+        timeFormat: "h:mm A"
+      }
     },
