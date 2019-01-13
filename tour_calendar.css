@@ -486,3 +486,50 @@ text-align:center;
 cursor:s-resize
 }
 
+.fc-time-grid .fc-slats .fc-minor td {
+  border-top-style: none;
+}
+.fc-agenda-view .fc-day-grid .fc-row {
+  min-height: 1.5em;
+}
+.fc-event-dot {
+  width: 2px;
+  height: 3em;
+  margin: 2px 10px -4px 13px;
+}
+.fc-list-view {
+  overflow: auto;
+}
+.fc-ltr .fc-list-heading-main {
+  float: left;
+  font-size: 1.125em;
+  padding: 2px;
+  margin-left: 8px
+}
+.fc-list-item-marker,
+.fc-list-item-time {
+  white-space: normal;
+}
+.fc-event-dot,
+.fc-list-item-time {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.fc-list-item-time {
+  width: 6em;
+  font-size: 80%;
+  line-height: 1.6;
+  min-height: 3em;
+}
+
+.fc-ltr .fc-list-item-time {
+  text-align: right;
+  padding-top: 0.625em;
+}
+.fc-bgevent{
+  background: red;
+  opacity: .2
+}
