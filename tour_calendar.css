@@ -114,8 +114,8 @@ width:100%;
 overflow:hidden
 }
 
-.fc-widget-header,.fc-widget-content {
-border:1px solid #ddd
+.fc-widget-header, .fc-widget-content {
+    border: 1px solid #ddd;
 }
 
 .fc-state-highlight {
