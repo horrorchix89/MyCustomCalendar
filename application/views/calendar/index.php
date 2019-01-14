@@ -4,12 +4,16 @@
         <title>Calendar Display</title>
         <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
+    
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <link rel="stylesheet" href="<?php echo base_url() ?>scripts/fullcalendar/fullcalendar.min.css" />
-               <script src="<?php echo base_url() ?>scripts/fullcalendar/lib/moment.min.js"></script>
-               <script src="<?php echo base_url() ?>scripts/fullcalendar/fullcalendar.min.js"></script>
-               <script src="<?php echo base_url() ?>scripts/fullcalendar/gcal.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="<?php echo base_url() ?>scripts/fullcalendar/fullcalendar.min.css" />
+        <script src="<?php echo base_url() ?>scripts/fullcalendar/lib/moment.min.js"></script>
+        <script src="<?php echo base_url() ?>scripts/fullcalendar/fullcalendar.min.js"></script>
+        <script src="<?php echo base_url() ?>scripts/fullcalendar/gcal.js"></script>
+
+        
     </head>
     <body>
 
@@ -20,6 +24,9 @@
     <h1>Caelndar</h1>
         <div id="calendar">
 </div>
+            </div>
+    </div>
+    </div>
 
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -124,9 +131,6 @@
     </div>
   </div>
 </div>
-    </div>
-    </div>
-    </div>
 
 <script type="text/javascript">
     function getColor() {
@@ -135,33 +139,35 @@
 </script>
 <script type="text/javascript">
 $(document).ready(function() {
+
     var date_last_clicked = null;
 
-$('#calendar').fullCalendar({
-    eventSources: [
-    {
-        events: function(start, end, timezone, callback) {
-            $.ajax({
-                url: '<?php echo base_url() ?>calendar/get_events',
-                dataType: 'json',
-                data: {                
-                    start: start.unix(),
-                    end: end.unix()
-                },
-                success: function(msg) {
-                    var events = msg.events;
-                    callback(events);
-                }
-            });
-       }
-    },
-    ],
-    dayClick: function(date, jsEvent, view) {
-        date_last_clicked = $(this);
-        $(this).css('background-color', '#bed7f3');
-        $('#addModal').modal();
-    },
-    eventClick: function(event, jsEvent, view) {
+    $('#calendar').fullCalendar({
+        eventSources: [
+           {
+           events: function(start, end, timezone, callback) {
+                $.ajax({
+                    url: '<?php echo base_url() ?>calendar/get_events',
+                    dataType: 'json',
+                    data: {
+                        // our hypothetical feed requires UNIX timestamps
+                        start: start.unix(),
+                        end: end.unix()
+                    },
+                    success: function(msg) {
+                        var events = msg.events;
+                        callback(events);
+                    }
+                });
+              }
+            },
+        ],
+       dayClick: function(date, jsEvent, view) {
+            date_last_clicked = $(this);
+            $(this).css('background-color', '#bed7f3');
+            $('#addModal').modal();
+        },
+       eventClick: function(event, jsEvent, view) {
           $('#name').val(event.title);
           $('#location).val(event.location);
           $('#description').val(event.description);
@@ -173,7 +179,8 @@ $('#calendar').fullCalendar({
           }
           $('#event_id').val(event.id);
           $('#editModal').modal();
-}
+       },
+    });
 });
 </script>
     </body>
