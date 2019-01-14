@@ -36,7 +36,8 @@ public function add_event()
 {
     /* Our calendar data */
     $name = $this->input->post("name", TRUE);
-    $desc = $this->input->post("description", TRUE);
+    $loca = $this->input->post("location", TRUE);
+    $desc = $this->textarea->post("description", TRUE);
     $start_date = $this->input->post("start_date", TRUE);
     $end_date = $this->input->post("end_date", TRUE);
 
@@ -60,6 +61,7 @@ public function add_event()
 
     $this->calendar_model->add_event(array(
        "title" => $name,
+       "location" => $loca,
        "description" => $desc,
        "start" => $start_date,
        "end" => $end_date
