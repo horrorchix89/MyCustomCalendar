@@ -161,6 +161,19 @@ $('#calendar').fullCalendar({
         $(this).css('background-color', '#bed7f3');
         $('#addModal').modal();
     },
+    eventClick: function(event, jsEvent, view) {
+          $('#name').val(event.title);
+          $('#location).val(event.location);
+          $('#description').val(event.description);
+          $('#start_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+          if(event.end) {
+            $('#end_date').val(moment(event.end).format('YYYY/MM/DD HH:mm'));
+          } else {
+            $('#end_date').val(moment(event.start).format('YYYY/MM/DD HH:mm'));
+          }
+          $('#event_id').val(event.id);
+          $('#editModal').modal();
+}
 });
 </script>
     </body>
