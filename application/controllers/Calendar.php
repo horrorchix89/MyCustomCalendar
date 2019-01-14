@@ -70,3 +70,58 @@ public function add_event()
 
     redirect(site_url("calendar"));
 }
+
+public function edit_event()
+     {
+          $eventid = intval($this->input->post("eventid"));
+          $event = $this->calendar_model->get_event($eventid);
+          if($event->num_rows() == 0) {
+               echo"Invalid Event";
+               exit();
+          }
+
+          $event->row();
+
+          /* Our calendar data */
+          $name = $this->common->nohtml($this->input->post("name"));
+          $loca = $this->common->nohtml($this->input->post("location"));
+          $desc = $this->common->nohtml($this->textarea->post("description"));
+          $start_date = $this->common->nohtml($this->input->post("start_date"));
+          $end_date = $this->common->nohtml($this->input->post("end_date"));
+          $delete = intval($this->input->post("delete"));
+
+          if(!$delete) {
+
+               if(!empty($start_date)) {
+                    $sd = DateTime::createFromFormat("Y/m/d H:i", $start_date);
+                    $start_date = $sd->format('Y-m-d H:i:s');
+                    $start_date_timestamp = $sd->getTimestamp();
+               } else {
+                    $start_date = date("Y-m-d H:i:s", time());
+                    $start_date_timestamp = time();
+               }
+
+               if(!empty($end_date)) {
+                    $ed = DateTime::createFromFormat("Y/m/d H:i", $end_date);
+                    $end_date = $ed->format('Y-m-d H:i:s');
+                    $end_date_timestamp = $ed->getTimestamp();
+               } else {
+                    $end_date = date("Y-m-d H:i:s", time());
+                    $end_date_timestamp = time();
+               }
+
+               $this->calendar_model->update_event($eventid, array(
+                    "title" => $name,
+                    "location" => $loca,
+                    "description" => $desc,
+                    "start" => $start_date,
+                    "end" => $end_date,
+                    )
+               );
+
+          } else {
+               $this->calendar_model->delete_event($eventid);
+          }
+
+          redirect(site_url("calendar"));
+     }
