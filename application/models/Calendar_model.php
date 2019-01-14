@@ -1,3 +1,12 @@
+CREATE TABLE `calendar_events` (
+ `ID` int(11) NOT NULL,
+ `title` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
+ `start` datetime NOT NULL,
+ `end` datetime NOT NULL,
+ `description` varchar(1000) COLLATE utf8_unicode_ci NOT NULL
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+
 <?php
 
 class Calendar_Model extends CI_Model
