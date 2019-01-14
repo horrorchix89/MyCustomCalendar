@@ -25,12 +25,21 @@
     </div>
     </div>
 
-
+<script type="text/javascript">
+    function getColor() {
+        return '#'+Math.floor(Math.random()*16777215).toString(16);
+    }
+</script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#calendar').fullCalendar({
-
-    });
+    eventSources: [
+            {
+                color: getColor(),   
+                textColor: '#FF0000',
+                events: []
+            }
+        ]
 });
 </script>
     </body>
