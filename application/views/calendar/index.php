@@ -37,9 +37,15 @@
                 </div>
         </div>
         <div class="form-group">
+                <label for="p-in" class="col-md-4 label-heading">Location</label>
+                <div class="col-md-8 ui-front">
+                    <input type="text" class="form-control" name="location" value="">
+                </div>
+        </div>
+        <div class="form-group">
                 <label for="p-in" class="col-md-4 label-heading">Description</label>
                 <div class="col-md-8 ui-front">
-                    <input type="text" class="form-control" name="description">
+                    <textarea type="text" class="form-control" name="description"></textarea>
                 </div>
         </div>
         <div class="form-group">
