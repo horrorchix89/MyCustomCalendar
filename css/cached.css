@@ -132,8 +132,8 @@ input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webki
     -webkit-appearance: none;
 }
 fieldset {
-    border: 1pxsolid #c0c0c0;
-    margin: 02px;
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
 }
 legend {
@@ -2554,6 +2554,13 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
     -webkit-box-shadow: 0 6px 12px rgba(0,0,0,0.175);
     box-shadow: 0 6px 12px rgba(0,0,0,0.175);
     background-clip: padding-box;
+}
+#calendar .dropdown-menu {
+  font-size: 1rem;
+  min-width: 5rem;
+  border-radius: 4px;
+  box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
 }
 .dropdown-menu.pull-right {
     right: 0;
