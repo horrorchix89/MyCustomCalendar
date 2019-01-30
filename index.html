@@ -8,21 +8,19 @@
     
   <link href="//cdnjs.cloudflare.com/ajax/libs/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
 <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='../dist/fullcalendar.css' rel='stylesheet' />
-<link href='../dist/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <link href='/fullcalendar/fullcalendar.css' rel='stylesheet' />
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet">
 <link href="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.2/owl.carousel.min.css" rel="stylesheet">
   <link href="/css/responsive-style.css" rel="stylesheet">
 <link href="//cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/0.9.9/magnific-popup.css" rel="stylesheet">
 
-<link rel="stylesheet" type="text/css" href="/css/ladda.css"/>
 <link rel="stylesheet" type="text/css" href="/css/cached.css"/>
 <link rel="stylesheet" type="text/css" href="/css/tour_calendar.css"/>
     
-    <script src='../node_modules/moment/moment.js'></script>
-<script src='../node_modules/jquery/dist/jquery.js'></script>
-<script src='../dist/fullcalendar.js'></script>
+    <script src='/scripts/fullcalendar/lib/moment.min.js'></script>
+<script src='/scripts/fullcalendar/lib/jquery.min.js'></script>
+<script src='/scripts/fullcalendar/fullcalendar.js'></script>
     <script>
         $(document).ready(function() {
   var date = new Date();
@@ -79,9 +77,93 @@
       dow: [0, 1, 2, 3, 4, 5, 6],
       start: "11:00",
       end: "24:00"
+    },
+    dayClick: function(date, jsEvent, view) {
+      if (view.name != "month") return;
+      if (view.name == "month") {
+        $("#calendar").fullCalendar("changeView", "agendaDay");
+        $("#calendar").fullCalendar("gotoDate", date);
+      }
+    },
+    eventClick: function(event, element) {
+      var event_Date =
+        event.start.format("MMM DD, h A") +
+        " - " +
+        event.end.format("MMM DD, h A");
+      var $eventDetails = $("#event-details");
+      var eimage = event.image;
+      var $eimagediv = $("#imgId");
+      var etitle = event.title;
+      var edescr = event.description;
+
+      if (etitle == "Unavaliable") {
+        $("#eventTitle").html(etitle);
+      } else if (etitle != "Unavaliable") {
+        $("#eventTitle").html("Visiting" + " " + event.location);
+      }
+      if (eimage) {
+        $eimagediv.removeClass("noimg");
+        $eimagediv.attr("src", eimage);
+      } else if (!eimage) {
+        $eimagediv.addClass("noimg");
+        $eimagediv.removeAttr("src");
+      }
+      $("#eventDate").html(
+        '<span><i class="fa fa-clock-o"></i></span>' + " " + event_Date
+      );
+      $("#eventColor").css("background", event.color);
+      $("#eventInfo").html(edescr);
+
+      if ($eventDetails.hasClass("isHidden")) {
+        $eventDetails.removeClass("isHidden");
+      } else {
+        $eventDetails.addClass("isHidden");
+      }
+      return false;
     }
-      });
-        });
+  });
+});
+
+$(function(element, jsEvent) {
+  if (".fc-unthemed") {
+    $("#calendar").removeClass("fc-unthemed");
+  }
+});
+//<!--Dropdown-->
+$(function() {
+  $(".fc-toolbar .fc-right").append(
+    $('<div class="fc-button-group dropdown"></div>')
+  );
+  $(".fc-view-button")
+    .wrap(".dropdown")
+    .addClass("dropdown-toggle")
+    .attr("data-toggle", "dropdown");
+  $(".dropdown").append(
+    $(
+      '<div class="dropdown-menu">' +
+        '<button type="button" class="dropdown-item fc-agendaDay-button fc-button fc-state-default" id="daybtn">Day</button>' +
+        '<button type="button" class="dropdown-item fc-agendaWeek-button fc-button fc-state-default" id="weekbtn">Week</button>' +
+        '<button type="button" class="dropdown-item fc-button fc-button-month fc-state-default" id="monthbtn">Month</button></div>'
+    )
+  );
+
+  $("#daybtn").click(function(event, view) {
+    event.preventDefault();
+    $("#calendar").fullCalendar("changeView", "agendaDay");
+    $(".dropdown-toggle").html("Day");
+  });
+  $("#weekbtn").click(function(event) {
+    event.preventDefault();
+    $("#calendar").fullCalendar("changeView", "agendaWeek");
+    $(".dropdown-toggle").html("Week");
+  });
+  $("#monthbtn").click(function(event) {
+    event.preventDefault();
+    $("#calendar").fullCalendar("changeView", "month");
+    $(".dropdown-toggle").html("Month");
+  });
+  //<!--End_Dropdown-->
+});
     </script>
 </head>
 
