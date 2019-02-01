@@ -245,15 +245,6 @@ overflow:hidden
 padding:0 1px
 }
 
-.fc .ui-resizable-handle {
-display:block;
-position:absolute;
-z-index:99999;
-overflow:hidden;
-font-size:300%;
-line-height:50%
-}
-
 .fc-event-hori {
 border-width:1px 0;
 margin-bottom:1px
