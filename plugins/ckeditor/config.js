@@ -9,6 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
+	config.uiColor = '#F7B42C';
 	config.height = 125;
 	config.extraPlugins = 'uploadcare';
 	config.toolbarCanCollapse = true;
