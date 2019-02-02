@@ -10,6 +10,7 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.height = 125;
+	config.extraPlugins = 'uploadcare';
 	config.toolbarCanCollapse = true;
 	config.toolbarGroups = [
 		{ name: 'styles', groups: [ 'styles' ] },
