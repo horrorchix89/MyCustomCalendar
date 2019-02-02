@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-	config.height = 300;
+	config.height = 125;
 	config.toolbarCanCollapse = true;
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.

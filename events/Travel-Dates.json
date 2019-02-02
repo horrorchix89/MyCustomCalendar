@@ -1,0 +1,288 @@
+[
+    {
+        "title": "Bentonville, AR",
+        "image": null,
+        "id": "58362",
+        "start": "2018-08-21T19:00:00",
+        "end": "2018-09-04T10:00:00",
+        "allDay": false,
+        "description": null,
+        "location": "Bentonville, AR",
+        "color": "#5484ed"
+    },
+    {
+        "title": "Springfield, MO",
+        "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/-/resize/600/",
+        "id": "58541",
+        "start": "2018-09-11T21:00:00",
+        "end": "2018-09-14T10:00:00",
+        "allDay": false,
+        "description": "Available for Incall (preferred) near the Battlefield Mall. Outcall dates are offered but required a 2-hour notice. A $50 travel fee is added to outcall locations further than 30 minutes from me.",
+        "location": "Springfield, MO",
+        "color": "#9C00FF"
+    },
+    {
+        "title": "Kansas City, MO",
+        "image": "",
+        "id": "58542",
+        "start": "2018-09-14T17:00:00",
+        "end": "2018-09-18T10:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "Overland Park, KS",
+        "color": "#007bff"
+    },
+    {
+        "title": "Oklahoma City, OK",
+        "image": "",
+        "id": "58543",
+        "start": "2018-09-18T18:00:00",
+        "end": "2018-09-21T10:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "Oklahoma City, OK",
+        "color": "#1a73e8"
+    },
+    {
+        "title": "Bentonville, AR",
+        "image": "",
+        "id": "60552",
+        "start": "2018-10-23T23:30:00",
+        "end": "2018-10-30T11:00:00",
+        "allDay": false,
+        "color": "#5484ed",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Springfield, MO",
+        "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/-/resize/600/",
+        "id": "60553",
+        "start": "2018-10-30T16:00:00",
+        "end": "2018-11-02T11:00:00",
+        "allDay": false,
+        "color": "#dbadff",
+        "description": "",
+        "location": "Springfield, MO"
+    },
+    {
+        "title": "Kansas City",
+        "image": "",
+        "id": "60554",
+        "start": "2018-11-02T16:00:00",
+        "end": "2018-11-06T12:00:00",
+        "allDay": false,
+        "color": "#51b749",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Overland Park, KS",
+        "image": "",
+        "id": "61370",
+        "start": "2018-11-17T16:00:00",
+        "end": "2018-11-26T12:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "",
+        "color": "indigo"
+    },
+    {
+        "title": "Springfield, MO",
+        "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/-/resize/600/",
+        "id": "61371",
+        "start": "2018-11-26T16:00:00",
+        "end": "2018-11-28T11:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "Springfield, MO",
+        "color": "#EFC631"
+    },
+    {
+        "title": "Little Rock, AR",
+        "image": "",
+        "id": "61372",
+        "start": "2018-11-28T19:00:00",
+        "end": "2018-11-30T13:00:00",
+        "allDay": false,
+        "color": "#fbd75b",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Kansas City",
+        "image": "",
+        "id": "61413",
+        "start": "2018-12-05T16:00:00",
+        "end": "2018-12-09T12:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "",
+        "color": "#5484ed"
+    },
+    {
+        "title": "Bentonville, AR",
+        "image": "",
+        "id": "61412",
+        "start": "2018-12-09T16:00:00",
+        "end": "2018-12-18T12:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "",
+        "color": "yellow"
+    },
+    {
+        "title": "Last Day in Bentonville",
+        "image": "",
+        "id": "62553",
+        "start": "2018-12-17T00:00:00",
+        "end": "2018-12-18T11:00:00",
+        "allDay": false,
+        "description": "",
+        "location": "",
+        "color": "#FF00FF"
+    },
+    {
+        "title": "Visiting Springfield, MO",
+        "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/-/resize/600/",
+        "id": "1",
+        "location": "Springfield, MO",
+        "start": "2018-12-26T17:00:00",
+        "end": "2018-12-29T12:00:00",
+        "description": "Available for Incall and limited Outcall (with advance notice).<ul><li><b>Wednesday:</b> 6:00pm-1:00am</li><li><b>Thursday & Friday:</b> 11:00am-1:00am</li><li><b>Saturday:</b> *pre-book dates only*</li></ul>",
+        "color": "#9021a8",
+        "allDay": false
+    },
+    {
+        "title": "Visiting KC/Overland Park",
+        "image": "",
+        "id": "2",
+        "start": "2018-12-29T17:00:00",
+        "end": "2019-01-05T12:00:00",
+        "allDay": false,
+        "color": "#6b83c2",
+        "description": "Available for Incall (preferred). Outcall is very limited and requires a 2-hr minimum notice.<br><br><ul><li><b>Sat:</b> 5pm-1am</li><li><b>Sun - Wed:</b> 11am-1am</li><li><b>Thurs:</b> *pre-book dates only*</li></ul>",
+        "location": "Overland Park, KS"
+    },
+    {
+        "title": "Visiting OKC",
+        "image": "",
+        "id": "3",
+        "start": "2019-01-05T19:00:00",
+        "end": "2019-01-11T12:00:00",
+        "allDay": false,
+        "color": "#008107",
+        "description": "Available for Incall ONLY unless special arrangments are discussed in advance.<br><br><ul><li><b>Saturday</b>: 7:00pm - 2:00am</li><li><b>Sunday - Wednesday</b>: 11:00am - Midnight</li><li><b>Thursday</b>: *pre-book dates only* Checking out at noon</li></ul>",
+        "location": "Oklahoma City, OK"
+    },
+    {
+        "start": "2019-01-05",
+        "end": "2019-01-08",
+        "id": "4",
+        "rendering": "background"
+    },
+    {
+        "id": "5",
+        "start": "2019-01-12",
+        "end": "2019-01-15",
+        "rendering": "background"
+    },
+    {
+        "title": "Unavailable",
+        "image": "",
+        "id": "6",
+        "start": "2019-01-11T16:00:00",
+        "end": "2019-01-12T01:00:00",
+        "allDay": false,
+        "color": "grey",
+        "description": "My schedule is full during this time. But don't worry, you can always catch me later!"
+    },
+    {
+        "id": "7",
+        "title": "Visiting Northwest Arkansas",
+        "image": "https://ucarecdn.com/1022d1c7-e410-4237-98d8-789e996e7cee/-/resize/600/",
+        "start": "2019-01-11T19:00:00",
+        "end": "2019-01-20T11:00:00",
+        "allDay": false,
+        "color": "purple",
+        "description": "Changed things up a bit and decided to stay in Springdale this trip.<br><br>Available for Incall and limited Outcall (with advance notice).<br><br><ul><li><b>Fri Jan 11th</b>: 7:00pm-1:00am<br></li><li><b>Sat Jan 12th-Fri Jan 18th</b>: 9:00am-1:00am<br></li><li><b>Sat Jan 19th</b>: *pre-book dates only* May leave early depending on weather conditions<br></li></ul><strong>UPDATE:</strong> Due to the snowy weather, I extended my trip. Now leaving Sunday, January 20th at 12:00 PM",
+        "location": "Springdale, AR"
+    },
+    {
+        "title": "Springfield, MO *CANCELLED*",
+        "id": "63599",
+        "location": "Springfield, MO",
+        "start": "2019-01-23T19:00:00",
+        "end": "2019-01-26T11:00:00",
+        "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/-/resize/600/",
+        "description": "",
+        "allDay": false,
+        "color": "#51b749"
+    },
+    {
+        "title": "Kansas City",
+        "id": "63601",
+        "start": "2019-01-26T18:30:00",
+        "end": "2019-01-31T12:00:00",
+        "allDay": false,
+        "color": "#dbadff",
+        "image": "",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Unavailable",
+        "id": "63873",
+        "start": "2019-01-28T05:00:00",
+        "end": "2019-01-28T18:00:00",
+        "allDay": false,
+        "color": "#e1e1e1",
+        "image": "",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Unavailable",
+        "start": "2019-01-19T09:00:00",
+        "end": "2019-01-19T10:00:00",
+        "allDay": true,
+        "color": "#e1e1e1",
+        "id": "63926",
+        "image": "",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Wichita, KS",
+        "id": "64247",
+        "start": "2019-01-31T16:30:00",
+        "end": "2019-02-02T11:00:00",
+        "allDay": false,
+        "color": "#5484ed",
+        "image": "",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Oklahoma CIty",
+        "id": "64248",
+        "start": "2019-02-02T16:00:00",
+        "end": "2019-02-06T12:00:00",
+        "allDay": false,
+        "color": "#a4bdfc",
+        "image": "",
+        "description": "",
+        "location": ""
+    },
+    {
+        "title": "Tulsa, OK",
+        "id": "64249",
+        "start": "2019-02-06T15:00:00",
+        "end": "2019-02-08T11:00:00",
+        "allDay": false,
+        "color": "#46d6db",
+        "image": "",
+        "description": "",
+        "location": ""
+    }
+]
