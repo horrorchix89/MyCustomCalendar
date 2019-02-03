@@ -1,1 +1,1 @@
-var UPLOADCARE_PUBLIC_KEY = "demopublickey";
+var UPLOADCARE_PUBLIC_KEY = "b56927a6dd79d009ab8c";
