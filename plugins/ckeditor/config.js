@@ -31,6 +31,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeButtons = 'BGColor,Subscript,Superscript,JustifyBlock,Outdent,Indent,Strike,Cut,Copy,Paste,Anchor';
 };
 
-	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
 };
