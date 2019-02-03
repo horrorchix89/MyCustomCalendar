@@ -25,7 +25,7 @@
  */
 
 var CKBUILDER_CONFIG = {
-	skin: 'bootstrapck',
+	skin: '',
 	preset: 'basic',
 	ignore: [
 		'.DS_Store',
@@ -62,8 +62,6 @@ var CKBUILDER_CONFIG = {
 		'find' : 1,
 		'floatingspace' : 1,
 		'font' : 1,
-		'format' : 1,
-		'forms' : 1,
 		'horizontalrule' : 1,
 		'htmlwriter' : 1,
 		'image' : 1,
@@ -76,12 +74,9 @@ var CKBUILDER_CONFIG = {
 		'showborders' : 1,
 		'sourcearea' : 1,
 		'table' : 1,
-		'tableselection' : 1,
-		'tabletools' : 1,
 		'toolbar' : 1,
 		'undo' : 1,
 		'uploadcare' : 1,
-		'uploadimage' : 1,
 		'wysiwygarea' : 1
 	},
 	languages : {
