@@ -14,13 +14,13 @@ CKEDITOR.editorConfig = function( config ) {
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
 		{ name: 'styles', groups: [ 'styles' ] },
+		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		{ name: 'forms', groups: [ 'forms' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
 		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+		{ name: 'forms', groups: [ 'forms' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
@@ -28,7 +28,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Subscript,Superscript,Form,Checkbox,Radio,TextField,Textarea,Select,Button,HiddenField,BGColor,JustifyBlock,Outdent,Indent,Format';
+	config.removeButtons = 'BGColor,Subscript,Superscript,JustifyBlock,Outdent,Indent,Strike,Cut,Copy,Paste,Anchor';
 };
 
 	// Dialog windows are also simplified.
