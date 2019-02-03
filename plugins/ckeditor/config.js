@@ -14,22 +14,20 @@ CKEDITOR.editorConfig = function( config ) {
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
 		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
-		{ name: 'links', groups: [ 'links' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
+		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
+		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'BGColor,Subscript,Superscript,JustifyBlock,Outdent,Indent,Strike,Cut,Copy,Paste,Anchor';
-};
-
+	config.removeButtons = 'BGColor,Subscript,Strike,Superscript,Anchor,JustifyBlock,Outdent,Indent';
 	config.removeDialogTabs = 'link:advanced';
 };
