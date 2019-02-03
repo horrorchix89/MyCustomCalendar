@@ -34,8 +34,8 @@ CKEDITOR.plugins.add('uploadcare', {
         CKEDITOR.dialog.add('uploadcareDialog', function() {
             return {
                 title : 'Uploadcare',
-                minWidth : 800,
-                minHeight : 600,
+                minWidth : 600,
+                minHeight : 400,
                 onShow : function() {
                     document.getElementById(this.getButton('ok').domId).style.display = 'none';
                 },
@@ -46,8 +46,8 @@ CKEDITOR.plugins.add('uploadcare', {
                     elements : [ {
                         type : 'iframe',
                         src : me.path + 'dialog.php?file_id='+_file_id,
-                        width : '800',
-                        height : '600',
+                        width : '600',
+                        height : '400',
                         onContentLoad : function() {
                             var iframe = document.getElementById(this._.frameId), iframeWindow = iframe.contentWindow;
                             iframeWindow.document.getElementById('editor_name').value = editor.name;
