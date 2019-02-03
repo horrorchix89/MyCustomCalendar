@@ -9,6 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 	config.height = 125;
 	config.toolbarCanCollapse = true;
+	config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
