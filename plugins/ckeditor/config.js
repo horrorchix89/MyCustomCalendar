@@ -7,7 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-	config.height = 200;
+	config.height = 175;
 	config.toolbarCanCollapse = true;
 	config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
 
