@@ -13,11 +13,11 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
+		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
+		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
+		{ name: 'styles', groups: [ 'styles' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
 		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
@@ -28,6 +28,5 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'BGColor,Subscript,Strike,Superscript,Anchor,JustifyBlock,Outdent,Indent';
-	config.removeDialogTabs = 'link:advanced';
+	config.removeButtons = 'BGColor,Subscript,Strike,Superscript,Anchor,JustifyBlock,Outdent,Indent,Font,FontSize';
 };
