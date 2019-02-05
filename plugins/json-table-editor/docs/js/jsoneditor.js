@@ -118,16 +118,16 @@ $(function() {
 
         },
         items: {
-            "insertCR": {name: "Insert column at right side", icon: "fas fa-arrow-right"},
-            "insertCL": {name: "Insert column at left side", icon: "fas fa-arrow-left"},
-            "deleteC": {name: "Delete this column", icon: "fas fa-trash-alt"},
+            "insertCR": {name: "Insert column at right side", icon: "fa fa-arrow-right"},
+            "insertCL": {name: "Insert column at left side", icon: "fa fa-arrow-left"},
+            "deleteC": {name: "Delete this column", icon: "fa fa-trash-o"},
             "sep1": "---------",
-            "insertRD": {name: "Insert Row under this cell", icon: "fas fa-arrow-down"},
-            "insertRU": {name: "Insert Row above this cell", icon: "fas fa-arrow-up"},
-            "deleteR": {name: "Delete this row", icon: "fas fa-trash-alt"},
+            "insertRD": {name: "Insert Row under this cell", icon: "fa fa-arrow-down"},
+            "insertRU": {name: "Insert Row above this cell", icon: "fa fa-arrow-up"},
+            "deleteR": {name: "Delete this row", icon: "fa fa-trash-o"},
             "sep2": "---------",
-            "addT": {name: "Add a new table in this cell", icon: "fas fa-plus"},
-            "deleteT": {name: "Delete parent table of selected cell", icon: "fas fa-trash-alt"},
+            "addT": {name: "Add a new table in this cell", icon: "fa fa-plus"},
+            "deleteT": {name: "Delete parent table of selected cell", icon: "fa fa-trash-o"},
         }
     });
 
