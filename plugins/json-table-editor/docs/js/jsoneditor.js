@@ -1,4 +1,3 @@
-
 var counter_id;
 
 var parent_clicked_row;
@@ -325,7 +324,7 @@ function makeJson(counter=1){
         data.push(obj);
     });
 
-    //return JSON.stringify(data);
+    return JSON.stringify(data);
     return data;
 }
 
