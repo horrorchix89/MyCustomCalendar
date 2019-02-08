@@ -1,20 +1,19 @@
-var display_calendar_options = {
+var calendar_options = {
     header: {
       left: "today prev,next title",
       center: "",
-      right: ""
+      right: "listYear,View"
     },
-    footer: true,
     buttonText: {
         prev: 'prev',
         next: 'next',
         prevYear: 'prev year',
         nextYear: 'next year',
-        year: 'year',
-        today: 'today',
-        month: 'month',
-        week: 'week',
-        day: 'day'
+        year: 'Year',
+        today: 'Today',
+        month: 'Month',
+        week: 'Week',
+        day: 'Day'
     },
     buttonIcons: {
         prev: 'right-single-arrow',
@@ -22,7 +21,7 @@ var display_calendar_options = {
         prevYear: 'right-double-arrow',
         nextYear: 'left-double-arrow'
     },
-    aspectRatio: 1.8,
+    //aspectRatio: 1.8,
     fixedWeekCount: false,
     nowIndicator: true,
     slotLabelInterval: "01:00",
@@ -37,4 +36,5 @@ var display_calendar_options = {
         titleFormat: "MMMM",
         timeFormat: "h:mm A"
       }
-    },
+    }
+}
