@@ -327,4 +327,3 @@ function makeJson(counter=1){
     //return JSON.stringify(data);
     return data;
 }
-
