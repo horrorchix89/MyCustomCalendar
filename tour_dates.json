@@ -350,16 +350,16 @@
 		"id": 29,
 		"title": "❤ First Visit to Tulsa *CANCELLED*",
 		"location": "Tulsa, OK",
-		"start": "2019-02-08T15:30:00",
-		"end": "2019-02-10T11:00:00",
+		"start": "2019-02-08",
+		"end": "2019-02-10",
 		"description": "<b>TRIP CANCELLED</b><br><s>Available for Incall ONLY unless special arrangements are discussed before my arrival. Pre-booked dates take priority.<br><br><b><i>*Early morning or late evening dates must be pre-booked in advance</i></b><br><ul><li><b>FRIDAY:</b> 3:30pm - 2:00am</li><li><b>SATURDAY:</b> 11:00am - 1:00am</li><li><b>SUNDAY:</b> *pre-book dates only* Checking out at 11:00am</li></ul></s>",
 		"image": "https://ucarecdn.com/c0137fc3-121b-4cb0-8bc1-13962ed8e290/",
-		"allDay": false,
+		"allDay": true,
 		"color": "#46d6db",
 		"rendering": ""
 	},
 	{
-    "id":"",
+    	"id":"",
 		"title": "Visiting Kansas City",
 		"location": "Overland Park, KS",
 		"start": "2019-02-08T18:30:00",
@@ -368,6 +368,6 @@
 		"color": "#f47ccb",
 		"description": "Available for Incall (preferred) in Overland Park, KS. Outcall dates are offered but required a 2-hour notice and are very limited. A $50 travel fee is added to outcall locations further than 30 minutes from me.<br><br><b><i>*Early morning or late evening dates must be booked in advance</i></b><br><ul><li><b>FRIDAY:</b> 7:30pm-2:00am</li><li><b>SATURDAY - THURSDAY:</b> 11:00am-1:00am</li><li><b>FRIDAY (FEB 15):</b> <i>*pre-booked only*</i> Checking out at noon</li></ul><br><u>Kansas City Tour Special</u><br>$50 OFF 1-HR GFE | $75 OFF EXTENDED GFE | $100 OFF LUNCH/ DINNER DATES",
 		"image": "https://ucarecdn.com/87db5df3-acaa-4c37-9de5-0cfae2096ab2/",
-    "rendering":""
+   		"rendering":""
 	}
 ]
