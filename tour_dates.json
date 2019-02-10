@@ -1,6 +1,6 @@
 [
    {
-      "id": 1,
+      "id":"1",
       "title": "Bentonville, AR",
       "location": "Bentonville, AR",
       "start": "2018-08-21T19:00:00",
@@ -191,7 +191,6 @@
       "description": "Available for Incall (preferred) in Overland Park, KS. Outcall dates are offered but required a 2-hour notice and are very limited. A $50 travel fee is added to outcall locations further than 30 minutes from me.<br><br><b><i>*Early morning or late evening dates must be booked in advance</i></b><br><ul><li><b>SATURDAY</b>: 5:00pm-midnight</li><li><b>SUNDAY - FRIDAY</b>: 11:00am-midnight</li><li><b>SATURDAY, JAN 05</b>:<i> *pre-booked only*</i> Checking out at noon</li></ul>",
       "image": "https://ucarecdn.com/48bdcbc3-ffb9-4eb8-b318-a51e983ccb0d/",
       "allDay": false,
-      "rendering": "",
       "color": "#6b83c2"
    },
    {
@@ -203,43 +202,31 @@
       "description": "Available for Incall ONLY unless special arrangments are discussed in advance.<br><ul><li><b>Saturday</b>: 7:00pm - 2:00am<br></li><li><b>Sunday - Wednesday</b>: 11:00am - Midnight<br></li><li><b>Thursday</b>: *pre-book dates only* Checking out at noon<br></li></ul>",
       "image": "https://ucarecdn.com/42c00ad9-b350-4f6b-a931-35fe0a49812d/",
       "allDay": false,
-      "rendering": "",
       "color": "#008107"
    },
    {
       "id": 17,
-      "title": "",
-      "location": "",
       "start": "2019-01-05",
       "end": "2019-01-08",
-      "description": "",
-      "image": "",
       "allDay": false,
+      "overlap":false,
       "rendering": "background",
-      "color": ""
    },
    {
       "id": 18,
-      "title": "",
-      "location": "",
       "start": "2019-01-12",
       "end": "2019-01-15",
-      "description": "",
-      "image": "",
       "allDay": false,
+      "overlap":false,
       "rendering": "background",
-      "color": ""
    },
    {
       "id": 19,
       "title": "Unavailable",
-      "location": "",
       "start": "2019-01-11T16:00:00",
       "end": "2019-01-12T01:00:00",
       "description": "Unavailable from Mon Jan 11, 4:00 PM until Jan 12, 1:00 PM<br><br>Sorry, but I'm unable to accept any date requests during this time block. Check my calendar for other available times/dates!",
-      "image": "",
       "allDay": false,
-      "rendering": "",
       "color": "#e1e1e1"
    },
    {
