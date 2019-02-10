@@ -7,7 +7,7 @@
       "end": "2018-09-04T10:00:00",
       "description": "",
       "image": "",
-      "repeat":false,
+      "repeat":"",
       "allDay": false,
       "rendering": "",
       "color": "#5484ed"
@@ -20,6 +20,7 @@
       "end": "2018-09-14T10:00:00",
       "description": "Available for Incall (preferred) near the Battlefield Mall. Outcall dates are offered but required a 2-hour notice. A $50 travel fee is added to outcall locations further than 30 minutes from me.",
       "image": "https://ucarecdn.com/9f621375-e6ff-489c-b8ee-ce648c1c137d/",
+      "repeat": "",
       "allDay": false,
       "rendering": "",
       "color": "#9C00FF"
@@ -32,6 +33,7 @@
       "end": "2018-09-18T10:00:00",
       "description": "",
       "image": "https://ucarecdn.com/48bdcbc3-ffb9-4eb8-b318-a51e983ccb0d/",
+      "repeat": "",
       "allDay": false,
       "rendering": "",
       "color": "#007bff"
@@ -85,8 +87,8 @@
       "color": "#51b749"
    },
    {
-      "id": 8,
-      "title": "Overland Park, KS",
+      "id": "8",
+      "title": "Available in Overland Park",
       "location": "Overland Park, KS",
       "start": "2018-11-17T16:00:00",
       "end": "2018-11-26T12:00:00",
@@ -114,7 +116,7 @@
       "location": "Little Rock, AR",
       "start": "2018-11-28T19:00:00",
       "end": "2018-11-30T13:00:00",
-      "description": "",
+      "description": "Back home in Little Rock for a few days.",
       "image": "",
       "allDay": false,
       "rendering": "",
