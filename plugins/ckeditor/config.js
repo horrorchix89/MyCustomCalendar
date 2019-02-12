@@ -25,8 +25,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'about', groups: [ 'about' ] }
 	];
 
-	config.removeButtons = 'BGColor,Subscript,Superscript,Anchor,JustifyBlock,Outdent,Indent,Font,FontSize,Uploadcare';
-
+	config.removeButtons = 'BGColor,Subscript,Superscript,Anchor,JustifyBlock,Outdent,Indent,Font,FontSize,Uploadcare,Table';
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
 };
