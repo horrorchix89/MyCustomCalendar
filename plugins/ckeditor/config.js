@@ -5,6 +5,8 @@
 
 CKEDITOR.editorConfig = function( config ) {
 	config.height = 125;
+	config.colorButton_colorsPerRow = 8;
+	config.colorButton_enableMore = false;
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
