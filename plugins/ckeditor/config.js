@@ -9,6 +9,7 @@ CKEDITOR.editorConfig = function (config) {
     config.height = 150;
     //config.colorButton_colorsPerRow = 8;
     //config.colorButton_enableMore = false;
+    //config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
 
     config.toolbarGroups = [ {
         name: 'document',
