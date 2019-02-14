@@ -4,7 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-    config.height = '175px';
+    config.height = '150px';
 	config.toolbarGroups = [
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
