@@ -40,39 +40,31 @@
     // ==============================
     Iconpicker.ICONSET = {
         _custom: null,
-        elusiveicon: $.iconset_elusiveicon || Iconpicker.ICONSET_EMPTY,
-        flagicon: $.iconset_flagicon || Iconpicker.ICONSET_EMPTY,
         fontawesome4: $.iconset_fontawesome_4 || Iconpicker.ICONSET_EMPTY,
         fontawesome5: $.iconset_fontawesome_5 || Iconpicker.ICONSET_EMPTY,
-        glyphicon: $.iconset_glyphicon || Iconpicker.ICONSET_EMPTY,
-        ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY,
-        mapicon: $.iconset_mapicon || Iconpicker.ICONSET_EMPTY,
-        materialdesign: $.iconset_materialdesign || Iconpicker.ICONSET_EMPTY,
-        octicon: $.iconset_octicon || Iconpicker.ICONSET_EMPTY,
-        typicon: $.iconset_typicon || Iconpicker.ICONSET_EMPTY,
-        weathericon: $.iconset_weathericon || Iconpicker.ICONSET_EMPTY
+        ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY
     };
 
     // ICONPICKER DEFAULTS
     // ==============================
     Iconpicker.DEFAULTS = {
         align: 'center',
-        arrowClass: 'btn-primary',
-        arrowNextIconClass: 'fas fa-arrow-right',
-        arrowPrevIconClass: 'fas fa-arrow-left',
+        arrowClass: 'btn-light',
+        arrowNextIconClass: 'icon ion-ios7-arrow-forward',
+        arrowPrevIconClass: 'icon ion-ios7-arrow-back',
         cols: 4,
         icon: '',
-        iconset: 'fontawesome5',
-        iconsetVersion: 'lastest',
-        header: true,
+        iconset: 'ionicon',
+        iconsetVersion: '1.5.2',
+        header: false,
         labelHeader: '{0} / {1}',
-        footer: true,
+        footer: false,
         labelFooter: '{0} - {1} of {2}',
         placement: 'bottom',
         rows: 4,
         search: true,
         searchText: 'Search icon',
-        selectedClass: 'btn-warning',
+        selectedClass: 'btn-info',
         unselectedClass: 'btn-secondary'
     };
 
@@ -93,8 +85,7 @@
             el.select($(this).val());
             if(op.inline === false){
                 el.$element.popover(($.fn.bsVersion() === '3.x') ? 'destroy' : 'dispose');
-            }
-            else{
+            } else {
                 op.table.find("i[class$='" + $(this).val() + "']").parent().addClass(op.selectedClass);
             }
         });
@@ -127,8 +118,7 @@
 
         if (search === "") {
             op.icons = icons;
-        }
-        else {
+        } else {
             var result = [];
             $.each(icons, function(i, v) {
                if (v.toLowerCase().indexOf(search) > -1) {
@@ -186,8 +176,7 @@
             //if(op.iconClassFix !== '')
                 op.table.find('i.' + op.iconClassFix).parent().addClass(op.selectedClass);
             //else
-        }
-        else{
+        } else {
             op.table.find('i.' + icon).parent().addClass(op.selectedClass);
         }
     };
@@ -203,8 +192,7 @@
     Iconpicker.prototype.totalIconsPerPage = function () {
         if(this.options.rows === 0){
             return this.options.icons.length;
-        }
-        else{
+        } else {
             return this.options.cols * this.options.rows;
         }
     };
@@ -220,8 +208,7 @@
         }
         if (page === total_pages || total_pages === 0) {
             op.table.find('.btn-next').addClass('disabled');
-        }
-        else {
+        } else {
             op.table.find('.btn-next').removeClass('disabled');
         }
     };
@@ -291,8 +278,7 @@
                     ];
                     td.append(arrow.join(''));
                     tr.append(td);
-                }
-                else if (tr.find('.page-count').length === 0) {
+                } else if (tr.find('.page-count').length === 0) {
                     td.attr('colspan', op.cols - 2).append('<span class="page-count"></span>');
                     tr.append(td);
                 }
@@ -305,11 +291,9 @@
         var op = this.options;
         if (op.cols < 4) {
             throw 'Iconpicker => The number of columns must be greater than or equal to 4. [option.cols = ' + op.cols + ']';
-        }
-        else if (op.rows < 0) {
+        } else if (op.rows < 0) {
             throw 'Iconpicker => The number of rows must be greater than or equal to 0. [option.rows = ' + op.rows + ']';
-        }
-        else {
+        } else {
             this.updatePagesCount();
             this.updateSearch();
             this.updateIconsCount();
@@ -328,8 +312,7 @@
         search = $(search.join(''));
         if (op.search === true) {
             search.show();
-        }
-        else {
+        } else {
             search.hide();
         }
         op.table.find('thead').append(search);
@@ -390,11 +373,9 @@
         if ($.isPlainObject(value)) {
             Iconpicker.ICONSET._custom = $.extend(Iconpicker.ICONSET_EMPTY, value);
             op.iconset = '_custom';
-        }
-        else if (!Iconpicker.ICONSET.hasOwnProperty(value)) {
+        } else if (!Iconpicker.ICONSET.hasOwnProperty(value)) {
             op.iconset = Iconpicker.DEFAULTS.iconset;
-        }
-        else {
+        } else {
             op.iconset = value;
         }
         op = $.extend(op, Iconpicker.ICONSET[op.iconset]);
@@ -425,8 +406,7 @@
         var search = this.options.table.find('.search-control');
         if (value === true) {
             search.show();
-        }
-        else {
+        } else {
             search.hide();
         }
         search.val('');
@@ -461,12 +441,10 @@
             if (typeof option === 'string') {
                 if (typeof data[option] === 'undefined') {
                     throw 'Iconpicker => The "' + option + '" method does not exists.';
-                }
-                else {
+                } else {
                     data[option](params);
                 }
-            }
-            else{
+            } else {
                 var op = data.options;
                 op = $.extend(op, {
                     inline: false,
@@ -503,8 +481,7 @@
                         //console.log($.fn.bsVersion());
                         $this.popover('show');
                     });
-                }
-                else{
+                } else {
                     op.inline = true;
                     data.setIconset(op.iconset);
                     $this.empty()
@@ -515,7 +492,6 @@
                     data.switchPage(op.icon);
                     data.bindEvents();
                 }
-
             }
         });
     };
