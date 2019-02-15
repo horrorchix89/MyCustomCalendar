@@ -54,8 +54,8 @@
         arrowPrevIconClass: 'icon ion-ios7-arrow-back',
         cols: 4,
         icon: '',
-        iconset: 'ionicon',
-        iconsetVersion: '1.5.2',
+        iconset: 'ionicon || fontawesome4',
+        iconsetVersion: '',
         header: false,
         labelHeader: '{0} / {1}',
         footer: false,
@@ -152,33 +152,94 @@
             if(op.inline === false){
                 el.find('input').val(icon);
                 el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
+Iconpicker.prototype.matchEx = function (opIcon, icon) {
+        return icon === opIcon.icon ||
+               icon === opIcon.iconClassFix + opIcon.icon ||
+               icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
+               icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
+    };
+
+    Iconpicker.prototype.changeList = function (page) {
+        this.filterIcons();
+        this.updateLabels(page);
+        this.updateIcons(page);
+        this.options.page = page;
+        this.bindEvents();
+    };
+
+    Iconpicker.prototype.filterIcons = function () {
+        var op = this.options;
+        var search = op.table.find('.search-control').val();
+        if (search === "") {
+            op.icons = op.cacheset;
+        }
+        else {
+            var result = [];
+            $.each(op.cacheset, function (i, v) {
+                if (v.icon.indexOf(search) > -1)
+                    result.push(v);
+            });
+            op.icons = result;
+        }
+    };
+
+    Iconpicker.prototype.removeAddClass = function (target, remove, add) {
+        this.options.table.find(target).removeClass(remove).addClass(add);
+        return add;
+    };
+
+    Iconpicker.prototype.reset = function () {
+        this.updatePicker();
+        this.changeList(1);
+    };
+
+    Iconpicker.prototype.select = function (icon) {
+        var op = this.options;
+        var el = this.$element;
+        for (var i = 0; i < op.icons.length; i++) {
+            if (this.matchEx(op.icons[i], icon)) {
+                icon = op.icons[i];
+                op.selected = i;
+                break;
             }
-            if(icon === op.iconClassFix){
-                el.trigger({ type: "change", icon: 'empty' });
-            }
-            else {
-                el.trigger({ type: "change", icon: icon });
-                el.find('input').val(icon);
-            }
+        }
+        if (op.selected === -1) {
+            op.selected = 0;
+            icon = op.icons[op.selected];
+        }
+        if (icon !== '' && op.selected >= 0) {
+            var icoStr = '';
+            if (op.iconset.length > 1)
+                icoStr = icon.iconClass + ' ' + icon.iconClassFix + icon.icon;
+            else
+                icoStr = icon.iconClassFix + icon.icon;
+
+            op.icon = icoStr;
+
+            el.find('input').val(icoStr);
+            el.find('i').attr('class', '').addClass(icon.iconClass).addClass(icon.iconClassFix + icon.icon);
+            el.trigger({ type: "change", icon: icoStr });
             op.table.find('button.' + op.selectedClass).removeClass(op.selectedClass);
         }
     };
 
     Iconpicker.prototype.switchPage = function (icon) {
         var op = this.options;
-        op.selected = $.inArray(icon.replace(op.iconClassFix, ''), op.icons);
-
-        if(op.selected >= 0) {
+        for (var i = 0; i < op.icons.length; i++) {
+            if (this.matchEx(op.icons[i], icon)) {
+                icon = op.icons[i];
+                op.selected = i;
+                break;
+            }
+        }
+        if (op.selected === -1) {
+            icon === '';
+        }
+        if (icon !== '' && op.selected >= 0) {
             var page = Math.ceil((op.selected + 1) / this.totalIconsPerPage());
             this.changeList(page);
         }
-        if(icon === ''){
-            //if(op.iconClassFix !== '')
-                op.table.find('i.' + op.iconClassFix).parent().addClass(op.selectedClass);
-            //else
-        } else {
-            op.table.find('i.' + icon).parent().addClass(op.selectedClass);
-        }
+        op.table.find('i.' + icon.iconClassFix + icon.icon).parent().addClass(op.selectedClass);
     };
 
     Iconpicker.prototype.totalPages = function () {
