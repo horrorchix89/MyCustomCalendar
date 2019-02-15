@@ -152,12 +152,13 @@
             if(op.inline === false){
                 el.find('input').val(icon);
                 el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
-Iconpicker.prototype.matchEx = function (opIcon, icon) {
+                
+     Iconpicker.prototype.matchEx = function (opIcon, icon) {
         return icon === opIcon.icon ||
                icon === opIcon.iconClassFix + opIcon.icon ||
                icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
                icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
-    };
+     };
 
     Iconpicker.prototype.changeList = function (page) {
         this.filterIcons();
@@ -278,19 +279,17 @@ Iconpicker.prototype.matchEx = function (opIcon, icon) {
         var op = this.options;
         var tbody = op.table.find('tbody').empty();
         var offset = (page - 1) * this.totalIconsPerPage();
-        var length = op.rows;
-        if(op.rows === 0){
-            length = op.icons.length;
-        }
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i < op.rows; i++) {
             var tr = $('<tr></tr>');
             for (var j = 0; j < op.cols; j++) {
                 var pos = offset + (i * op.cols) + j;
                 var btn = $('<button class="btn ' + op.unselectedClass + ' btn-icon"></button>').hide();
                 if (pos < op.icons.length) {
-                    var v = op.iconClassFix + op.icons[pos];
-                    btn.val(v).attr('title', v).append('<i class="' + op.iconClass + ' ' + v + '"></i>').show();
-                    if (op.icon === v) {
+                    var ico = op.icons[pos];
+                    var v = ico.iconClassFix + ico.icon;
+                    btn.val(v).attr('title', v).append('<i class="' + ico.iconClass + ' ' + v + '"></i>').data('icon-picker-icon', ico).show();
+                    if (this.matchEx(ico, op.icon)) {
+                        console.log('matched');
                         btn.addClass(op.selectedClass).addClass('btn-icon-selected');
                     }
                 }
