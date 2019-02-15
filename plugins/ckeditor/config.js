@@ -5,6 +5,7 @@
 
 CKEDITOR.editorConfig = function( config ) {
     config.height = '125px';
+    config.toolbarCanCollapse = true;
 	config.toolbarGroups = [
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
