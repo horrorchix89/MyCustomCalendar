@@ -99,8 +99,8 @@
                icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
                icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
     };
-
-     Iconpicker.prototype.changeList = function (page) {
+    
+    Iconpicker.prototype.changeList = function (page) {
         this.filterIcons();
         this.updateLabels(page);
         this.updateIcons(page);
@@ -127,9 +127,8 @@
         } else {
             var result = [];
             $.each(op.cacheset, function (i, v) {
-               if (v.toLowerCase().indexOf(search) > -1) {
-                   result.push(v);
-               }
+                if (v.icon.indexOf(search) > -1)
+                    result.push(v);
             });
             op.icons = result;
         }
@@ -154,7 +153,7 @@
                 op.selected = i;
                 break;
             }
-        }        
+        }
         if (op.selected === -1) {
             op.selected = 0;
             icon = op.icons[op.selected];
@@ -163,12 +162,11 @@
             var icoStr = '';
             if (op.iconset.length > 1)
                 icoStr = icon.iconClass + ' ' + icon.iconClassFix + icon.icon;
-            
             else
                 icoStr = icon.iconClassFix + icon.icon;
-            
+
             op.icon = icoStr;
-            
+
             el.find('input').val(icoStr);
             el.find('i').attr('class', '').addClass(icon.iconClass).addClass(icon.iconClassFix + icon.icon);
             el.trigger({ type: "change", icon: icoStr });
@@ -397,7 +395,7 @@
                 $.each(subSet, function (subIndex, subSetItem) {
                     if (!Iconpicker.ICONSET.hasOwnProperty(subSetItem)) {
                         Iconpicker.ICONSET[subSetItem] = Iconpicker.DEFAULTS.iconset;
-                        evalSet.pust(subSetItem);
+                        evalSet.push(subSetItem);
                     }
                     else {
                         evalSet.push(subSetItem);
