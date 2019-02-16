@@ -8,8 +8,9 @@
 * ========================================================================
 */
 
-;(function($){ "use strict";
-
+; (function ($) {
+    "use strict";
+    
     // ICONPICKER PUBLIC CLASS DEFINITION
     // ==============================
     var Iconpicker = function (element, options) {
@@ -17,11 +18,9 @@
       if (typeof $.fn.popover === 'undefined' || typeof $.fn.popover.Constructor.VERSION === 'undefined') {
         throw new TypeError('Bootstrap iconpicker require Bootstrap popover');
       }
-
-      this.$element = $(element);
-      this.options  = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
-      this.options  = $.extend({}, this.options, options);
-
+        this.$element = $(element);
+        this.options = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
+        this.options = $.extend({}, this.options, options);
     };
 
     // ICONPICKER VERSION
@@ -94,7 +93,14 @@
         });
     };
 
-    Iconpicker.prototype.changeList = function (page) {
+    Iconpicker.prototype.matchEx = function (opIcon, icon) {
+        return icon === opIcon.icon ||
+               icon === opIcon.iconClassFix + opIcon.icon ||
+               icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
+               icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
+    };
+
+     Iconpicker.prototype.changeList = function (page) {
         this.filterIcons();
         this.updateLabels(page);
         this.updateIcons(page);
@@ -117,68 +123,13 @@
             icons = Iconpicker.ICONSET[op.iconset].icons;
 
         if (search === "") {
-            op.icons = icons;
+            op.icons = op.cacheset;
         } else {
             var result = [];
-            $.each(icons, function(i, v) {
+            $.each(op.cacheset, function (i, v) {
                if (v.toLowerCase().indexOf(search) > -1) {
                    result.push(v);
                }
-            });
-            op.icons = result;
-        }
-    };
-
-    Iconpicker.prototype.removeAddClass = function (target, remove, add) {
-        this.options.table.find(target).removeClass(remove).addClass(add);
-        return add;
-    };
-
-    Iconpicker.prototype.reset = function () {
-        this.updatePicker();
-        this.changeList(1);
-    };
-
-    Iconpicker.prototype.select = function (icon) {
-        var op = this.options;
-        var el = this.$element;
-        op.selected = $.inArray(icon.replace(op.iconClassFix, ''), op.icons);
-        if (op.selected === -1) {
-            op.selected = 0;
-            icon = op.iconClassFix + op.icons[op.selected];
-        }
-        if (icon !== '' && op.selected >= 0) {
-            op.icon = icon;
-            if(op.inline === false){
-                el.find('input').val(icon);
-                el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
-                
-     Iconpicker.prototype.matchEx = function (opIcon, icon) {
-        return icon === opIcon.icon ||
-               icon === opIcon.iconClassFix + opIcon.icon ||
-               icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
-               icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
-     };
-
-    Iconpicker.prototype.changeList = function (page) {
-        this.filterIcons();
-        this.updateLabels(page);
-        this.updateIcons(page);
-        this.options.page = page;
-        this.bindEvents();
-    };
-
-    Iconpicker.prototype.filterIcons = function () {
-        var op = this.options;
-        var search = op.table.find('.search-control').val();
-        if (search === "") {
-            op.icons = op.cacheset;
-        }
-        else {
-            var result = [];
-            $.each(op.cacheset, function (i, v) {
-                if (v.icon.indexOf(search) > -1)
-                    result.push(v);
             });
             op.icons = result;
         }
@@ -203,7 +154,7 @@
                 op.selected = i;
                 break;
             }
-        }
+        }        
         if (op.selected === -1) {
             op.selected = 0;
             icon = op.icons[op.selected];
@@ -212,11 +163,12 @@
             var icoStr = '';
             if (op.iconset.length > 1)
                 icoStr = icon.iconClass + ' ' + icon.iconClassFix + icon.icon;
+            
             else
                 icoStr = icon.iconClassFix + icon.icon;
-
+            
             op.icon = icoStr;
-
+            
             el.find('input').val(icoStr);
             el.find('i').attr('class', '').addClass(icon.iconClass).addClass(icon.iconClassFix + icon.icon);
             el.trigger({ type: "change", icon: icoStr });
@@ -287,6 +239,7 @@
                 if (pos < op.icons.length) {
                     var ico = op.icons[pos];
                     var v = ico.iconClassFix + ico.icon;
+                    
                     btn.val(v).attr('title', v).append('<i class="' + ico.iconClass + ' ' + v + '"></i>').data('icon-picker-icon', ico).show();
                     if (this.matchEx(ico, op.icon)) {
                         console.log('matched');
@@ -430,15 +383,37 @@
 
     Iconpicker.prototype.setIconset = function (value) {
         var op = this.options;
-        if ($.isPlainObject(value)) {
-            Iconpicker.ICONSET._custom = $.extend(Iconpicker.ICONSET_EMPTY, value);
-            op.iconset = '_custom';
-        } else if (!Iconpicker.ICONSET.hasOwnProperty(value)) {
-            op.iconset = Iconpicker.DEFAULTS.iconset;
-        } else {
-            op.iconset = value;
-        }
-        op = $.extend(op, Iconpicker.ICONSET[op.iconset]);
+        var value = [].concat(value);
+        var evalSet = [];
+        var customSets = 0;
+        $.each(value, function (index, setItem) {
+            if ($.isPlainObject(setItem)) {
+                customSets++;
+                var setName = String('_custom' + String(customSets));
+                Iconpicker.ICONSET[setName] = $.extend(Iconpicker.ICONSET_EMPTY, setItem);
+                evalSet.push(setName);
+            } else {
+                var subSet = setItem.split(/\|/gi);
+                $.each(subSet, function (subIndex, subSetItem) {
+                    if (!Iconpicker.ICONSET.hasOwnProperty(subSetItem)) {
+                        Iconpicker.ICONSET[subSetItem] = Iconpicker.DEFAULTS.iconset;
+                        evalSet.pust(subSetItem);
+                    }
+                    else {
+                        evalSet.push(subSetItem);
+                    }
+                });
+            }
+        });
+        this.options.iconset = evalSet;
+        var cacheset = [];
+        $.each(op.iconset, function (setIndex, setItem) {
+            var set = Iconpicker.ICONSET[setItem];
+            $.each(set.icons, function (i, v) {
+                cacheset.push({ icon: v, iconClass: set.iconClass, iconClassFix: set.iconClassFix })
+            });
+        });
+        this.options.cacheset = cacheset;
         this.reset();
         this.select(op.icon);
     };
