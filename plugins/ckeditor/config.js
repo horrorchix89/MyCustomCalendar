@@ -4,7 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-    config.extraAllowedContent =
+	config.extraAllowedContent =
         'a abbr acronym address area article aside b base basefont bdi bdo big blink blockquote ' +
         'br button caption center cite code col colgroup content data datalist dd del details dfn dir div dl dt ' +
         'element em fieldset figcaption figure font footer h1 h2 h3 h4 h5 h6 header hgroup hr i img ins label legend ' +
@@ -13,25 +13,24 @@ CKEDITOR.editorConfig = function( config ) {
     config.extraPlugins = 'ckawesome';
     config.disableNativeSpellChecker = false;
     config.height = '100px';
-    config.toolbar = [
-        { name: 'CKAwesome', items: [ 'Image', 'ckawesome' ] }
-    ];
     config.toolbarCanCollapse = true;
 	config.toolbarGroups = [
-		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
+		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
 		{ name: 'forms' },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'indent', 'blocks', 'align', 'list', 'bidi', 'paragraph' ] },
+		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'links' },
-		{ name: 'insert'},
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'styles'},
+		{ name: 'insert' },
+		{ name: 'styles' },
 		{ name: 'colors' },
-		{ name: 'tools'},
-		{ name: 'others'},
+		{ name: 'tools' },
+		{ name: 'others' },
 		{ name: 'about' }
 	];
 
-	config.removeButtons = 'Cut,Copy,Paste,Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock';
+	// The default plugins included in the basic setup define some buttons that
+	// are not needed in a basic editor. They are removed here.
+	config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
 };
