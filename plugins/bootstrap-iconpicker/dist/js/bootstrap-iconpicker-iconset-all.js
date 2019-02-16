@@ -22,7 +22,7 @@
         iconClassFix: 'fa-',
         icons: [],
         allVersions: [
-            {
+            {                
                 version: '4.2.0',
                 icons: [
                     '',
