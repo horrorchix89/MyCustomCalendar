@@ -4,7 +4,11 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-    config.height = '125px';
+    config.extraPlugins = 'ckawesome';
+    config.height = '100px';
+    config.toolbar = [
+        { name: 'CKAwesome', items: [ 'Image', 'ckawesome' ] }
+    ];
     config.toolbarCanCollapse = true;
 	config.toolbarGroups = [
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
