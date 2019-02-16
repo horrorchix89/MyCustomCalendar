@@ -21,9 +21,11 @@
         iconClass: 'fa',
         iconClassFix: 'fa-',
         icons: [],
-        version: '4.2.0',
-            icons: [
-                '',
+        allVersions: [
+            {
+                version: '4.2.0',
+                icons: [
+                    '',
                     'adjust',
                     'adn',
                     'align-center',
