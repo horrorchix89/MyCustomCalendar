@@ -53,7 +53,7 @@
         arrowPrevIconClass: 'icon ion-ios7-arrow-back',
         cols: 4,
         icon: '',
-        iconset: 'ionicon || fontawesome4',
+        iconset: 'ionicon|fontawesome',
         iconsetVersion: '',
         header: false,
         labelHeader: '{0} / {1}',
