@@ -8,9 +8,22 @@
 .datepicker {
   border-radius: 4px;
   direction: ltr;
+    font-size: inherit;
+    line-height: inherit;
+    position: fixed;
+    -webkit-tap-highlight-color: transparent;
+    -ms-touch-action: none;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 210px;
 }
 .datepicker-inline {
   width: 220px;
+    position: static;
 }
 .datepicker.datepicker-rtl {
   direction: rtl;
@@ -19,8 +32,12 @@
   float: right;
 }
 .datepicker-dropdown {
-  top: 0;
-  left: 0;
+    border: 1px solid;
+    -webkit-box-shadow: 0 3px 6px #ccc;
+    box-shadow: 0 3px 6px #ccc;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    position: absolute;
   padding: 4px;
 }
 .datepicker-dropdown:before {
