@@ -8,9 +8,8 @@
 * ========================================================================
 */
 
-; (function ($) {
-    "use strict";
-    
+;(function($){ "use strict";
+
     // ICONPICKER PUBLIC CLASS DEFINITION
     // ==============================
     var Iconpicker = function (element, options) {
@@ -18,9 +17,11 @@
       if (typeof $.fn.popover === 'undefined' || typeof $.fn.popover.Constructor.VERSION === 'undefined') {
         throw new TypeError('Bootstrap iconpicker require Bootstrap popover');
       }
-        this.$element = $(element);
-        this.options = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
-        this.options = $.extend({}, this.options, options);
+
+      this.$element = $(element);
+      this.options  = $.extend({}, Iconpicker.DEFAULTS, this.$element.data());
+      this.options  = $.extend({}, this.options, options);
+
     };
 
     // ICONPICKER VERSION
@@ -39,31 +40,39 @@
     // ==============================
     Iconpicker.ICONSET = {
         _custom: null,
+        elusiveicon: $.iconset_elusiveicon || Iconpicker.ICONSET_EMPTY,
+        flagicon: $.iconset_flagicon || Iconpicker.ICONSET_EMPTY,
         fontawesome4: $.iconset_fontawesome_4 || Iconpicker.ICONSET_EMPTY,
         fontawesome5: $.iconset_fontawesome_5 || Iconpicker.ICONSET_EMPTY,
-        ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY
+        glyphicon: $.iconset_glyphicon || Iconpicker.ICONSET_EMPTY,
+        ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY,
+        mapicon: $.iconset_mapicon || Iconpicker.ICONSET_EMPTY,
+        materialdesign: $.iconset_materialdesign || Iconpicker.ICONSET_EMPTY,
+        octicon: $.iconset_octicon || Iconpicker.ICONSET_EMPTY,
+        typicon: $.iconset_typicon || Iconpicker.ICONSET_EMPTY,
+        weathericon: $.iconset_weathericon || Iconpicker.ICONSET_EMPTY
     };
 
     // ICONPICKER DEFAULTS
     // ==============================
     Iconpicker.DEFAULTS = {
         align: 'center',
-        arrowClass: 'btn-light',
-        arrowNextIconClass: 'icon ion-ios7-arrow-forward',
-        arrowPrevIconClass: 'icon ion-ios7-arrow-back',
+        arrowClass: 'btn-primary',
+        arrowNextIconClass: 'fas fa-arrow-right',
+        arrowPrevIconClass: 'fas fa-arrow-left',
         cols: 4,
         icon: '',
-        iconset: 'ionicon|fontawesome',
-        iconsetVersion: '',
-        header: false,
+        iconset: 'fontawesome5',
+        iconsetVersion: 'lastest',
+        header: true,
         labelHeader: '{0} / {1}',
-        footer: false,
+        footer: true,
         labelFooter: '{0} - {1} of {2}',
         placement: 'bottom',
         rows: 4,
         search: true,
         searchText: 'Search icon',
-        selectedClass: 'btn-info',
+        selectedClass: 'btn-warning',
         unselectedClass: 'btn-secondary'
     };
 
@@ -84,7 +93,8 @@
             el.select($(this).val());
             if(op.inline === false){
                 el.$element.popover(($.fn.bsVersion() === '3.x') ? 'destroy' : 'dispose');
-            } else {
+            }
+            else{
                 op.table.find("i[class$='" + $(this).val() + "']").parent().addClass(op.selectedClass);
             }
         });
@@ -93,13 +103,6 @@
         });
     };
 
-    Iconpicker.prototype.matchEx = function (opIcon, icon) {
-        return icon === opIcon.icon ||
-               icon === opIcon.iconClassFix + opIcon.icon ||
-               icon === opIcon.iconClass + ' ' + opIcon.iconClassFix + opIcon.icon ||
-               icon.replace(opIcon.iconClassFix, '') == opIcon.icon;
-    };
-    
     Iconpicker.prototype.changeList = function (page) {
         this.filterIcons();
         this.updateLabels(page);
@@ -123,12 +126,14 @@
             icons = Iconpicker.ICONSET[op.iconset].icons;
 
         if (search === "") {
-            op.icons = op.cacheset;
-        } else {
+            op.icons = icons;
+        }
+        else {
             var result = [];
-            $.each(op.cacheset, function (i, v) {
-                if (v.icon.indexOf(search) > -1)
-                    result.push(v);
+            $.each(icons, function(i, v) {
+               if (v.toLowerCase().indexOf(search) > -1) {
+                   result.push(v);
+               }
             });
             op.icons = result;
         }
@@ -147,50 +152,44 @@
     Iconpicker.prototype.select = function (icon) {
         var op = this.options;
         var el = this.$element;
-        for (var i = 0; i < op.icons.length; i++) {
-            if (this.matchEx(op.icons[i], icon)) {
-                icon = op.icons[i];
-                op.selected = i;
-                break;
-            }
-        }
+        op.selected = $.inArray(icon.replace(op.iconClassFix, ''), op.icons);
         if (op.selected === -1) {
             op.selected = 0;
-            icon = op.icons[op.selected];
+            icon = op.iconClassFix + op.icons[op.selected];
         }
         if (icon !== '' && op.selected >= 0) {
-            var icoStr = '';
-            if (op.iconset.length > 1)
-                icoStr = icon.iconClass + ' ' + icon.iconClassFix + icon.icon;
-            else
-                icoStr = icon.iconClassFix + icon.icon;
-
-            op.icon = icoStr;
-
-            el.find('input').val(icoStr);
-            el.find('i').attr('class', '').addClass(icon.iconClass).addClass(icon.iconClassFix + icon.icon);
-            el.trigger({ type: "change", icon: icoStr });
+            op.icon = icon;
+            if(op.inline === false){
+                el.find('input').val(icon);
+                el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
+            }
+            if(icon === op.iconClassFix){
+                el.trigger({ type: "change", icon: 'empty' });
+            }
+            else {
+                el.trigger({ type: "change", icon: icon });
+                el.find('input').val(icon);
+            }
             op.table.find('button.' + op.selectedClass).removeClass(op.selectedClass);
         }
     };
 
     Iconpicker.prototype.switchPage = function (icon) {
         var op = this.options;
-        for (var i = 0; i < op.icons.length; i++) {
-            if (this.matchEx(op.icons[i], icon)) {
-                icon = op.icons[i];
-                op.selected = i;
-                break;
-            }
-        }
-        if (op.selected === -1) {
-            icon === '';
-        }
-        if (icon !== '' && op.selected >= 0) {
+        op.selected = $.inArray(icon.replace(op.iconClassFix, ''), op.icons);
+
+        if(op.selected >= 0) {
             var page = Math.ceil((op.selected + 1) / this.totalIconsPerPage());
             this.changeList(page);
         }
-        op.table.find('i.' + icon.iconClassFix + icon.icon).parent().addClass(op.selectedClass);
+        if(icon === ''){
+            //if(op.iconClassFix !== '')
+                op.table.find('i.' + op.iconClassFix).parent().addClass(op.selectedClass);
+            //else
+        }
+        else{
+            op.table.find('i.' + icon).parent().addClass(op.selectedClass);
+        }
     };
 
     Iconpicker.prototype.totalPages = function () {
@@ -204,7 +203,8 @@
     Iconpicker.prototype.totalIconsPerPage = function () {
         if(this.options.rows === 0){
             return this.options.icons.length;
-        } else {
+        }
+        else{
             return this.options.cols * this.options.rows;
         }
     };
@@ -220,7 +220,8 @@
         }
         if (page === total_pages || total_pages === 0) {
             op.table.find('.btn-next').addClass('disabled');
-        } else {
+        }
+        else {
             op.table.find('.btn-next').removeClass('disabled');
         }
     };
@@ -229,18 +230,19 @@
         var op = this.options;
         var tbody = op.table.find('tbody').empty();
         var offset = (page - 1) * this.totalIconsPerPage();
-        for (var i = 0; i < op.rows; i++) {
+        var length = op.rows;
+        if(op.rows === 0){
+            length = op.icons.length;
+        }
+        for (var i = 0; i < length; i++) {
             var tr = $('<tr></tr>');
             for (var j = 0; j < op.cols; j++) {
                 var pos = offset + (i * op.cols) + j;
                 var btn = $('<button class="btn ' + op.unselectedClass + ' btn-icon"></button>').hide();
                 if (pos < op.icons.length) {
-                    var ico = op.icons[pos];
-                    var v = ico.iconClassFix + ico.icon;
-                    
-                    btn.val(v).attr('title', v).append('<i class="' + ico.iconClass + ' ' + v + '"></i>').data('icon-picker-icon', ico).show();
-                    if (this.matchEx(ico, op.icon)) {
-                        console.log('matched');
+                    var v = op.iconClassFix + op.icons[pos];
+                    btn.val(v).attr('title', v).append('<i class="' + op.iconClass + ' ' + v + '"></i>').show();
+                    if (op.icon === v) {
                         btn.addClass(op.selectedClass).addClass('btn-icon-selected');
                     }
                 }
@@ -289,7 +291,8 @@
                     ];
                     td.append(arrow.join(''));
                     tr.append(td);
-                } else if (tr.find('.page-count').length === 0) {
+                }
+                else if (tr.find('.page-count').length === 0) {
                     td.attr('colspan', op.cols - 2).append('<span class="page-count"></span>');
                     tr.append(td);
                 }
@@ -302,9 +305,11 @@
         var op = this.options;
         if (op.cols < 4) {
             throw 'Iconpicker => The number of columns must be greater than or equal to 4. [option.cols = ' + op.cols + ']';
-        } else if (op.rows < 0) {
+        }
+        else if (op.rows < 0) {
             throw 'Iconpicker => The number of rows must be greater than or equal to 0. [option.rows = ' + op.rows + ']';
-        } else {
+        }
+        else {
             this.updatePagesCount();
             this.updateSearch();
             this.updateIconsCount();
@@ -323,7 +328,8 @@
         search = $(search.join(''));
         if (op.search === true) {
             search.show();
-        } else {
+        }
+        else {
             search.hide();
         }
         op.table.find('thead').append(search);
@@ -381,37 +387,17 @@
 
     Iconpicker.prototype.setIconset = function (value) {
         var op = this.options;
-        var value = [].concat(value);
-        var evalSet = [];
-        var customSets = 0;
-        $.each(value, function (index, setItem) {
-            if ($.isPlainObject(setItem)) {
-                customSets++;
-                var setName = String('_custom' + String(customSets));
-                Iconpicker.ICONSET[setName] = $.extend(Iconpicker.ICONSET_EMPTY, setItem);
-                evalSet.push(setName);
-            } else {
-                var subSet = setItem.split(/\|/gi);
-                $.each(subSet, function (subIndex, subSetItem) {
-                    if (!Iconpicker.ICONSET.hasOwnProperty(subSetItem)) {
-                        Iconpicker.ICONSET[subSetItem] = Iconpicker.DEFAULTS.iconset;
-                        evalSet.push(subSetItem);
-                    }
-                    else {
-                        evalSet.push(subSetItem);
-                    }
-                });
-            }
-        });
-        this.options.iconset = evalSet;
-        var cacheset = [];
-        $.each(op.iconset, function (setIndex, setItem) {
-            var set = Iconpicker.ICONSET[setItem];
-            $.each(set.icons, function (i, v) {
-                cacheset.push({ icon: v, iconClass: set.iconClass, iconClassFix: set.iconClassFix })
-            });
-        });
-        this.options.cacheset = cacheset;
+        if ($.isPlainObject(value)) {
+            Iconpicker.ICONSET._custom = $.extend(Iconpicker.ICONSET_EMPTY, value);
+            op.iconset = '_custom';
+        }
+        else if (!Iconpicker.ICONSET.hasOwnProperty(value)) {
+            op.iconset = Iconpicker.DEFAULTS.iconset;
+        }
+        else {
+            op.iconset = value;
+        }
+        op = $.extend(op, Iconpicker.ICONSET[op.iconset]);
         this.reset();
         this.select(op.icon);
     };
@@ -439,7 +425,8 @@
         var search = this.options.table.find('.search-control');
         if (value === true) {
             search.show();
-        } else {
+        }
+        else {
             search.hide();
         }
         search.val('');
@@ -474,10 +461,12 @@
             if (typeof option === 'string') {
                 if (typeof data[option] === 'undefined') {
                     throw 'Iconpicker => The "' + option + '" method does not exists.';
-                } else {
+                }
+                else {
                     data[option](params);
                 }
-            } else {
+            }
+            else{
                 var op = data.options;
                 op = $.extend(op, {
                     inline: false,
@@ -514,7 +503,8 @@
                         //console.log($.fn.bsVersion());
                         $this.popover('show');
                     });
-                } else {
+                }
+                else{
                     op.inline = true;
                     data.setIconset(op.iconset);
                     $this.empty()
@@ -525,6 +515,7 @@
                     data.switchPage(op.icon);
                     data.bindEvents();
                 }
+
             }
         });
     };
