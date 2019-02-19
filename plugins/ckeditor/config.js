@@ -7,9 +7,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-    config.baseFloatZIndex = 1000001;
+    config.baseFloatZIndex = 100001;
     config.disableNativeSpellChecker = false;
-    config.height = '100px';
+    //config.height = '100px';
     config.toolbarCanCollapse = true;
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
