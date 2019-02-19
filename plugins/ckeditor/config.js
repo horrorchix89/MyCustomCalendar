@@ -7,6 +7,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here.
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
+    config.baseFloatZIndex = 1000001;
     config.disableNativeSpellChecker = false;
     config.height = '100px';
     config.toolbarCanCollapse = true;
@@ -15,7 +16,8 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'clipboard', groups: [ 'undo', 'clipboard' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
-		{ name: 'paragraph', groups: [ 'list', 'align', 'indent', 'blocks', 'bidi', 'paragraph' ] },
+		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ]},
+		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList' ] },
 		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
 		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
