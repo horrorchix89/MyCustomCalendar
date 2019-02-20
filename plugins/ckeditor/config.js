@@ -8,6 +8,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
+    config.autoGrow_maxHeight = 150;
+    //config.baseFloatZIndex = 1E5;
+    config.disableNativeSpellChecker = false;
     config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
     config.height = 150;
     config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
@@ -15,11 +18,12 @@ CKEDITOR.editorConfig = function( config ) {
     
 	// The toolbar groups arrangement, optimized for a single toolbar row.
     config.toolbar = [
-		{ name: 'clipboard', items: ['Undo', 'Redo' ] },
+		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
 		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat' ] },
-		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', '-', 'BulletedList', 'NumberedList' ] },
 		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
+		'/',
+		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', '-', 'BulletedList', 'NumberedList' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink' ] },
 		{ name: 'insert', items: [ 'HorizontalRule', 'ckawesome' ] },
 		{ name: 'editing', items: [ 'Find', 'Replace' ] },
