@@ -10,29 +10,40 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
     config.height = 150;
+    config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
     config.toolbarCanCollapse = true;
     
 	// The toolbar groups arrangement, optimized for a single toolbar row.
-	config.toolbarGroups = [
+    config.toolbar = [
+		{ name: 'clipboard', items: ['Undo', 'Redo' ] },
+		{ name: 'styles', items: [ 'Format' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat' ] },
+		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', '-', 'BulletedList', 'NumberedList' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink' ] },
+		{ name: 'insert', items: [ 'HorizontalRule', 'ckawesome' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace' ] },
+		{ name: 'document', items: [ 'Source' ] }
+	];
+	/*config.toolbarGroups = [
+		{ name: 'styles', groups: [ 'styles' ] },
 		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
+		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
 		{ name: 'links', groups: [ 'links' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		'/',
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
-	];
+	];*/
 
 	// The default plugins included in the basic setup define some buttons that
 	// are not needed in a basic editor. They are removed here.
-	config.removeButtons = 'Paste,Anchor,Subscript,Superscript,JustifyBlock,Outdent,Indent';
+	config.removeButtons = 'Anchor,Subscript,Superscript,JustifyBlock,Outdent,Indent';
 
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
