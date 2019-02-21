@@ -8,52 +8,17 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
-    config.autoGrow_maxHeight = 150;
-    //config.baseFloatZIndex = 1E5;
-    config.disableNativeSpellChecker = false;
-    config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
-    config.height = 125;
-    config.justifyClasses = [ 'AlignLeft', 'AlignCenter', 'AlignRight' ];
-    config.toolbarCanCollapse = true;
-    
 	// The toolbar groups arrangement, optimized for a single toolbar row.
-    /*config.toolbar = [
-		{ name: 'clipboard', items: [ 'Undo', 'Redo' ] },
-		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat' ] },
-		'/',
-		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', '-', 'BulletedList', 'NumberedList' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink' ] },
-		{ name: 'insert', items: [ 'HorizontalRule', 'ckawesome' ] },
-		{ name: 'editing', items: [ 'Find', 'Replace' ] },
-		{ name: 'document', items: [ 'Source' ] }
-	];
 	config.toolbarGroups = [
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		{ name: 'forms', groups: [ 'forms' ] },
-		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'links', groups: [ 'links' ] },
-		{ name: 'insert', groups: [ 'insert' ] },
-		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
-		{ name: 'tools', groups: [ 'tools' ] },
-		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] }
-	];*/
-    config.toolbarGroups = [
-        { name: 'styles' },
+		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
 		{ name: 'forms' },
-        { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
 		{ name: 'links' },
 		{ name: 'insert' },
-        { name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
-        { name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
+		{ name: 'styles' },
 		{ name: 'colors' },
 		{ name: 'tools' },
 		{ name: 'others' },
