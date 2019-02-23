@@ -8,17 +8,19 @@
 * ========================================================================
 */
 
-.iconpicker .caret {
+/*.iconpicker .caret {
     margin-left: 10px !important;
-}
+}*/
 
 .iconpicker {
     min-width: 60px;
 }
 
-.iconpicker input.search-control {
-    margin-bottom: 6px;
-    margin-top: 6px;
+.iconpicker input.search-control,
+.iconpicker-popover .search-control {
+  width: 155px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 div.iconpicker.left .table-icons {
@@ -34,24 +36,40 @@ div.iconpicker.right .table-icons {
     margin-left: auto;
 }
 
+.iconpicker.btn {
+  background: transparent;
+  padding-right: .5625rem;
+  padding-left: 0;
+}
+
 .table-icons .btn {
-    min-height: 30px;
-    min-width: 35px;
+    min-height: 32px;
+    min-width: 32px;
     text-align: center;
     padding: 0;
-    margin: 2px;
+    margin: .25rem;
+}
+.table-icons .btn {
+  min-width: 32px;
+  min-height: 32px;
+  margin: 0.25rem;
 }
 
 .table-icons td {
     min-width: 39px;
 }
 
-.popover {
-    max-width: inherit !important;
+.iconpicker-popover.popover {
+    left: -webkit-calc((188px - 60px) / 2);
+    left: calc((188px - 60px) / 2);
+    z-index: 1050 !important;
 }
 
-.iconpicker-popover {
-  z-index: 1050 !important;
+.iconpicker-popover.popover .arrow {
+  right: calc((0.5rem + 1px) * -1);
+  left: 5%;
+  top: calc((0.5rem + 1px) * -1);
+  margin: 0;
 }
 
 .iconpicker-popover .search-control {
