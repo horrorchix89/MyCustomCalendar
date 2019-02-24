@@ -8,29 +8,45 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
     
+    config.autoGrow_maxHeight = 250;
     config.disableNativeSpellChecker = false;
+    config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
     config.height = '125px';
     config.toolbarCanCollapse = true;
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
 	config.toolbarGroups = [
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'styles', groups: [ 'styles' ] },
 		{ name: 'links', groups: [ 'links' ] },
+		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
+		'/',
+		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
 		{ name: 'insert', groups: [ 'insert' ] },
+		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
 		{ name: 'forms', groups: [ 'forms' ] },
-		'/',
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'paragraph', groups: [ 'align', 'list', 'blocks', 'indent', 'bidi', 'paragraph' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
 		{ name: 'colors', groups: [ 'colors' ] },
 		{ name: 'tools', groups: [ 'tools' ] },
 		{ name: 'others', groups: [ 'others' ] },
 		{ name: 'about', groups: [ 'about' ] }
 	];
+    
+    /*config.toolbar = [
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', 'Underline', ]},
+		{ name: 'paragraph', items: [ 'BulletedList', 'NumberedList' ]},
+		{ name: 'styles', items: [ 'Format' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink', 'HorizontalRule' ] },
+		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
+		{ name: 'basicstyles', items: [ 'RemoveFormat' ] },
+		{ name: 'document', items: [ 'Source' ] },
+		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
+		{ name: 'editing', items: [ 'Find', 'Replace' ] },
+		{ name: 'insert', items: [ 'HorizontalRule', 'ckawesome', 'EmojiPanel' ] }
+	];*/
 
-	config.removeButtons = 'Anchor,Subscript,Superscript,JustifyBlock,Outdent,Indent';
+	config.removeButtons = 'Cut,Anchor,Subscript,Superscript,Outdent,Indent';
 
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
