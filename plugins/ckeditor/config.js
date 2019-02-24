@@ -15,24 +15,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.toolbarCanCollapse = true;
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
-	config.toolbarGroups = [
-		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
-		{ name: 'styles', groups: [ 'styles' ] },
-		{ name: 'links', groups: [ 'links' ] },
-		{ name: 'clipboard', groups: [ 'clipboard', 'undo' ] },
-		'/',
-		{ name: 'paragraph', groups: [ 'align', 'list', 'indent', 'blocks', 'bidi', 'paragraph' ] },
-		{ name: 'insert', groups: [ 'insert' ] },
-		{ name: 'editing', groups: [ 'find', 'selection', 'spellchecker', 'editing' ] },
-		{ name: 'document', groups: [ 'mode', 'document', 'doctools' ] },
-		{ name: 'forms', groups: [ 'forms' ] },
-		{ name: 'colors', groups: [ 'colors' ] },
-		{ name: 'tools', groups: [ 'tools' ] },
-		{ name: 'others', groups: [ 'others' ] },
-		{ name: 'about', groups: [ 'about' ] }
-	];
-    
-    /*config.toolbar = [
+	config.toolbar = [
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', 'Underline', ]},
 		{ name: 'paragraph', items: [ 'BulletedList', 'NumberedList' ]},
 		{ name: 'styles', items: [ 'Format' ] },
@@ -44,7 +27,7 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
 		{ name: 'editing', items: [ 'Find', 'Replace' ] },
 		{ name: 'insert', items: [ 'HorizontalRule', 'ckawesome', 'EmojiPanel' ] }
-	];*/
+	];
 
 	config.removeButtons = 'Cut,Anchor,Subscript,Superscript,Outdent,Indent';
 
