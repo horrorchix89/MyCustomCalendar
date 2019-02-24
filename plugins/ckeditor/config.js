@@ -8,10 +8,12 @@ CKEDITOR.editorConfig = function( config ) {
 	// For complete reference see:
 	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
     
-    config.autoGrow_maxHeight = 250;
+    config.autoGrow_minHeight = 150;
+    config.autoGrow_maxHeight = 300;
     config.disableNativeSpellChecker = false;
     config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
-    config.height = '150px';
+    config.height = 150;
+    config.width = '100%';
     config.toolbarCanCollapse = true;
 
 	// The toolbar groups arrangement, optimized for a single toolbar row.
