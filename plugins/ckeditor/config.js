@@ -4,20 +4,15 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	// Define changes to default configuration here.
-	// For complete reference see:
-	// http://docs.ckeditor.com/#!/api/CKEDITOR.config
-    
-    config.autoGrow_maxHeight = 250;
-    config.disableNativeSpellChecker = false;
-    config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
-    config.height = '125px';
-    config.width = '100%';
-    config.toolbarCanCollapse = true;
-
-	// The toolbar groups arrangement, optimized for a single toolbar row.
+	config.disableNativeSpellChecker = false;
+	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
+	config.height = 150;
+    config.extraPlugins = 'autogrow';
+    config.autoGrow_maxHeight = 375;
+    config.autoGrow_minHeight = 150;
+	config.toolbarCanCollapse = true;
 	config.toolbar = [
-        { name: 'undo', items: [ 'Undo', 'Redo' ] },
+		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
 		{ name: 'styles', items: [ 'Format' ] },
 		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', 'Underline' ] },
 		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
