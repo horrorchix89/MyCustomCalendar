@@ -25,7 +25,5 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
 	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock';
-
-	// Dialog windows are also simplified.
-	config.removeDialogTabs = 'link:advanced';
+	config.removeDialogTabs = '';
 };
