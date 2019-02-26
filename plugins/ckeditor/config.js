@@ -6,10 +6,7 @@
 CKEDITOR.editorConfig = function( config ) {
 	config.disableNativeSpellChecker = false;
 	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
-	config.height = 150;
-    config.extraPlugins = 'autogrow';
-    config.autoGrow_maxHeight = 375;
-    config.autoGrow_minHeight = 150;
+	config.height = 125;
 	config.toolbarCanCollapse = true;
 	config.toolbar = [
 		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
@@ -26,4 +23,5 @@ CKEDITOR.editorConfig = function( config ) {
 
 	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock';
 	config.removeDialogTabs = '';
+    config.removePlugins = 'autogrow';
 };
