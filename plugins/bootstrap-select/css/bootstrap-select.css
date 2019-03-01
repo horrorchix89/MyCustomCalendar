@@ -34,39 +34,35 @@ select.selectpicker {
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-danger,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-info,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark,
-.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-default,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-primary:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-secondary:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-success:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-danger:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-info:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:hover,
-.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-default:hover,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-primary:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-secondary:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-success:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-danger:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-info:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:focus,
-.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-default:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-primary:active,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-secondary:active,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-success:active,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-danger:active,
 .bootstrap-select > .dropdown-toggle.bs-placeholder.btn-info:active,
-.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:active,
-.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-default:active {
+.bootstrap-select > .dropdown-toggle.bs-placeholder.btn-dark:active {
   color: rgba(255, 255, 255, 0.5);
 }
 .bootstrap-select > select {
-  position: absolute !important;
+  position: absolute;
   bottom: 0;
   left: 50%;
-  display: block !important;
-  width: 0.5px !important;
-  height: 100% !important;
-  padding: 0 !important;
-  opacity: 0 !important;
+  display: block;
+  width: 0.5px;
+  height: 100%;
+  padding: 0;
+  opacity: 0;
   border: none;
 }
 .bootstrap-select > select.mobile-device {
@@ -166,8 +162,8 @@ select.selectpicker {
   position: absolute;
   top: 0;
   left: 0;
-  height: 0 !important;
-  padding: 0 !important;
+  height: 0;
+  padding: 0;
 }
 .bootstrap-select.bs-container .dropdown-menu {
   z-index: 1060;
@@ -209,7 +205,7 @@ select.selectpicker {
 }
 .bootstrap-select .dropdown-menu {
   min-width: 100%;
-    width: 6.5rem;
+    /*width: 6.5rem;*/
     margin: 0;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
