@@ -11,7 +11,7 @@
     direction: ltr;
     font-size: 12px;
     line-height: inherit;
-    width: 210px;
+    /*width: 210px;*/
 }
 /*.datepicker::before,
 .datepicker::after {
@@ -38,8 +38,6 @@
     padding: 4px;
     -webkit-box-shadow: 0 3px 6px #ccc;
     box-shadow: 0 3px 6px #ccc;
-    position: absolute;
-    z-index: 1;
 }
 .datepicker-dropdown:before {
   content: '';
