@@ -5,23 +5,6 @@
  * Licensed under MIT (https://github.com/snapappointments/bootstrap-select/blob/master/LICENSE)
  */
 
-(function (root, factory) {
-  if (root === undefined && window !== undefined) root = window;
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module unless amdModuleId is set
-    define(["jquery"], function (a0) {
-      return (factory(a0));
-    });
-  } else if (typeof module === 'object' && module.exports) {
-    // Node. Does not work with strict CommonJS, but
-    // only CommonJS-like environments that support module.exports,
-    // like Node.
-    module.exports = factory(require("jquery"));
-  } else {
-    factory(root["jQuery"]);
-  }
-}(this, function (jQuery) {
-
 (function ($) {
   'use strict';
 
@@ -390,15 +373,6 @@
     '`': '&#x60;'
   };
 
-  var unescapeMap = {
-    '&amp;': '&',
-    '&lt;': '<',
-    '&gt;': '>',
-    '&quot;': '"',
-    '&#x27;': "'",
-    '&#x60;': '`'
-  };
-
   // Functions for escaping and unescaping strings to/from HTML interpolation.
   var createEscaper = function (map) {
     var escaper = function (match) {
@@ -415,7 +389,6 @@
   };
 
   var htmlEscape = createEscaper(escapeMap);
-  var htmlUnescape = createEscaper(unescapeMap);
 
   /**
    * ------------------------------------------------------------------------
@@ -525,12 +498,162 @@
   if (version.major === '4') {
     classNames.DIVIDER = 'dropdown-divider';
     classNames.SHOW = 'show';
-    classNames.BUTTONCLASS = 'btn-light';
+    classNames.BUTTONCLASS = 'btn-default';
     classNames.POPOVERHEADER = 'popover-header';
   }
 
+  var elementTemplates = {
+    span: document.createElement('span'),
+    i: document.createElement('i'),
+    subtext: document.createElement('small'),
+    a: document.createElement('a'),
+    li: document.createElement('li'),
+    whitespace: document.createTextNode('\u00A0'),
+    fragment: document.createDocumentFragment()
+  }
+
+  elementTemplates.a.setAttribute('role', 'option');
+  elementTemplates.subtext.className = 'text-muted';
+
+  elementTemplates.text = elementTemplates.span.cloneNode(false);
+  elementTemplates.text.className = 'text';
+
   var REGEXP_ARROW = new RegExp(keyCodes.ARROW_UP + '|' + keyCodes.ARROW_DOWN);
   var REGEXP_TAB_OR_ESCAPE = new RegExp('^' + keyCodes.TAB + '$|' + keyCodes.ESCAPE);
+
+  var selectpicker = {};
+
+  var rbrace = /^(?:\{[\w\W]*\}|\[[\w\W]*\])$/;
+
+  function getData( data ) {
+    if ( data === "true" ) {
+      return true;
+    }
+
+    if ( data === "false" ) {
+      return false;
+    }
+
+    if ( data === "null" ) {
+      return null;
+    }
+
+    // Only convert to a number if it doesn't change the string
+    if ( data === +data + "" ) {
+      return +data;
+    }
+
+    if ( rbrace.test( data ) ) {
+      return JSON.parse( data );
+    }
+
+    return data;
+  }
+
+  var generateOption = {
+    li: function (content, classes, optgroup) {
+      var li = elementTemplates.li.cloneNode(false);
+
+      if (content) {
+        if (content.nodeType === 1 || content.nodeType === 11) {
+          li.appendChild(content);
+        } else {
+          li.innerHTML = content;
+        }
+      }
+
+      if (typeof classes !== 'undefined' && classes !== '') li.className = classes;
+      if (typeof optgroup !== 'undefined' && optgroup !== null) li.classList.add('optgroup-' + optgroup);
+
+      return li;
+    },
+
+    a: function (text, classes, inline) {
+      var a = elementTemplates.a.cloneNode(true);
+
+      if (text) {
+        if (text.nodeType === 11) {
+          a.appendChild(text);
+        } else {
+          a.insertAdjacentHTML('beforeend', text);
+        }
+      }
+
+      if (typeof classes !== 'undefined' && classes !== '') a.className = classes;
+      if (version.major === '4') a.classList.add('dropdown-item');
+      if (inline) a.setAttribute('style', inline);
+
+      return a;
+    },
+
+    text: function (options, useFragment) {
+      var textElement = elementTemplates.text.cloneNode(false),
+          optionSubtextElement,
+          optionIconElement;
+
+      if (options.optionContent) {
+        textElement.innerHTML = options.optionContent;
+      } else {
+        textElement.textContent = options.text;
+
+        if (options.optionIcon) {
+          var whitespace = elementTemplates.whitespace.cloneNode(false);
+
+          // need to use <i> for icons in the button to prevent a breaking change
+          // note: switch to span in next major release
+          optionIconElement = (useFragment === true ? elementTemplates.i : elementTemplates.span).cloneNode(false);
+          optionIconElement.className = options.iconBase + ' ' + options.optionIcon;
+
+          elementTemplates.fragment.appendChild(optionIconElement);
+          elementTemplates.fragment.appendChild(whitespace);
+        }
+
+        if (options.optionSubtext) {
+          optionSubtextElement = elementTemplates.subtext.cloneNode(false);
+          optionSubtextElement.textContent = options.optionSubtext;
+          textElement.appendChild(optionSubtextElement);
+        }
+      }
+
+      if (useFragment === true) {
+        while (textElement.childNodes.length > 0) {
+          elementTemplates.fragment.appendChild(textElement.childNodes[0]);
+        }
+      } else {
+        elementTemplates.fragment.appendChild(textElement);
+      }
+
+      return elementTemplates.fragment;
+    },
+
+    label: function (options) {
+      var labelTextElement = elementTemplates.text.cloneNode(false),
+          labelSubtextElement,
+          labelIconElement;
+
+      labelTextElement.innerHTML = options.labelEscaped;
+
+      if (options.labelIcon) {
+        var whitespace = elementTemplates.whitespace.cloneNode(false);
+
+        labelIconElement = elementTemplates.span.cloneNode(false);
+        labelIconElement.className = options.iconBase + ' ' + options.labelIcon;
+
+        elementTemplates.fragment.appendChild(labelIconElement);
+        elementTemplates.fragment.appendChild(whitespace);
+      }
+
+      if (options.labelSubtext) {
+        labelSubtextElement = elementTemplates.subtext.cloneNode(false);
+        labelSubtextElement.textContent = options.labelSubtext;
+        labelTextElement.appendChild(labelSubtextElement);
+      }
+
+      elementTemplates.fragment.appendChild(labelTextElement);
+
+      return elementTemplates.fragment;
+    }
+  }
 
   var Selectpicker = function (element, options) {
     var that = this;
@@ -752,7 +875,7 @@
             });
 
           that.$button.on('blur' + EVENT_KEY, function () {
-            that.$element.focus().blur();
+            that.$element.trigger('focus').trigger('blur');
             that.$button.off('blur' + EVENT_KEY);
           });
         });
@@ -968,7 +1091,7 @@
           selected = that.selectpicker.current.elements[that.selectpicker.current.map.newIndex[that.selectedIndex]];
 
           if (init) {
-            if (that.activeIndex !== that.selectedIndex) {
+            if (that.activeIndex !== that.selectedIndex && active && active.length) {
               active.classList.remove('active');
               if (active.firstChild) active.firstChild.classList.remove('active');
             }
@@ -1029,7 +1152,7 @@
         that.prevActiveIndex = that.activeIndex;
 
         if (!that.options.liveSearch) {
-          that.$menuInner.focus();
+          that.$menuInner.trigger('focus');
         } else if (isSearching && init) {
           var index = 0,
               newActive;
@@ -1077,135 +1200,12 @@
 
       if (!this.selectpicker.view.titleOption) this.selectpicker.view.titleOption = document.createElement('option');
 
-      var elementTemplates = {
-            span: document.createElement('span'),
-            subtext: document.createElement('small'),
-            a: document.createElement('a'),
-            li: document.createElement('li'),
-            whitespace: document.createTextNode('\u00A0')
-          },
-          checkMark,
-          fragment = document.createDocumentFragment();
+      var checkMark;
 
       if (that.options.showTick || that.multiple) {
         checkMark = elementTemplates.span.cloneNode(false);
         checkMark.className = that.options.iconBase + ' ' + that.options.tickIcon + ' check-mark';
         elementTemplates.a.appendChild(checkMark);
-      }
-
-      elementTemplates.a.setAttribute('role', 'option');
-
-      elementTemplates.subtext.className = 'text-muted';
-
-      elementTemplates.text = elementTemplates.span.cloneNode(false);
-      elementTemplates.text.className = 'text';
-
-      // Helper functions
-      /**
-       * @param content
-       * @param [classes]
-       * @param [optgroup]
-       * @returns {HTMLElement}
-       */
-      var generateLI = function (content, classes, optgroup) {
-        var li = elementTemplates.li.cloneNode(false);
-
-        if (content) {
-          if (content.nodeType === 1 || content.nodeType === 11) {
-            li.appendChild(content);
-          } else {
-            li.innerHTML = content;
-          }
-        }
-
-        if (typeof classes !== 'undefined' && classes !== '') li.className = classes;
-        if (typeof optgroup !== 'undefined' && optgroup !== null) li.classList.add('optgroup-' + optgroup);
-
-        return li;
-      };
-
-      /**
-       * @param text
-       * @param [classes]
-       * @param [inline]
-       * @returns {string}
-       */
-      var generateA = function (text, classes, inline) {
-        var a = elementTemplates.a.cloneNode(true);
-
-        if (text) {
-          if (text.nodeType === 11) {
-            a.appendChild(text);
-          } else {
-            a.insertAdjacentHTML('beforeend', text);
-          }
-        }
-
-        if (typeof classes !== 'undefined' && classes !== '') a.className = classes;
-        if (version.major === '4') a.classList.add('dropdown-item');
-        if (inline) a.setAttribute('style', inline);
-
-        return a;
-      };
-
-      var generateText = function (options) {
-        var textElement = elementTemplates.text.cloneNode(false),
-            optionSubtextElement,
-            optionIconElement;
-
-        if (options.optionContent) {
-          textElement.innerHTML = options.optionContent;
-        } else {
-          textElement.textContent = options.text;
-
-          if (options.optionIcon) {
-            var whitespace = elementTemplates.whitespace.cloneNode(false);
-
-            optionIconElement = elementTemplates.span.cloneNode(false);
-            optionIconElement.className = that.options.iconBase + ' ' + options.optionIcon;
-
-            fragment.appendChild(optionIconElement);
-            fragment.appendChild(whitespace);
-          }
-
-          if (options.optionSubtext) {
-            optionSubtextElement = elementTemplates.subtext.cloneNode(false);
-            optionSubtextElement.innerHTML = options.optionSubtext;
-            textElement.appendChild(optionSubtextElement);
-          }
-        }
-
-        fragment.appendChild(textElement);
-
-        return fragment;
-      };
-
-      var generateLabel = function (options) {
-        var labelTextElement = elementTemplates.text.cloneNode(false),
-            labelSubtextElement,
-            labelIconElement;
-
-        labelTextElement.innerHTML = options.labelEscaped;
-
-        if (options.labelIcon) {
-          var whitespace = elementTemplates.whitespace.cloneNode(false);
-
-          labelIconElement = elementTemplates.span.cloneNode(false);
-          labelIconElement.className = that.options.iconBase + ' ' + options.labelIcon;
-
-          fragment.appendChild(labelIconElement);
-          fragment.appendChild(whitespace);
-        }
-
-        if (options.labelSubtext) {
-          labelSubtextElement = elementTemplates.subtext.cloneNode(false);
-          labelSubtextElement.textContent = options.labelSubtext;
-          labelTextElement.appendChild(labelSubtextElement);
-        }
-
-        fragment.appendChild(labelTextElement);
-
-        return fragment;
       }
 
       if (this.options.title && !this.multiple) {
@@ -1241,42 +1241,58 @@
 
       var $selectOptions = this.$element.find('option');
 
-      $selectOptions.each(function (index) {
-        var $this = $(this);
+      for (var index = 0, len = $selectOptions.length; index < len; index++) {
+        var option = $selectOptions[index];
 
         liIndex++;
 
-        if ($this.hasClass('bs-title-option')) return;
+        if (option.classList.contains('bs-title-option')) continue;
 
-        var thisData = $this.data();
+        var thisData = {
+          content: getData(option.getAttribute('data-content')),
+          tokens: getData(option.getAttribute('data-tokens')),
+          subtext: getData(option.getAttribute('data-subtext')),
+          icon: getData(option.getAttribute('data-icon')),
+          hidden: getData(option.getAttribute('data-hidden')),
+          divider: getData(option.getAttribute('data-divider'))
+        };
 
         // Get the class and text for the option
-        var optionClass = this.className || '',
-            inline = htmlEscape(this.style.cssText),
+        var optionClass = option.className || '',
+            inline = option.style.cssText ? htmlEscape(option.style.cssText) : '',
             optionContent = thisData.content,
-            text = this.textContent,
+            text = option.textContent,
             tokens = thisData.tokens,
             subtext = thisData.subtext,
+            iconBase = that.options.iconBase,
             icon = thisData.icon,
-            $parent = $this.parent(),
-            parent = $parent[0],
+            parent = option.parentNode,
+            next = option.nextElementSibling,
             isOptgroup = parent.tagName === 'OPTGROUP',
             isOptgroupDisabled = isOptgroup && parent.disabled,
-            isDisabled = this.disabled || isOptgroupDisabled,
+            isDisabled = option.disabled || isOptgroupDisabled,
             prevHiddenIndex,
-            showDivider = this.previousElementSibling && this.previousElementSibling.tagName === 'OPTGROUP',
+            showDivider = option.previousElementSibling && option.previousElementSibling.tagName === 'OPTGROUP',
             textElement,
             labelElement,
             prevHidden;
 
-        var parentData = $parent.data();
+        var parentData = {
+          hidden: getData(parent.getAttribute('data-hidden'))
+        };
 
-        if ((thisData.hidden === true || this.hidden) || (that.options.hideDisabled && (isDisabled || isOptgroupDisabled))) {
+        if (
+          (
+            (thisData.hidden === true || option.hidden) ||
+            (isOptgroup && (parentData.hidden === true || parent.hidden))
+          ) ||
+          (that.options.hideDisabled && (isDisabled || isOptgroupDisabled))
+        ) {
           // set prevHiddenIndex - the index of the first hidden option in a group of hidden options
           // used to determine whether or not a divider should be placed after an optgroup if there are
           // hidden options between the optgroup and the first visible option
-          prevHiddenIndex = thisData.prevHiddenIndex;
-          $this.next().data('prevHiddenIndex', (prevHiddenIndex !== undefined ? prevHiddenIndex : index));
+          prevHiddenIndex = option.prevHiddenIndex;
+          if (next) next.prevHiddenIndex = (prevHiddenIndex !== undefined ? prevHiddenIndex : index);
 
           liIndex--;
 
@@ -1285,60 +1301,28 @@
             data: thisData
           }
 
-          // if previous element is not an optgroup
-          if (!showDivider) {
-            if (prevHiddenIndex !== undefined) {
-              // select the element **before** the first hidden element in the group
-              prevHidden = $selectOptions[prevHiddenIndex].previousElementSibling;
-
-              if (prevHidden && prevHidden.tagName === 'OPTGROUP' && !prevHidden.disabled) {
-                showDivider = true;
-              }
-            }
-          }
-
-          if (showDivider && mainData[mainData.length - 1].type !== 'divider') {
-            liIndex++;
-            mainElements.push(
-              generateLI(
-                false,
-                classNames.DIVIDER,
-                optID + 'div'
-              )
-            );
-            mainData.push({
-              type: 'divider',
-              optID: optID
-            });
-          }
-
-          return;
+          continue;
+        } else {
+          if (next && next.prevHiddenIndex !== undefined) next.prevHiddenIndex = undefined;
         }
 
         if (isOptgroup && thisData.divider !== true) {
-          if (that.options.hideDisabled && isDisabled) {
-            if (parentData.allOptionsDisabled === undefined) {
-              var $options = $parent.children();
-              $parent.data('allOptionsDisabled', $options.filter(':disabled').length === $options.length);
-            }
-
-            if ($parent.data('allOptionsDisabled')) {
-              liIndex--;
-              return;
-            }
-          }
-
           var optGroupClass = ' ' + parent.className || '',
-              previousOption = this.previousElementSibling;
+              previousOption = option.previousElementSibling;
 
-          prevHiddenIndex = thisData.prevHiddenIndex;
+          prevHiddenIndex = option.prevHiddenIndex;
 
+          // Get the first visible option before the first hidden option in the group.
+          // Ensures a divider is shown if, for example, the first option in the optgroup is hidden.
           if (prevHiddenIndex !== undefined) {
             previousOption = $selectOptions[prevHiddenIndex].previousElementSibling;
           }
 
           if (!previousOption) { // Is it the first option of the optgroup?
             optID += 1;
+
+            parentData.subtext = getData(parent.getAttribute('data-subtext'));
+            parentData.icon = getData(parent.getAttribute('data-icon'));
 
             // Get the opt group label
             var label = parent.label,
@@ -1349,7 +1333,7 @@
             if (index !== 0 && mainElements.length > 0) { // Is it NOT the first option of the select && are there elements in the dropdown?
               liIndex++;
               mainElements.push(
-                generateLI(
+                generateOption.li(
                   false,
                   classNames.DIVIDER,
                   optID + 'div'
@@ -1362,13 +1346,14 @@
             }
             liIndex++;
 
-            labelElement = generateLabel({
+            labelElement = generateOption.label({
               labelEscaped: labelEscaped,
               labelSubtext: labelSubtext,
-              labelIcon: labelIcon
+              labelIcon: labelIcon,
+              iconBase: iconBase
             });
 
-            mainElements.push(generateLI(labelElement, 'dropdown-header' + optGroupClass, optID));
+            mainElements.push(generateOption.li(labelElement, 'dropdown-header' + optGroupClass, optID));
             mainData.push({
               content: labelEscaped,
               subtext: labelSubtext,
@@ -1379,14 +1364,15 @@
             headerIndex = liIndex - 1;
           }
 
-          textElement = generateText({
+          textElement = generateOption.text({
             text: text,
             optionContent: optionContent,
             optionSubtext: subtext,
-            optionIcon: icon
+            optionIcon: icon,
+            iconBase: iconBase
           });
 
-          mainElements.push(generateLI(generateA(textElement, 'opt ' + optionClass + optGroupClass, inline), '', optID));
+          mainElements.push(generateOption.li(generateOption.a(textElement, 'opt ' + optionClass + optGroupClass, inline), '', optID));
           mainData.push({
             content: optionContent || text,
             subtext: subtext,
@@ -1401,7 +1387,7 @@
 
           availableOptionsCount++;
         } else if (thisData.divider === true) {
-          mainElements.push(generateLI(false, classNames.DIVIDER));
+          mainElements.push(generateOption.li(false, classNames.DIVIDER));
           mainData.push({
             type: 'divider',
             originalIndex: index,
@@ -1410,14 +1396,21 @@
         } else {
           // if previous element is not an optgroup and hideDisabled is true
           if (!showDivider && that.options.hideDisabled) {
-            prevHiddenIndex = thisData.prevHiddenIndex;
+            prevHiddenIndex = option.prevHiddenIndex;
 
             if (prevHiddenIndex !== undefined) {
               // select the element **before** the first hidden element in the group
               prevHidden = $selectOptions[prevHiddenIndex].previousElementSibling;
 
               if (prevHidden && prevHidden.tagName === 'OPTGROUP' && !prevHidden.disabled) {
-                showDivider = true;
+                var disabledOptions = 0,
+                    prevHiddenOptions = prevHidden.childNodes.length;
+
+                for (var i = 0; i < prevHiddenOptions; i++) {
+                  if (prevHidden.childNodes[i].disabled) disabledOptions++;
+                }
+
+                if (disabledOptions < prevHiddenOptions) showDivider = true;
               }
             }
           }
@@ -1425,7 +1418,7 @@
           if (showDivider && mainData[mainData.length - 1].type !== 'divider') {
             liIndex++;
             mainElements.push(
-              generateLI(
+              generateOption.li(
                 false,
                 classNames.DIVIDER,
                 optID + 'div'
@@ -1437,14 +1430,15 @@
             });
           }
 
-          textElement = generateText({
+          textElement = generateOption.text({
             text: text,
             optionContent: optionContent,
             optionSubtext: subtext,
-            optionIcon: icon
+            optionIcon: icon,
+            iconBase: iconBase
           });
 
-          mainElements.push(generateLI(generateA(textElement, optionClass, inline)));
+          mainElements.push(generateOption.li(generateOption.a(textElement, optionClass, inline)));
           mainData.push({
             content: optionContent || text,
             subtext: subtext,
@@ -1481,7 +1475,7 @@
           // not perfect, but it's fast, and the width will be updating accordingly when scrolling
           widestOption = mainElements[mainElements.length - 1];
         }
-      });
+      }
 
       this.selectpicker.main.elements = mainElements;
       this.selectpicker.main.data = mainData;
@@ -1501,7 +1495,9 @@
       var that = this,
           $selectOptions = this.$element.find('option'),
           selectedItems = [],
-          selectedItemsInTitle = [];
+          buttonInner = this.$button.find('.filter-option-inner-inner')[0],
+          multipleSeparator = document.createTextNode(this.options.multipleSeparator),
+          titleFragment = elementTemplates.fragment.cloneNode(false);
 
       this.togglePlaceholder();
 
@@ -1509,43 +1505,42 @@
 
       for (var index = 0, len = $selectOptions.length; index < len; index++) {
         var i = that.selectpicker.main.map.newIndex[index],
+            titleOptions = {},
             option = $selectOptions[index],
             optionData = that.selectpicker.main.data[i] || that.selectpicker.main.hidden[index];
 
         if (option && option.selected && optionData) {
           selectedItems.push(option);
 
-          if ((selectedItemsInTitle.length < 100 && that.options.selectedTextFormat !== 'count') || selectedItems.length === 1) {
-            var thisData = optionData.data,
-                icon = thisData.icon && that.options.showIcon ? '<i class="' + that.options.iconBase + ' ' + thisData.icon + '"></i> ' : '',
-                subtext,
-                titleItem;
+          if ((selectedItems.length < 51 && that.options.selectedTextFormat !== 'count') || selectedItems.length === 1) {
+            var thisData = optionData.data;
 
-            if (that.options.showSubtext && thisData.subtext && !that.multiple) {
-              subtext = ' <small class="text-muted">' + thisData.subtext + '</small>';
-            } else {
-              subtext = '';
+            if (this.multiple && selectedItems.length > 1) {
+              titleFragment.appendChild(multipleSeparator.cloneNode(false));
             }
 
             if (option.title) {
-              titleItem = option.title;
+              titleOptions.text = option.title;
             } else if (thisData.content && that.options.showContent) {
-              titleItem = thisData.content.toString();
+              titleOptions.optionContent = thisData.content.toString();
             } else {
-              titleItem = icon + option.innerHTML.trim() + subtext;
+              if (that.options.showIcon) {
+                titleOptions.optionIcon = thisData.icon;
+                titleOptions.iconBase = this.options.iconBase;
+              }
+              if (that.options.showSubtext && !that.multiple && thisData.subtext) titleOptions.optionSubtext = ' ' + thisData.subtext;
+              titleOptions.text = option.textContent.trim();
             }
 
-            selectedItemsInTitle.push(titleItem);
+            titleFragment.appendChild(generateOption.text(titleOptions, true));
           }
         }
       }
 
-      // Fixes issue in IE10 occurring when no default option is selected and at least one option is disabled
-      // Convert all the values into a comma delimited string
-      var title = !this.multiple ? selectedItemsInTitle[0] : selectedItemsInTitle.join(this.options.multipleSeparator);
-
       // add ellipsis
-      if (selectedItems.length > 50) title += '...';
+      if (selectedItems.length > 49) {
+        titleFragment.appendChild(document.createTextNode('...'));
+      }
 
       // If this is a multiselect, and selectedTextFormat is count, then show 1 of 2 selected etc..
       if (this.multiple && this.options.selectedTextFormat.indexOf('count') !== -1) {
@@ -1555,7 +1550,9 @@
           var totalCount = this.selectpicker.view.availableOptionsCount,
               tr8nText = (typeof this.options.countSelectedText === 'function') ? this.options.countSelectedText(selectedItems.length, totalCount) : this.options.countSelectedText;
 
-          title = tr8nText.replace('{0}', selectedItems.length.toString()).replace('{1}', totalCount.toString());
+          titleFragment = generateOption.text({
+            text: tr8nText.replace('{0}', selectedItems.length.toString()).replace('{1}', totalCount.toString())
+          }, true);
         }
       }
 
@@ -1565,17 +1562,21 @@
       }
 
       if (this.options.selectedTextFormat == 'static') {
-        title = this.options.title;
+        titleFragment = generateOption.text({ text: this.options.title }, true);
       }
 
       // If the select doesn't have a title, then use the default, or if nothing is set at all, use noneSelectedText
-      if (!title) {
-        title = typeof this.options.title !== 'undefined' ? this.options.title : this.options.noneSelectedText;
+      if (!titleFragment.childNodes.length) {
+        titleFragment = generateOption.text({
+          text: typeof this.options.title !== 'undefined' ? this.options.title : this.options.noneSelectedText
+        }, true);
       }
 
       // strip all HTML tags and trim the result, then unescape any escaped tags
-      this.$button[0].title = htmlUnescape(title.replace(/<[^>]*>?/g, '').trim());
-      this.$button.find('.filter-option-inner-inner')[0].innerHTML = title;
+      this.$button[0].title = titleFragment.textContent.replace(/<[^>]*>?/g, '').trim();
+
+      buttonInner.innerHTML = '';
+      buttonInner.appendChild(titleFragment);
 
       this.$element.trigger('rendered' + EVENT_KEY);
     },
@@ -1723,7 +1724,7 @@
           $container = $(that.options.container),
           containerPos;
 
-      if (that.options.container && !$container.is('body')) {
+      if (that.options.container && $container.length && !$container.is('body')) {
         containerPos = $container.offset();
         containerPos.top += parseInt($container.css('borderTopWidth'));
         containerPos.left += parseInt($container.css('borderLeftWidth'));
@@ -1809,7 +1810,8 @@
         'min-height': menuInnerMinHeight + 'px'
       });
 
-      this.sizeInfo.menuInnerHeight = menuInnerHeight;
+      // ensure menuInnerHeight is always a positive number to prevent issues calculating chunkSize in createView
+      this.sizeInfo.menuInnerHeight = Math.max(menuInnerHeight, 1);
 
       if (this.selectpicker.current.data.length && this.selectpicker.current.data[this.selectpicker.current.data.length - 1].position > this.sizeInfo.menuInnerHeight) {
         this.sizeInfo.hasScrollBar = true;
@@ -1834,20 +1836,21 @@
 
       this.setMenuSize();
 
-      if (this.options.size === 'auto') {
+      if (this.options.liveSearch) {
         this.$searchbox
           .off('input.setMenuSize propertychange.setMenuSize')
           .on('input.setMenuSize propertychange.setMenuSize', function () {
             return that.setMenuSize();
           });
+      }
 
+      if (this.options.size === 'auto') {
         $window
           .off('resize' + EVENT_KEY + '.' + this.selectId + '.setMenuSize' + ' scroll' + EVENT_KEY + '.' + this.selectId + '.setMenuSize')
           .on('resize' + EVENT_KEY + '.' + this.selectId + '.setMenuSize' + ' scroll' + EVENT_KEY + '.' + this.selectId + '.setMenuSize', function () {
             return that.setMenuSize();
           });
       } else if (this.options.size && this.options.size != 'auto' && this.selectpicker.current.elements.length > this.options.size) {
-        this.$searchbox.off('input.setMenuSize propertychange.setMenuSize');
         $window.off('resize' + EVENT_KEY + '.' + this.selectId + '.setMenuSize' + ' scroll' + EVENT_KEY + '.' + this.selectId + '.setMenuSize');
       }
 
@@ -2107,7 +2110,7 @@
         }
       }
 
-      this.$button.click(function () {
+      this.$button.on('click', function () {
         return !that.isDisabled();
       });
     },
@@ -2161,9 +2164,9 @@
 
       function setFocus () {
         if (that.options.liveSearch) {
-          that.$searchbox.focus();
+          that.$searchbox.trigger('focus');
         } else {
-          that.$menuInner.focus();
+          that.$menuInner.trigger('focus');
         }
       }
 
@@ -2227,7 +2230,7 @@
             $option.prop('selected', !state);
 
             that.setSelected(clickedIndex, !state);
-            $this.blur();
+            $this.trigger('blur');
 
             if (maxOptions !== false || maxOptionsGrp !== false) {
               var maxReached = maxOptions < $options.filter(':selected').length,
@@ -2295,9 +2298,9 @@
           }
 
           if (!that.multiple || (that.multiple && that.options.maxOptions === 1)) {
-            that.$button.focus();
+            that.$button.trigger('focus');
           } else if (that.options.liveSearch) {
-            that.$searchbox.focus();
+            that.$searchbox.trigger('focus');
           }
 
           // Trigger select 'change'
@@ -2317,9 +2320,9 @@
           e.preventDefault();
           e.stopPropagation();
           if (that.options.liveSearch && !$(e.target).hasClass('close')) {
-            that.$searchbox.focus();
+            that.$searchbox.trigger('focus');
           } else {
-            that.$button.focus();
+            that.$button.trigger('focus');
           }
         }
       });
@@ -2328,14 +2331,14 @@
         e.preventDefault();
         e.stopPropagation();
         if (that.options.liveSearch) {
-          that.$searchbox.focus();
+          that.$searchbox.trigger('focus');
         } else {
-          that.$button.focus();
+          that.$button.trigger('focus');
         }
       });
 
       this.$menu.on('click', '.' + classNames.POPOVERHEADER + ' .close', function () {
-        that.$button.click();
+        that.$button.trigger('click');
       });
 
       this.$searchbox.on('click', function (e) {
@@ -2344,9 +2347,9 @@
 
       this.$menu.on('click', '.actions-btn', function (e) {
         if (that.options.liveSearch) {
-          that.$searchbox.focus();
+          that.$searchbox.trigger('focus');
         } else {
-          that.$button.focus();
+          that.$button.trigger('focus');
         }
 
         e.preventDefault();
@@ -2366,7 +2369,7 @@
           changedArguments = null;
         },
         'focus': function () {
-          if (!that.options.mobile) that.$button.focus();
+          if (!that.options.mobile) that.$button.trigger('focus');
         }
       });
     },
@@ -2562,11 +2565,16 @@
         )
       ) {
         that.$button.trigger('click.bs.dropdown.data-api');
+
+        if (that.options.liveSearch) {
+          that.$searchbox.trigger('focus');
+          return;
+        }
       }
 
       if (e.which === keyCodes.ESCAPE && isActive) {
         e.preventDefault();
-        that.$button.trigger('click.bs.dropdown.data-api').focus();
+        that.$button.trigger('click.bs.dropdown.data-api').trigger('focus');
       }
 
       if (isArrowKey) { // if up or down
@@ -2644,9 +2652,9 @@
         if (updateScroll) that.$menuInner[0].scrollTop = offset;
 
         if (that.options.liveSearch) {
-          that.$searchbox.focus();
+          that.$searchbox.trigger('focus');
         } else {
-          $this.focus();
+          $this.trigger('focus');
         }
       } else if (
         (!$this.is('input') && !REGEXP_TAB_OR_ESCAPE.test(e.which)) ||
@@ -2717,11 +2725,11 @@
           if (liActive.firstChild) liActive.firstChild.classList.add('active');
           that.activeIndex = matches[matchIndex];
 
-          liActive.firstChild.focus();
+          liActive.firstChild.trigger('focus');
 
           if (updateScroll) that.$menuInner[0].scrollTop = offset;
 
-          $this.focus();
+          $this.trigger('focus');
         }
       }
 
@@ -2738,7 +2746,7 @@
 
         if (!that.options.liveSearch || e.which !== keyCodes.SPACE) {
           that.$menuInner.find('.active a').trigger('click', true); // retain active class
-          $this.focus();
+          $this.trigger('focus');
 
           if (!that.options.liveSearch) {
             // Prevent screen from scrolling if the user hits the spacebar
@@ -2900,6 +2908,3 @@
     })
   });
 })(jQuery);
-
-
-}));
