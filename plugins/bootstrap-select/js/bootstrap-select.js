@@ -5,6 +5,13 @@
  * Licensed under MIT (https://github.com/snapappointments/bootstrap-select/blob/master/LICENSE)
  */
 
+/*!
+ * Bootstrap-select v1.13.5 (https://developer.snapappointments.com/bootstrap-select)
+ *
+ * Copyright 2012-2018 SnapAppointments, LLC
+ * Licensed under MIT (https://github.com/snapappointments/bootstrap-select/blob/master/LICENSE)
+ */
+
 (function ($) {
   'use strict';
 
@@ -2838,8 +2845,8 @@
       if (version.major === '4') {
         classNames.DIVIDER = 'dropdown-divider';
         classNames.SHOW = 'show';
-        classNames.BUTTONCLASS = 'btn-light';
-        Selectpicker.DEFAULTS.style = classNames.BUTTONCLASS = 'btn-light';
+        classNames.BUTTONCLASS = 'btn-default';
+        Selectpicker.DEFAULTS.style = classNames.BUTTONCLASS = 'btn-default';
         classNames.POPOVERHEADER = 'popover-header';
       }
     }
@@ -2908,3 +2915,4 @@
     })
   });
 })(jQuery);
+
