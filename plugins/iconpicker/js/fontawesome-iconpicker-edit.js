@@ -453,7 +453,7 @@
         title: false,
         selected: false,
         defaultValue: false,
-        placement: "bottomLeft",
+        placement: "bottom",
         collision: "none",
         animation: true,
         hideOnSelect: true,
@@ -830,9 +830,9 @@
         _updateFormGroupStatus: function(e) {
             if (this.hasInput()) {
                 if (e !== false) {
-                    this.input.parents(".form-group:first").removeClass("has-error");
+                    this.input.parents(".form-group:first").removeClass("is-invalid");
                 } else {
-                    this.input.parents(".form-group:first").addClass("has-error");
+                    this.input.parents(".form-group:first").addClass("is-invalid");
                 }
                 return true;
             }
