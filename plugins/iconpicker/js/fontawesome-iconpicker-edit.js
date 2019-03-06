@@ -959,15 +959,15 @@
             }
         },
         show: function() {
-            if (this.popover.hasClass("in")) {
+            if (this.popover.hasClass("show")) {
                 return false;
             }
-            c.iconpicker.batch(c(".iconpicker-popover.in:not(.inline)").not(this.popover), "hide");
+            c.iconpicker.batch(c(".iconpicker-popover.show:not(.inline)").not(this.popover), "hide");
             this._trigger("iconpickerShow", {
                 iconpickerValue: this.iconpickerValue
             });
             this.updatePlacement();
-            this.popover.addClass("in");
+            this.popover.addClass("show");
             setTimeout(c.proxy(function() {
                 this.popover.css("display", this.isInline() ? "" : "block");
                 this._trigger("iconpickerShown", {
@@ -976,13 +976,13 @@
             }, this), this.options.animation ? 300 : 1);
         },
         hide: function() {
-            if (!this.popover.hasClass("in")) {
+            if (!this.popover.hasClass("show")) {
                 return false;
             }
             this._trigger("iconpickerHide", {
                 iconpickerValue: this.iconpickerValue
             });
-            this.popover.removeClass("in");
+            this.popover.removeClass("show");
             setTimeout(c.proxy(function() {
                 this.popover.css("display", "none");
                 this.getSearchInput().val("");
