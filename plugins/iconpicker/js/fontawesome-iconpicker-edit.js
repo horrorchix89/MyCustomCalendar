@@ -456,24 +456,24 @@
         placement: "bottom",
         collision: "none",
         animation: true,
-        hideOnSelect: true,
+        hideOnSelect: false,
         showFooter: false,
         searchInFooter: false,
         mustAccept: false,
         selectedCustomClass: "bg-primary",
         icons: [],
-        fullClassFormatter: function(e) {
-            return e;
+        fullClassFormatter: function(a) {
+            return a;
         },
         input: "input,.iconpicker-input",
         inputSearch: false,
         container: false,
-        component: ".input-group-prepend,.iconpicker-component",
+        component: ".input-group-addon,.iconpicker-component",
         templates: {
             popover: '<div class="iconpicker-popover popover"><div class="arrow"></div>' + '<div class="popover-title"></div><div class="popover-content"></div></div>',
             footer: '<div class="popover-footer"></div>',
             buttons: '<button class="iconpicker-btn iconpicker-btn-cancel btn btn-default btn-sm">Cancel</button>' + ' <button class="iconpicker-btn iconpicker-btn-accept btn btn-primary btn-sm">Accept</button>',
-            search: '<input type="search" class="form-control iconpicker-search" placeholder="Search icons..." autocomplete="off" spellcheck="false" autocorrect="off" />',
+            search: '<input type="search" class="form-control iconpicker-search" placeholder="Search icons..." />',
             iconpicker: '<div class="iconpicker"><div class="iconpicker-items"></div></div>',
             iconpickerItem: '<a role="button" href="javascript:;" class="iconpicker-item"><i></i></a>'
         }
@@ -552,18 +552,11 @@
             var a = c(this.options.templates.iconpickerItem);
             var s = [];
             for (var r in this.options.icons) {
-                if (typeof this.options.icons[r].title === "string") {
+                if (typeof this.options.icons[r] === "string") {
                     var i = a.clone();
-                    i.find("i").addClass(this.options.fullClassFormatter(this.options.icons[r].title));
-                    i.data("iconpickerValue", this.options.icons[r].title).on("click.iconpicker", e);
-                    i.attr("title", "." + this.options.icons[r].title);
-                    if (this.options.icons[r].searchTerms.length > 0) {
-                        var f = "";
-                        for (var l = 0; l < this.options.icons[r].searchTerms.length; l++) {
-                            f = f + this.options.icons[r].searchTerms[l] + " ";
-                        }
-                        i.attr("data-search-terms", f);
-                    }
+                    i.find("i").addClass(this.options.fullClassFormatter(this.options.icons[r]));
+                    i.data("iconpickerValue", this.options.icons[r]).on("click.iconpicker", e);
+                    i.attr("title", "." + this.options.icons[r]);
                     s.push(i);
                 }
             }
@@ -846,7 +839,7 @@
             e = c.trim(e);
             var t = false;
             for (var s = 0; s < this.options.icons.length; s++) {
-                if (this.options.icons[s].title === e) {
+                if (this.options.icons[s] === e) {
                     t = true;
                     break;
                 }
@@ -962,7 +955,7 @@
             if (this.popover.hasClass("show")) {
                 return false;
             }
-            c.iconpicker.batch(c(".iconpicker-popover.show:not(.inline)").not(this.popover), "hide");
+            c.iconpicker.batch(c(".iconpicker-popover.in:not(.inline)").not(this.popover), "hide");
             this._trigger("iconpickerShow", {
                 iconpickerValue: this.iconpickerValue
             });
@@ -996,7 +989,7 @@
             if (this.popover.is(":visible")) {
                 this.hide();
             } else {
-                this.show(true);
+                this.show();
             }
         },
         update: function(e, a) {
@@ -2582,6 +2575,6 @@
 'icon ion-wineglass',
 'icon ion-woman',
 'icon ion-wrench',
-'icon ion-xbox' ]
+'icon ion-xbox' ];
     });
 });
