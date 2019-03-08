@@ -20,16 +20,16 @@ CKEDITOR.editorConfig = function(config) {
 	config.toolbar = [
 		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
 		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
-		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
-		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline','Strike' ] },
+		{ name: 'cleanup', items: [ 'RemoveFormat' ] },
+		{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+		{ name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
 		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink', 'HorizontalRule' ] },
-		{ name: 'editing', items: [ 'Find', 'Replace' ] },
-		{ name: 'insert', items: [ 'ckawesome', 'EmojiPanel' ] },
-		{ name: 'document', items: [ 'RemoveFormat', 'Source' ] }
+		{ name: 'links', items: [ 'Link', 'Unlink' ] },
+		{ name: 'find', items: [ 'Find', 'Replace' ] },
+		{ name: 'insert', items: [ 'ckawesome', 'EmojiPanel','HorizontalRule' ] },
+		{ name: 'document', items: [ 'Save','Source' ] }
 	];
-
-	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock';
+	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,FontSize';
 	config.removeDialogTabs = 'link:advanced';
 };
