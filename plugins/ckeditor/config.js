@@ -24,12 +24,11 @@ CKEDITOR.editorConfig = function(config) {
 		{ name: 'cleanup', items: [ 'RemoveFormat' ] },
 		{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
 		{ name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
-		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink' ] },
 		{ name: 'find', items: [ 'Find', 'Replace' ] },
 		{ name: 'insert', items: [ 'ckawesome', 'EmojiPanel','HorizontalRule' ] },
 		{ name: 'document', items: [ 'Save','Source' ] }
 	];
-	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,FontSize';
+	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,FontSize,Cut,Copy,Paste';
 	config.removeDialogTabs = 'link:advanced';
 };
