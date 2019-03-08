@@ -5,14 +5,18 @@
 
 CKEDITOR.editorConfig = function(config) {
 	config.allowedContent = true;
+	config.coreStyles_italic = { element: 'em' };
 	config.disableNativeSpellChecker = false;
 	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
 	config.height = 100;
+	config.ignoreEmptyParagraph = false;
+	config.pasteFilter = null;
+	config.tabSpaces = 4;
 	config.toolbarCanCollapse = true;
 	config.toolbar = [
 		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
 		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Strike', 'Underline' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
 		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
 		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList' ] },
 		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
