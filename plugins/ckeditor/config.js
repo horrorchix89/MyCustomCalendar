@@ -3,31 +3,32 @@
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-CKEDITOR.editorConfig = function(config) {
-	config.allowedContent = true;
-	config.coreStyles_italic = { element: 'em' };
-	config.disableNativeSpellChecker = false;
-	config.fillEmptyBlocks = false;
-	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
-	config.height = 100;
-	config.ignoreEmptyParagraph = false;
-	config.pasteFilter = null;
-	config.tabSpaces = 4;
-	config.toolbarCanCollapse = true;
-	config.toolbar = [
-		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
-		{ name: 'styles', items: [ 'Format' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
-		{ name: 'paragraph', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
-		{ name: 'paragraph', items: [ 'NumberedList', 'BulletedList' ] },
-		{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink', 'HorizontalRule' ] },
-		{ name: 'editing', items: [ 'Find', 'Replace' ] },
-		{ name: 'insert', items: [ 'ckawesome', 'EmojiPanel' ] },
-		{ name: 'document', items: [ 'RemoveFormat', 'Source' ] }
+CKEDITOR.editorConfig = function( config ) {
+	// Define changes to default configuration here.
+	// For complete reference see:
+	// https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html
+
+	// The toolbar groups arrangement, optimized for a single toolbar row.
+	config.toolbarGroups = [
+		{ name: 'document',	   groups: [ 'mode', 'document', 'doctools' ] },
+		{ name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+		{ name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ] },
+		{ name: 'forms' },
+		{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+		{ name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+		{ name: 'links' },
+		{ name: 'insert' },
+		{ name: 'styles' },
+		{ name: 'colors' },
+		{ name: 'tools' },
+		{ name: 'others' },
+		{ name: 'about' }
 	];
 
-	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock';
-	config.removeDialogTabs = '';
-	config.removePlugins = 'autogrow';
+	// The default plugins included in the basic setup define some buttons that
+	// are not needed in a basic editor. They are removed here.
+	config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Underline,Strike,Subscript,Superscript';
+
+	// Dialog windows are also simplified.
+	config.removeDialogTabs = 'link:advanced';
 };
