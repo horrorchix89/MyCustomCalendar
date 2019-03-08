@@ -7,6 +7,7 @@ CKEDITOR.editorConfig = function(config) {
 	config.allowedContent = true;
 	config.coreStyles_italic = { element: 'em' };
 	config.disableNativeSpellChecker = false;
+	config.fillEmptyBlocks = false;
 	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
 	config.height = 100;
 	config.ignoreEmptyParagraph = false;
