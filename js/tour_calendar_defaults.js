@@ -36,5 +36,14 @@ var calendar_options = {
         titleFormat: "MMMM",
         timeFormat: "h:mm A"
       }
+    },
+    events: {
+        url: "../../../app-assets/data/fullcalendar/php/get-events.php",
+        error: function() {
+            $("#script-warning").show();
+        }
+    },
+    loading: function(t) {
+        $("#loading").toggle(t);
     }
-}
+};
