@@ -1779,8 +1779,7 @@
 			monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			today: "Today",
 			clear: "Clear",
-			//titleFormat: "MM yyyy"
-			titleFormat: "M yyyy"
+			titleFormat: "MM yyyy"
 		}
 	};
 
