@@ -14,13 +14,15 @@ CKEDITOR.editorConfig = function( config ) {
 	config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
 	config.height = 90;
 	config.ignoreEmptyParagraph = false;
+	config.language = 'en';
 	config.pasteFilter = null;
+    config.pasteFromWordRemoveStyles = false;
 	config.resize_enabled = false;
 	config.tabSpaces = 4;
 	config.toolbarCanCollapse = true;
 	config.toolbar = [
-        ['Undo', 'Redo', 'Format', 'FontSize', 'Bold', 'Italic', 'Underline', 'Strike','JustifyLeft', 'JustifyCenter', 'JustifyRight','Link', 'Unlink','NumberedList', 'BulletedList', 'HorizontalRule','ckawesome', 'EmojiPanel', 'RemoveFormat', 'Source']
+        ['Undo', 'Redo', 'Format', 'FontSize', 'Bold', 'Italic', 'Underline', 'Strike','JustifyLeft', 'JustifyCenter', 'JustifyRight','NumberedList', 'BulletedList','Link', 'Unlink', 'HorizontalRule','ckawesome', 'EmojiPanel', 'RemoveFormat', 'Source']
     ];
-	config.removeButtons = 'Cut,Copy,Paste,Anchor,Subscript,Superscript,Save,PasteFromWord,Outdent,Indent,JustifyBlock,Font';
-	config.removeDialogTabs = 'image:advanced;link:advanced';
+	config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save,Cut,Copy,Paste';
+	config.removeDialogTabs = 'link:advanced';
 };
