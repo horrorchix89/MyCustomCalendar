@@ -20,7 +20,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.resize_enabled = false;
     config.tabSpaces = 4;
     config.toolbarCanCollapse = true;
-    config.toolbar = [['Undo', 'Redo', 'Format', 'FontSize','-', 'Bold', 'Italic', 'Underline', 'Strike','-','JustifyLeft', 'JustifyCenter', 'JustifyRight','-','NumberedList', 'BulletedList','-','Link', 'Unlink', 'HorizontalRule','ckawesome', 'EmojiPanel', 'RemoveFormat', 'Source']
+    config.toolbar = [['Undo', 'Redo', '-', 'Format', 'FontSize','-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight','Bold', 'Italic', 'Underline', 'Strike','-','NumberedList', 'BulletedList','-','Link', 'Unlink', 'HorizontalRule','ckawesome', 'EmojiPanel', 'RemoveFormat', 'Source']
     ];
     config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save,Cut,Copy,Paste';
     config.removeDialogTabs = 'link:advanced';
