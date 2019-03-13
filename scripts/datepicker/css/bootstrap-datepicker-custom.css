@@ -17,8 +17,7 @@
   direction: ltr;
 }
 .datepicker thead th.dow {
-  font-weight: 700;
-  vertical-align: middle
+  padding-bottom: 11px
 }
 .datepicker-inline {
   width: 220px;
@@ -27,6 +26,7 @@
   top: 0;
   left: 0;
   text-align: center;
+  padding: 5px;
   border: 1px solid #ced4da;
   border-radius: .25rem;
   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.25);
@@ -35,9 +35,7 @@
 .datepicker table {
   margin: 0;
   width: 100%;
-  user-select: none;
 }
-
 .datepicker table tr td,
 .datepicker table tr th {
   width: 20px;
