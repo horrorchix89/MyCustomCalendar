@@ -58,11 +58,11 @@
   color: #bbb;
   text-decoration: line-through;
   cursor: not-allowed;
-  opacity: .5
+  opacity: .3
 }
 .datepicker table tr td.old,
 .datepicker table tr td.new {
-  color: #bcbcbc;
+  color: #ABABAB;
 }
 .datepicker table tr td.today {
   font-weight: 500;
@@ -96,6 +96,7 @@
   color: #fff;
   background-color: #0033bb;
   border-color: #0033bb;
+  box-shadow: 0 0 0 .25rem rgba(0,123,255,.5);
 }
 .datepicker table tr td.today.focused {
   box-shadow: 0 0 0 .25rem rgba(0,123,255,.7);
@@ -107,7 +108,6 @@
   color: #fff;
   opacity: .5;
 }
-
 .datepicker table tr td.active,
 .datepicker table tr td.active.highlighted {
   color: white;
@@ -125,22 +125,22 @@
 .datepicker table tr td.active.focus,
 .datepicker table tr td.active.highlighted.focus {
   color: #fff;
-  background-color: #286090;
-  border-color: #122b40;
+  background-color: #303f9f;
+  border-color: #303f9f;
 }
 .datepicker table tr td.active:hover,
 .datepicker table tr td.active.highlighted:hover {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #0069d9;
+  border-color: #0062cc;
 }
 .datepicker table tr td.active:active,
 .datepicker table tr td.active.highlighted:active,
 .datepicker table tr td.active.active,
 .datepicker table tr td.active.highlighted.active {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #0062cc;
+  border-color: #005cbf;
 }
 .datepicker table tr td.active:active:hover,
 .datepicker table tr td.active.highlighted:active:hover,
@@ -155,29 +155,18 @@
 .datepicker table tr td.active.active.focus,
 .datepicker table tr td.active.highlighted.active.focus {
   color: #fff;
-  background-color: #204d74;
-  border-color: #122b40;
+  background-color: #303f9f;
+  border-color: #303f9f;
+  box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.5);
 }
-.datepicker table tr td.active.disabled:hover,
-.datepicker table tr td.active.highlighted.disabled:hover,
-.datepicker table tr td.active[disabled]:hover,
-.datepicker table tr td.active.highlighted[disabled]:hover,
-fieldset[disabled] .datepicker table tr td.active:hover,
-fieldset[disabled] .datepicker table tr td.active.highlighted:hover,
-.datepicker table tr td.active.disabled:focus,
-.datepicker table tr td.active.highlighted.disabled:focus,
-.datepicker table tr td.active[disabled]:focus,
-.datepicker table tr td.active.highlighted[disabled]:focus,
-fieldset[disabled] .datepicker table tr td.active:focus,
-fieldset[disabled] .datepicker table tr td.active.highlighted:focus,
-.datepicker table tr td.active.disabled.focus,
-.datepicker table tr td.active.highlighted.disabled.focus,
-.datepicker table tr td.active[disabled].focus,
-.datepicker table tr td.active.highlighted[disabled].focus,
-fieldset[disabled] .datepicker table tr td.active.focus,
-fieldset[disabled] .datepicker table tr td.active.highlighted.focus {
-  background-color: #337ab7;
-  border-color: #2e6da4;
+.datepicker table tr td.active.disabled,
+.datepicker table tr td.active:disabled,
+.datepicker table tr td.disabled,
+.datepicker table tr td:disabled {
+  cursor: not-allowed;
+  background: #0044cc;
+  border-color: #007bff;
+  opacity: .5
 }
 .datepicker table tr td span {
   display: block;
@@ -319,7 +308,7 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 .datepicker .next,
 .datepicker tfoot tr th {
   font-size: 1rem;
-  height: 30px;
+  line-height: 30px;
   text-align: center;
   vertical-align: middle;
   cursor: pointer;
@@ -342,26 +331,4 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 }
 .input-group.date .input-group-addon {
   cursor: pointer;
-}
-.input-daterange {
-  width: 100%;
-}
-.input-daterange input {
-  text-align: center;
-}
-.input-daterange input:first-child {
-  border-radius: 3px 0 0 3px;
-}
-.input-daterange input:last-child {
-  border-radius: 0 3px 3px 0;
-}
-.input-daterange .input-group-addon {
-  width: auto;
-  min-width: 16px;
-  padding: 4px 5px;
-  line-height: 1.42857143;
-  text-shadow: 0 1px 0 #fff;
-  border-width: 1px 0;
-  margin-left: -5px;
-  margin-right: -5px;
 }
