@@ -6,48 +6,44 @@
 .datepicker {
   font-size: 12px;
   font-family: 'Google Sans',Roboto,Arial,sans-serif;
-  top: 0;
-  left: 0;
-  direction: ltr;
+  padding: 4px;
   touch-action: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
   width: 210px;
-  z-index: -1;
+  border-radius: .25rem;
+  direction: ltr;
 }
-
-.datepicker .dow {
+.datepicker thead th.dow {
   font-weight: 700;
-  text-align: center
+  padding: 15px 0;
+  vertical-align: middle
 }
-
-.datepicker-dropdown {
-  padding: 4px;
-  text-align: center;
-  border: 1px solid #dee2e6;
-  border-radius: 2px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.25);
-  box-shadow: 0 5px 10px rgba(0,0,0,.25);
-  z-index: 1060;
-}
-
 .datepicker-inline {
   width: 220px;
 }
-
+.datepicker-dropdown {
+  top: 0;
+  left: 0;
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.25);
+  box-shadow: 0 5px 10px rgba(0,0,0,.25);
+}
 .datepicker table {
-  width: 100%;
   margin: 0;
   user-select: none;
 }
 
 .datepicker table tr td,
 .datepicker table tr th {
-  text-align: center;
   width: 20px;
   height: 20px;
+  padding: .3rem;
   border: none;
+  text-align: center;
   vertical-align: middle
 }
  
@@ -122,26 +118,27 @@ fieldset[disabled] .datepicker table tr td.highlighted.focus {
   color: #bbb;
 }
 .datepicker table tr td.today {
-  color: #000;
+  color: #212529;
+  font-weight: 500;
   background-color: #ffdb99;
-  border-color: #ffb733;
+  border-color: #ffb733
 }
-.datepicker table tr td.today:focus,
-.datepicker table tr td.today.focus {
-  color: #000;
-  background-color: #ffc966;
-  border-color: #b37400;
+.datepicker table tr td.today.focus,
+.datepicker table tr td.today:focus {
+    color: #000;
+    background-color: #ffc966;
+    border-color: #b37400
 }
 .datepicker table tr td.today:hover {
-  color: #000;
-  background-color: #ffc966;
-  border-color: #f59e00;
+    color: #000;
+    background-color: #ffc966;
+    border-color: #f59e00
 }
-.datepicker table tr td.today:active,
-.datepicker table tr td.today.active {
-  color: #000;
-  background-color: #ffc966;
-  border-color: #f59e00;
+.datepicker table tr td.today.active,
+.datepicker table tr td.today:active {
+    color: #000;
+    background-color: #ffc966;
+    border-color: #f59e00
 }
 .datepicker table tr td.today:active:hover,
 .datepicker table tr td.today.active:hover,
@@ -379,6 +376,10 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 .datepicker .prev,
 .datepicker .next,
 .datepicker tfoot tr th {
+  font-size: 1rem;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
   cursor: pointer;
 }
 .datepicker .datepicker-switch:hover,
@@ -386,6 +387,10 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
 .datepicker .next:hover,
 .datepicker tfoot tr th:hover {
   background: #eeeeee;
+}
+.datepicker .prev,
+.datepicker .next {
+  width: 20px;
 }
 .datepicker .cw {
   font-size: 10px;
