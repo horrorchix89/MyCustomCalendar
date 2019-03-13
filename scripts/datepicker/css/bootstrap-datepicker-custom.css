@@ -6,10 +6,9 @@
 .datepicker {
   font-size: 12px;
   font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  padding: 5px;
   touch-action: none;
   -webkit-touch-callout: none;
-  text-align: center;
-  vertical-align: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -17,7 +16,7 @@
   direction: ltr;
 }
 .datepicker thead th.dow {
-  padding-bottom: 11px
+  padding-bottom: 7px
 }
 .datepicker-inline {
   width: 220px;
@@ -38,14 +37,14 @@
 }
 .datepicker table tr td,
 .datepicker table tr th {
+  text-align: center;
   width: 20px;
   height: 20px;
-  padding: 2.5px;
-  border: none;
-  text-align: center;
+  padding: 5px;
   vertical-align: middle
 }
 .datepicker table tr td {
+  border-radius: 50%;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 .datepicker table tr td.day:hover,
@@ -69,6 +68,7 @@
   font-weight: 500;
   color: #007bff;
   border-color: #007bff;
+  border-radius: 50%;
   background-color: transparent;
 }
 .datepicker table tr td.today.focus,
@@ -82,9 +82,10 @@
 }
 .datepicker table tr td.today.active,
 .datepicker table tr td.today:active {
-    color: #000;
-    background-color: #ffc966;
-    border-color: #f59e00
+    color: #fff;
+  background-color: #0033bb;
+  border-color: #0033bb;
+  border-radius: 50%
 }
 .datepicker table tr td.today:active:hover,
 .datepicker table tr td.today.active:hover,
@@ -92,24 +93,14 @@
 .datepicker table tr td.today.active:focus,
 .datepicker table tr td.today:active.focus,
 .datepicker table tr td.today.active.focus {
-  color: #000;
-  background-color: #ffbc42;
-  border-color: #b37400;
-}
-.datepicker table tr td.today.disabled:hover,
-.datepicker table tr td.today[disabled]:hover,
-fieldset[disabled] .datepicker table tr td.today:hover,
-.datepicker table tr td.today.disabled:focus,
-.datepicker table tr td.today[disabled]:focus,
-fieldset[disabled] .datepicker table tr td.today:focus,
-.datepicker table tr td.today.disabled.focus,
-.datepicker table tr td.today[disabled].focus,
-fieldset[disabled] .datepicker table tr td.today.focus {
-  background-color: #ffdb99;
-  border-color: #ffb733;
+  color: #fff;
+  background-color: #0033bb;
+  border-color: #0033bb;
 }
 .datepicker table tr td.today.focused {
-  background: #ffc966;
+  color: #fff;
+  background: #007bff;
+  box-shadow: 0 0 0 .25rem rgba(0,123,255,.5);
 }
 .datepicker table tr td.today.disabled,
 .datepicker table tr td.today.disabled:active {
