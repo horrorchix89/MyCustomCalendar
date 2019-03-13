@@ -1,14 +1,13 @@
 /*!
- * Datepicker for Bootstrap v1.6.4 (https://github.com/eternicode/bootstrap-datepicker)
+ * Datepicker for Bootstrap v1.8.0 (https://github.com/uxsolutions/bootstrap-datepicker)
  *
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
  * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  */
 .datepicker {
   background: #fff;
   font-size: 12px;
   font-family: 'Google Sans',Roboto,Arial,sans-serif;
+  line-height: 20px;
   top:0;
   left:0;
   border-radius: .25rem;
@@ -16,8 +15,6 @@
   touch-action: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   width: 210px;
   z-index: -1;
@@ -29,26 +26,26 @@
 }
 
 .datepicker-dropdown {
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 2px 4px 7px #bbb;
-  box-shadow: 2px 4px 7px #bbb;
-  z-index: 1;
-}
-
-.datepicker-inline {
-  position: static;
+  padding: 0;
+  border: 1px solid #dee2e6;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  z-index: 1000;
 }
 
 .datepicker table {
   margin: 0;
-  user-select: none
+  user-select: none;
 }
+
 .datepicker table tr td,
 .datepicker table tr th {
   text-align: center;
   width: 20px;
   height: 20px;
-  border: none
+  border-radius: 2px;
+  border: none;
+  vertical-align: middle
 }
  
 .datepicker table tr td.day:hover,
@@ -61,8 +58,8 @@
   font-weight: 100;
   background: none;
   color: #bbb;
+  text-decoration: line-through;
   cursor: not-allowed;
-  text-decoration: line-through
 }
 .datepicker table tr td.old,
 .datepicker table tr td.new {
@@ -637,4 +634,3 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.focus {
   margin-left: -5px;
   margin-right: -5px;
 }
-/*# sourceMappingURL=bootstrap-datepicker3.css.map */
