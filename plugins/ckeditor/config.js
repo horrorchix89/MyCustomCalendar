@@ -21,14 +21,16 @@ CKEDITOR.editorConfig = function( config ) {
     config.tabSpaces = 4;
     config.toolbarCanCollapse = true;
     config.toolbar = [
-		{ name: 'undo', items: [ 'Undo', 'Redo']},
-		{ name: 'styles', items: ['Format', 'FontSize']},
-		{ name: 'list', items: ['NumberedList', 'BulletedList']},
-		{ name: 'links', items: ['Link', 'Unlink']},
-		{ name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike']},
-		{ name: 'align', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight']},
-		{ name: 'extras', items: ['HorizontalRule', 'ckawesome', 'EmojiPanel', 'RemoveFormat','Source']}
+		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
+		{ name: 'styles', items: [ 'Format', 'FontSize' ] },
+		{ name: 'clipboard', items: [ 'Cut', 'Copy' ] },
+		{ name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
+		{ name: 'links', items: [ 'Link', 'Unlink' ] },
+		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
+		{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+		{ name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
 	];
     config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save,Paste';
     config.removeDialogTabs = 'link:advanced';
+	config.removePlugins = 'ckawesome';
 };
