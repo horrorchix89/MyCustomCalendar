@@ -24,9 +24,9 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
 		{ name: 'styles', items: [ 'Format', 'FontSize' ] },
 		{ name: 'clipboard', items: [ 'Cut', 'Copy' ] },
+	    	{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
 		{ name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
 		{ name: 'links', items: [ 'Link', 'Unlink' ] },
-		{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
 		{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
 		{ name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
 	];
