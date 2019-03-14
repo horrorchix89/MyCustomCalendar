@@ -25,7 +25,6 @@ CKEDITOR.editorConfig = function( config ) {
 		{ name: 'styles', items: ['Format', 'FontSize']},
 		{ name: 'list', items: ['NumberedList', 'BulletedList']},
 		{ name: 'links', items: ['Link', 'Unlink']},
-		'/',
 		{ name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike']},
 		{ name: 'align', items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight']},
 		{ name: 'extras', items: ['HorizontalRule', 'ckawesome', 'EmojiPanel', 'RemoveFormat','Source']}
