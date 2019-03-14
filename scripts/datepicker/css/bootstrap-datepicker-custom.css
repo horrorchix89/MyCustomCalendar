@@ -261,8 +261,11 @@
   background: #eeeeee;
 }
 .datepicker .prev,
-.datepicker .next,
-.datepicker tfoot tr th{
+.datepicker .next {
+    font-size: 16px;
+    font-weight: 700
+}
+.datepicker tfoot tr th {
   font-size: 12px;
 }
 .datepicker .cw {
