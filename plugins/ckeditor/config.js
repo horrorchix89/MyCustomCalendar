@@ -3,7 +3,7 @@
  * For licensing, see https://ckeditor.com/legal/ckeditor-oss-license
  */
 
-CKEDITOR.editorConfig = function( config ) {
+CKEDITOR.editorConfig = function(config) {
     config.allowedContent = true;
     config.coreStyles_italic = { element: 'em' };
     config.disableNativeSpellChecker = false;
@@ -21,17 +21,17 @@ CKEDITOR.editorConfig = function( config ) {
     config.tabSpaces = 4;
     config.toolbarCanCollapse = true;
     config.toolbar = [
-		{ name: 'undo', items: [ 'Undo', 'Redo' ] },
-		{ name: 'styles', items: [ 'Format', 'FontSize' ] },
-		{ name: 'clipboard', items: [ 'Cut', 'Copy' ] },
-	    	{ name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
-		{ name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
-		{ name: 'links', items: [ 'Link', 'Unlink' ] },
-		{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
-		{ name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
-	];
-    config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save,Paste';
+        { name: 'undo', items: [ 'Undo', 'Redo' ] },
+	{ name: 'styles', items: [ 'Format', 'FontSize' ] },
+	{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
+        { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
+	{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+        { name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
+        { name: 'links', items: [ 'Link', 'Unlink' ] },
+	{ name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
+    ];
+    config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save';
     config.removeDialogTabs = 'link:advanced';
-	config.removePlugins = 'ckawesome';
-	config.uiColor = '#ffffff';
+    config.removePlugins = 'ckawesome';
+    config.uiColor = '#ffffff';
 };
