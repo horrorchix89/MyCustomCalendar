@@ -33,5 +33,4 @@ CKEDITOR.editorConfig = function(config) {
     config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save';
     config.removeDialogTabs = 'link:advanced';
     config.removePlugins = 'ckawesome';
-    config.uiColor = '#ffffff';
 };
