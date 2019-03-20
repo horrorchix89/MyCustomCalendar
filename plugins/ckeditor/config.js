@@ -14,7 +14,6 @@ CKEDITOR.editorConfig = function(config) {
     config.format_tags = 'p;h1;h2;h3;h4;h5;h6;div';
     config.height = 90;
     config.ignoreEmptyParagraph = false;
-    config.language = 'en';
     config.pasteFilter = null;
     config.pasteFromWordRemoveStyles = false;
     config.resize_enabled = false;
@@ -22,15 +21,14 @@ CKEDITOR.editorConfig = function(config) {
     config.toolbarCanCollapse = true;
     config.toolbar = [
         { name: 'undo', items: [ 'Undo', 'Redo' ] },
-	{ name: 'styles', items: [ 'Format', 'FontSize' ] },
-	{ name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste' ] },
+        { name: 'styles', items: [ 'Format' ] },
         { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', 'Strike' ] },
-	{ name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
+        { name: 'align', items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight' ] },
         { name: 'list', items: [ 'NumberedList', 'BulletedList' ] },
         { name: 'links', items: [ 'Link', 'Unlink' ] },
-	{ name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
+        { name: 'extras', items: [ 'HorizontalRule', 'EmojiPanel', 'RemoveFormat', 'Source' ] }
     ];
-    config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,Save';
+    config.removeButtons = 'Anchor,Subscript,Superscript,Outdent,Indent,JustifyBlock,PasteFromWord,Font,FontSize,Save,Cut,Copy,Paste';
     config.removeDialogTabs = 'link:advanced';
     config.removePlugins = 'ckawesome';
 };
