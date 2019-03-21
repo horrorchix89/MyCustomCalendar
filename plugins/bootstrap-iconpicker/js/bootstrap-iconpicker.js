@@ -15,7 +15,7 @@
          icons: [],
          allVersions: [{
             version: "1.0.0",
-            icons: ['', "icon-android-car", "icon-android-globe", "icon-android-happy", "icon-android-sad", "icon-block-2", "icon-checkmark", "icon-clock", "icon-close", "icon-diamond", "icon-diamond-1", "icon-direction", "icon-flight", "icon-glass", "icon-globe", "icon-globe-1", "icon-heart", "icon-heart-2", "icon-heart-broken", "icon-heart-empty", "icon-ios-home", "icon-ios-home-outline", "icon-ios-location", "icon-ios-location-outline", "icon-ios-rainy", "icon-ios-rainy-outline", "icon-ios-snowy", "icon-ios-star", "icon-ios-star-outline", "icon-ios-world", "icon-ios-world-outline", "icon-iphone", "icon-location", "icon-mobile", "icon-moon", "icon-moon-1", "icon-navigate", "icon-paper-plane", "icon-paper-plane-1", "icon-paper-plane-empty", "icon-settings", "icon-smile", "icon-snowflake-o", "icon-social-apple", "icon-social-apple-outline", "icon-social-facebook", "icon-social-facebook-outline", "icon-social-twitter", "icon-social-twitter-outline", "icon-star", "icon-star-empty", "icon-suitcase", "icon-sun", "icon-umbrella", "icon-umbrella-1", "icon-wrench"]
+            icons: ["empty", "icon-android-car", "icon-android-globe", "icon-android-happy", "icon-android-sad", "icon-block-2", "icon-checkmark", "icon-clock", "icon-close", "icon-diamond", "icon-diamond-1", "icon-direction", "icon-flight", "icon-glass", "icon-globe", "icon-globe-1", "icon-heart", "icon-heart-2", "icon-heart-broken", "icon-heart-empty", "icon-ios-home", "icon-ios-home-outline", "icon-ios-location", "icon-ios-location-outline", "icon-ios-rainy", "icon-ios-rainy-outline", "icon-ios-snowy", "icon-ios-star", "icon-ios-star-outline", "icon-ios-world", "icon-ios-world-outline", "icon-iphone", "icon-location", "icon-mobile", "icon-moon", "icon-moon-1", "icon-navigate", "icon-paper-plane", "icon-paper-plane-1", "icon-paper-plane-empty", "icon-settings", "icon-smile", "icon-snowflake-o", "icon-social-apple", "icon-social-apple-outline", "icon-social-facebook", "icon-social-facebook-outline", "icon-social-twitter", "icon-social-twitter-outline", "icon-star", "icon-star-empty", "icon-suitcase", "icon-sun", "icon-umbrella", "icon-umbrella-1", "icon-wrench"]
          }]
       },
       l = data.allVersions.length;
@@ -74,7 +74,7 @@
       labelHeader: '{0} / {1}',
       footer: false,
       labelFooter: '{0} - {1} of {2}',
-      placement: 'bottom auto',
+      placement: 'bottom',
       rows: 3,
       search: true,
       searchText: 'Search icons...',
@@ -169,7 +169,7 @@
          if (icon === op.iconClassFix) {
             el.trigger({
                type: "change",
-               icon: 'null'
+               icon: null
             });
          } else {
             el.trigger({
@@ -482,7 +482,7 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: '#eventAdd',
+                     container: false,
                      placement: op.placement
                   }).on('inserted.bs.popover', function () {
                      var el = $this.data('bs.popover');
@@ -506,7 +506,6 @@
                data.switchPage(op.icon);
                data.bindEvents();
             }
-
          }
       });
    };
