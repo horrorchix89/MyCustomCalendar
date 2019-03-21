@@ -8,7 +8,22 @@
 * ========================================================================
 */
 
-;(function($){ "use strict";
+!function($){
+    var data={
+        iconClass:"",
+        iconClassFix:"",
+        icons:[],
+        allVersions:[{
+            version:"1.0.0",
+            icons:["null","icon-android-car","icon-android-globe","icon-android-happy","icon-android-sad","icon-block-2","icon-checkmark","icon-clock","icon-close","icon-diamond","icon-diamond-1","icon-direction","icon-flight","icon-glass","icon-globe","icon-globe-1","icon-heart","icon-heart-2","icon-heart-broken","icon-heart-empty","icon-ios-home","icon-ios-home-outline","icon-ios-location","icon-ios-location-outline","icon-ios-rainy","icon-ios-rainy-outline","icon-ios-snowy","icon-ios-star","icon-ios-star-outline","icon-ios-world","icon-ios-world-outline","icon-iphone","icon-location","icon-mobile","icon-moon","icon-moon-1","icon-navigate","icon-paper-plane","icon-paper-plane-1","icon-paper-plane-empty","icon-settings","icon-smile","icon-snowflake-o","icon-social-apple","icon-social-apple-outline","icon-social-facebook","icon-social-facebook-outline","icon-social-twitter","icon-social-twitter-outline","icon-star","icon-star-empty","icon-suitcase","icon-sun","icon-umbrella","icon-umbrella-1","icon-wrench"]
+        }]
+    },
+    l=data.allVersions.length;
+    data.icons=data.allVersions[l-1].icons,
+    $.iconset_cutiesicon=data
+}(jQuery);
+
+!function($){"use strict";
 
     // ICONPICKER PUBLIC CLASS DEFINITION
     // ==============================
@@ -40,40 +55,30 @@
     // ==============================
     Iconpicker.ICONSET = {
         _custom: null,
-        elusiveicon: $.iconset_elusiveicon || Iconpicker.ICONSET_EMPTY,
-        flagicon: $.iconset_flagicon || Iconpicker.ICONSET_EMPTY,
-        fontawesome4: $.iconset_fontawesome_4 || Iconpicker.ICONSET_EMPTY,
-        fontawesome5: $.iconset_fontawesome_5 || Iconpicker.ICONSET_EMPTY,
-        glyphicon: $.iconset_glyphicon || Iconpicker.ICONSET_EMPTY,
-        ionicon: $.iconset_ionicon || Iconpicker.ICONSET_EMPTY,
-        mapicon: $.iconset_mapicon || Iconpicker.ICONSET_EMPTY,
-        materialdesign: $.iconset_materialdesign || Iconpicker.ICONSET_EMPTY,
-        octicon: $.iconset_octicon || Iconpicker.ICONSET_EMPTY,
-        typicon: $.iconset_typicon || Iconpicker.ICONSET_EMPTY,
-        weathericon: $.iconset_weathericon || Iconpicker.ICONSET_EMPTY
+        cutiesicons: $.iconset_cutiesicon || Iconpicker.ICONSET_EMPTY
     };
 
     // ICONPICKER DEFAULTS
     // ==============================
     Iconpicker.DEFAULTS = {
         align: 'center',
-        arrowClass: 'btn-primary',
-        arrowNextIconClass: 'fas fa-arrow-right',
-        arrowPrevIconClass: 'fas fa-arrow-left',
+        arrowClass: '',
+        arrowNextIconClass: 'icon-ios-arrow-forward',
+        arrowPrevIconClass: 'icon-ios-arrow-back',
         cols: 4,
         icon: '',
-        iconset: 'fontawesome5',
+        iconset: 'cutiesicons',
         iconsetVersion: 'lastest',
         header: true,
         labelHeader: '{0} / {1}',
-        footer: true,
+        footer: false,
         labelFooter: '{0} - {1} of {2}',
-        placement: 'bottom',
-        rows: 4,
+        placement: 'bottom atuo',
+        rows: 3,
         search: true,
-        searchText: 'Search icon',
-        selectedClass: 'btn-warning',
-        unselectedClass: 'btn-secondary'
+        searchText: 'Search icons...',
+        selectedClass: 'btn-select',
+        unselectedClass: 'btn-default'
     };
 
     // ICONPICKER PRIVATE METHODS
@@ -83,7 +88,7 @@
         var el = this;
         op.table.find('.btn-previous, .btn-next').off('click').on('click', function(e) {
             e.preventDefault();
-            if(!$(this).hasClass('disabled')){
+            if (!$(this).hasClass('disabled')) {
                 var inc = parseInt($(this).val(), 10);
                 el.changeList(op.page + inc);
             }
@@ -91,10 +96,9 @@
         op.table.find('.btn-icon').off('click').on('click', function(e) {
             e.preventDefault();
             el.select($(this).val());
-            if(op.inline === false){
-                el.$element.popover(($.fn.bsVersion() === '3.x') ? 'destroy' : 'dispose');
-            }
-            else{
+            if (op.inline === false) {
+                el.$element.popover('dispose');
+            }else{
                 op.table.find("i[class$='" + $(this).val() + "']").parent().addClass(op.selectedClass);
             }
         });
@@ -164,7 +168,7 @@
                 el.find('i').attr('class', '').addClass(op.iconClass).addClass(icon);
             }
             if(icon === op.iconClassFix){
-                el.trigger({ type: "change", icon: 'empty' });
+                el.trigger({ type: "change", icon: 'null' });
             }
             else {
                 el.trigger({ type: "change", icon: icon });
@@ -213,16 +217,15 @@
         var op = this.options;
         var total_pages = this.totalPages();
         if (page === 1) {
-            op.table.find('.btn-previous').addClass('disabled');
-        }
-        else {
-            op.table.find('.btn-previous').removeClass('disabled');
+            op.table.find('.btn-previous').addClass('disabled').attr('disabled');
+        } else {
+            op.table.find('.btn-previous').removeClass('disabled').removeAttr('disabled');
         }
         if (page === total_pages || total_pages === 0) {
-            op.table.find('.btn-next').addClass('disabled');
+            op.table.find('.btn-next').addClass('disabled').attr('disabled');
         }
         else {
-            op.table.find('.btn-next').removeClass('disabled');
+            op.table.find('.btn-next').removeClass('disabled').removeAttr('disabled');
         }
     };
 
@@ -321,7 +324,7 @@
         var search = [
             '<tr>',
             '   <td colspan="' + op.cols + '">',
-            '       <input type="text" class="form-control search-control" style="width: ' + op.cols * (($.fn.bsVersion() === '3.x') ? 39 : 41) + 'px;" placeholder="' + op.searchText + '">',
+            '       <input type="text" class="form-control search-control" style="width: ' + op.cols * 36 + 'px;" placeholder="' + op.searchText + '">',
             '   </td>',
             '</tr>'
         ];
@@ -480,17 +483,16 @@
                     $this.empty()
                         .append('<i></i>')
                         .append('<input type="hidden" ' + name + '></input>')
-                        .append('<span class="caret"></span>')
-                        .addClass('iconpicker ' + (($.fn.bsVersion() === '3.x') ? '' : 'dropdown-toggle'));
+                        .addClass('iconpicker ');
                     data.setIconset(op.iconset);
                     $this.on('click', function(e) {
                         e.preventDefault();
                         $this.popover({
-                            animation: false,
+                            animation: true,
                             trigger: 'manual',
                             html: true,
                             content: op.table,
-                            container: 'body',
+                            container: '#eventAdd',
                             placement: op.placement
                         }).on('inserted.bs.popover', function() {
                             var el = $this.data('bs.popover');
@@ -540,7 +542,7 @@
             //the 'is' for buttons that trigger popups
             //the 'has' for icons within a button that triggers a popup
             if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                $(this).popover(($.fn.bsVersion() === '3.x') ? 'destroy' : 'dispose');
+                $(this).popover('dispose');
             }
         });
     });

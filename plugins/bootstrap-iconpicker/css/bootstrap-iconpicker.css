@@ -51,16 +51,14 @@ div.iconpicker.right .table-icons {
     min-width: 30px;
 }
 
-.popover {
-    max-width: inherit !important;
-}
-
-.iconpicker-popover {
+/*.iconpicker-popover {
   z-index: 1050 !important;
-}
+}*/
+
 .iconpicker-popover .popover-body {
     padding: .5rem
 }
+
 .iconpicker-popover .search-control {
     margin: .25rem auto;
 }
