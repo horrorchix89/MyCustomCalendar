@@ -15,6 +15,7 @@
 .iconpicker {
   min-width: 35px;
   padding: .25rem;
+  white-space: nowrap
 }
 .iconpicker i {
   font-size: 16px;
@@ -44,7 +45,7 @@ div.iconpicker.right .table-icons {
     min-width: 30px;
     text-align: center;
     padding: 0;
-    margin: 3px;
+    margin: 2px;
 }
 
 .table-icons td {
@@ -56,9 +57,9 @@ div.iconpicker.right .table-icons {
 }*/
 
 .iconpicker-popover .popover-body {
-    padding: .5rem
+    padding: 4.5px
 }
 
 .iconpicker-popover .search-control {
-    margin: .25rem auto;
+    margin: -1px auto 1.5px
 }

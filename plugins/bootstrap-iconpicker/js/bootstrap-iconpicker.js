@@ -322,7 +322,7 @@
       var search = [
          '<tr>',
          '   <td colspan="' + op.cols + '">',
-         '       <input type="text" class="form-control search-control" style="width: ' + op.cols * 36 + 'px;" placeholder="' + op.searchText + '">',
+         '       <input type="search" class="form-control search-control" style="width: ' + op.cols * 34.5 + 'px;" placeholder="' + op.searchText + '">',
          '   </td>',
          '</tr>'
       ];
@@ -473,7 +473,7 @@
                $this.empty()
                   .append('<i></i>')
                   .append('<input type="hidden" ' + name + '></input>')
-                  .addClass('iconpicker ');
+                  .addClass('iconpicker');
                data.setIconset(op.iconset);
                $this.on('click', function (e) {
                   e.preventDefault();
