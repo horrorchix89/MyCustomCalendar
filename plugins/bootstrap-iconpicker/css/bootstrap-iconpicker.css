@@ -8,12 +8,12 @@
 * ========================================================================
 */
 
-.iconpicker .caret {
+/*.iconpicker .caret {
     margin-left: 10px !important;
-}
+}*/
 
 .iconpicker {
-    min-width: 60px;
+    min-width: 1rem;
 }
 
 .iconpicker input.search-control {
@@ -36,14 +36,14 @@ div.iconpicker.right .table-icons {
 
 .table-icons .btn {
     min-height: 30px;
-    min-width: 35px;
+    min-width: 30px;
     text-align: center;
     padding: 0;
-    margin: 2px;
+    margin: 3px;
 }
 
 .table-icons td {
-    min-width: 39px;
+    min-width: 30px;
 }
 
 .popover {
@@ -53,8 +53,9 @@ div.iconpicker.right .table-icons {
 .iconpicker-popover {
   z-index: 1050 !important;
 }
-
+.iconpicker-popover .popover-body {
+    padding: .5rem
+}
 .iconpicker-popover .search-control {
-    margin-bottom: 6px;
-    margin-top: 6px;
+    margin: .25rem auto;
 }
