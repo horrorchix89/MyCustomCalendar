@@ -13,9 +13,14 @@
 }*/
 
 .iconpicker {
-    min-width: 1rem;
+  min-width: 35px;
+  padding: .25rem;
 }
-
+.iconpicker i {
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: middle
+}
 .iconpicker input.search-control {
     margin-bottom: 6px;
     margin-top: 6px;
