@@ -245,7 +245,7 @@
             var btn = $('<button class="btn ' + op.unselectedClass + ' btn-icon"></button>').hide();
             if (pos < op.icons.length) {
                var v = op.iconClassFix + op.icons[pos];
-               btn.val(v).attr('title', v).append('<i class="' + op.iconClass + ' ' + v + '"></i>').show();
+               btn.val(v).attr('title', v).append('<i class="'+ op.iconClass +' '+ v +'"></i>').show();
                if (op.icon === v) {
                   btn.addClass(op.selectedClass).addClass('btn-icon-selected');
                }
@@ -482,7 +482,7 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: false,
+                     container: '.popparent',
                      placement: op.placement
                   }).on('inserted.bs.popover', function () {
                      var el = $this.data('bs.popover');

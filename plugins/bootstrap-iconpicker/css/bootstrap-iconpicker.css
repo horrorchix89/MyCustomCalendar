@@ -39,25 +39,38 @@ div.iconpicker.center .table-icons {
 div.iconpicker.right .table-icons {
     margin-left: auto;
 }
-
+.iconpicker table {
+    margin: 0;
+    max-width: 100%;
+    border: 0;
+}
 .table-icons .btn {
-    min-height: 30px;
-    min-width: 30px;
+    height: 30px;
+    width: 30px;
     text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
     padding: 0;
     margin: 2px;
 }
-
+.table-icons i {
+    font-size: 16px
+}
 .table-icons td {
     min-width: 30px;
 }
-
-/*.iconpicker-popover {
+.table-icons td,
+.table-icons th {
+    padding: 0;
+}
+.iconpicker-popover {
   z-index: 1050 !important;
-}*/
+}
 
 .iconpicker-popover .popover-body {
-    padding: 4.5px
+    padding: 5px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
 }
 
 .iconpicker-popover .search-control {
