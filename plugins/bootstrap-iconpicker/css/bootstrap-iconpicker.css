@@ -38,8 +38,7 @@ div.iconpicker.right .table-icons {
 
 .iconpicker table {
    margin: 0;
-   max-width: 100%;
-   border: 0
+   max-width: 100%
 }
 
 .table-icons .btn {
@@ -47,7 +46,6 @@ div.iconpicker.right .table-icons {
    width: 30px;
    text-align: center;
    vertical-align: middle;
-   white-space: nowrap;
    padding: 0;
    margin: 2px
 }
@@ -66,7 +64,9 @@ div.iconpicker.right .table-icons {
 }
 
 .iconpicker-popover.popover {
-   z-index: 1050!important
+   font-family: "Roboto", sans-serif;
+   font-size: .875rem;
+   z-index: 1050 !important
 }
 
 .iconpicker-popover .popover-body {
@@ -76,5 +76,5 @@ div.iconpicker.right .table-icons {
 }
 
 .iconpicker-popover .search-control {
-   margin: 2.25px auto
+   margin: 4px auto
 }
