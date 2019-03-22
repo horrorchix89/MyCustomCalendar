@@ -412,7 +412,16 @@
 				}],
 				[$(document), {
 					'mousedown touchstart': $.proxy(function(e){
-						// Clicked outside the datepicker, hide it
+						this.touchPos = $(window).scrollTop();
+					}, this)
+				}],
+				[$(document), {
+					'mousedown touchend': $.proxy(function(e){
+                        //If scroll position didnt meaningfully change, then dont hide datepicker
+                        if (e.type === 'touchend' && (Math.abs(this.touchPos - $(window).scrollTop()) > 3)){
+                            return;
+                            }
+                        // Clicked outside the datepicker, hide it
 						if (!(
 							this.element.is(e.target) ||
 							this.element.find(e.target).length ||
