@@ -482,7 +482,7 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: '#eventAddBody',
+                     container: false,
                      placement: op.placement
                   }).on('inserted.bs.popover', function () {
                      var el = $this.data('bs.popover');
