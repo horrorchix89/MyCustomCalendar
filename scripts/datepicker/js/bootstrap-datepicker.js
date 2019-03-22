@@ -475,6 +475,7 @@
 			this._trigger('show');
 			if ((window.navigator.msMaxTouchPoints || 'ontouchstart' in document) && this.o.disableTouchKeyboard) {
 				$(this.element).blur();
+                $(this.inputField).blur();
 			}
 			return this;
 		},
@@ -1151,12 +1152,12 @@
 					factor *= 10;
 					/* falls through */
 				case 1:
-					prevIsDisabled = Math.floor(year / factor) * factor < startYear;
+					prevIsDisabled = Math.floor(year / factor) * factor <= startYear;
 					nextIsDisabled = Math.floor(year / factor) * factor + factor > endYear;
 					break;
 				case 0:
-					prevIsDisabled = year <= startYear && month < startMonth;
-					nextIsDisabled = year >= endYear && month > endMonth;
+					prevIsDisabled = year <= startYear && month <= startMonth;
+					nextIsDisabled = year >= endYear && month >= endMonth;
 					break;
 			}
 
