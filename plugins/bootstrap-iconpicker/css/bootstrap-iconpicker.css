@@ -8,71 +8,73 @@
 * ========================================================================
 */
 
+
 /*.iconpicker .caret {
     margin-left: 10px !important;
 }*/
 
 .iconpicker {
-  min-width: 35px;
-  padding: .25rem;
-  white-space: nowrap
+   min-width: 33.5px;
+   padding: 3px
 }
-.iconpicker i {
-  font-size: 16px;
-  line-height: 1;
-  vertical-align: middle
-}
+
 .iconpicker input.search-control {
-    margin-bottom: 6px;
-    margin-top: 6px;
+   margin-bottom: 6px;
+   margin-top: 6px
 }
 
 div.iconpicker.left .table-icons {
-    margin-right: auto;
+   margin-right: auto
 }
 
 div.iconpicker.center .table-icons {
-    margin-left: auto;
-    margin-right: auto;
+   margin-left: auto;
+   margin-right: auto
 }
 
 div.iconpicker.right .table-icons {
-    margin-left: auto;
+   margin-left: auto
 }
+
 .iconpicker table {
-    margin: 0;
-    max-width: 100%;
-    border: 0;
+   margin: 0;
+   max-width: 100%;
+   border: 0
 }
+
 .table-icons .btn {
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    vertical-align: middle;
-    white-space: nowrap;
-    padding: 0;
-    margin: 2px;
+   height: 30px;
+   width: 30px;
+   text-align: center;
+   vertical-align: middle;
+   white-space: nowrap;
+   padding: 0;
+   margin: 2px
 }
+
 .table-icons i {
-    font-size: 16px
+   font-size: 16px
 }
+
 .table-icons td {
-    min-width: 30px;
+   min-width: 30px
 }
-.table-icons td,
-.table-icons th {
-    padding: 0;
+
+.table-icons th,
+.table-icons td {
+   padding: 0
 }
-.iconpicker-popover {
-  z-index: 1050 !important;
+
+.iconpicker-popover.popover {
+   z-index: 1050!important
 }
 
 .iconpicker-popover .popover-body {
-    padding: 5px;
-    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+   padding: 5px;
+   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+   box-shadow: 0 5px 10px rgba(0, 0, 0, .25)
 }
 
 .iconpicker-popover .search-control {
-    margin: 0 auto .5px
+   margin: 2.25px auto
 }
