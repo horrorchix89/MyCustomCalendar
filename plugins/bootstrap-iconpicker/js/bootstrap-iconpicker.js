@@ -482,7 +482,8 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: false,
+                     container: '#iconpicker',
+                     offset: '57.5px',
                      placement: op.placement
                   }).on('inserted.bs.popover', function () {
                      var el = $this.data('bs.popover');
