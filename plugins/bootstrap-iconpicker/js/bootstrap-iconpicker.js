@@ -482,7 +482,7 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: '#eventAddBody',
+                     container: '#popparent',
                      offset: '57.5px',
                      placement: op.placement
                   }).on('inserted.bs.popover', function () {
