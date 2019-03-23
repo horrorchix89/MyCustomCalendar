@@ -482,7 +482,7 @@
                      trigger: 'manual',
                      html: true,
                      content: op.table,
-                     container: '#popparent',
+                     container: '.modal-body',
                      boundary: 'viewport',
                      offset: '57.5px',
                      placement: op.placement
