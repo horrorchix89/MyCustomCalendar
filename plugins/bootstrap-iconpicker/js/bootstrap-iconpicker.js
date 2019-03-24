@@ -15,7 +15,7 @@
          icons: [],
          allVersions: [{
             version: "1.0.0",
-            icons: ["empty", "icon-block","icon-attention","icon-attention-circled", "icon-globe", "icon-ios-globe", "icon-ios-world", "icon-ios-world-outline", "icon-earth","icon-diamond","icon-diamond-sm", "icon-diamond-1", "icon-plane", "icon-glass", "icon-ios-airplane", "icon-heart", "icon-heart-1", "icon-heart-broken", "icon-ios-heart-o", "icon-ios-home", "icon-ios-home-outline", "icon-suitcase", "icon-ios-car", "icon-snowflake-o", "icon-star","icon-star-outline","icon-ios-star-outline","icon-ios-star", "icon-ios-moon", "icon-moon-outline","icon-settings","icon-sun-inv", "icon-sun", "icon-umbrella", "icon-ios-rose","icon-ios-rose-outline"]
+            icons: ["empty", "icon-block","icon-attention","icon-attention-circled", "icon-world-globe", "icon-ios-world", "icon-ios-world-outline", "icon-ios-world-outline", "icon-earth","icon-diamond","icon-diamond-sm", "icon-diamond-o", "icon-diamond-alt", "icon-plane", "icon-glass", "icon-heart", "icon-heart-alt", "icon-heart-alt-o", "icon-heart-broken", "icon-ios-heart","icon-ios-heart-o", "icon-ios-home", "icon-ios-home-outline", "icon-suitcase", "icon-ios-car", "icon-car-model-s", "icon-snowflake-o", "icon-star","icon-star-outline","icon-ios-star-outline","icon-ios-star", "icon-ios-moon", "icon-moon-outline","icon-settings","icon-sun-inv", "icon-sun", "icon-umbrella", "icon-ios-rose","icon-ios-rose-outline"]
          }]
       },
       l = data.allVersions.length;
