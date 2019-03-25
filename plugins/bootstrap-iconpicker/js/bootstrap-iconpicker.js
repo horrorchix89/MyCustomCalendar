@@ -322,7 +322,7 @@
       var search = [
          '<tr>',
          '   <td colspan="' + op.cols + '">',
-         '       <input type="search" class="form-control search-control" style="width: ' + op.cols * 33 + 'px;" placeholder="' + op.searchText + '">',
+         '       <input type="search" class="form-control search-control" style="width: ' + op.cols * 33 + 'px;" autocapitalize="none" placeholder="' + op.searchText + '">',
          '   </td>',
          '</tr>'
       ];
