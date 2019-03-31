@@ -21,17 +21,12 @@
 */
  
 .cutie {
-  font-family: "cutie";
-  font-style: normal;
-  font-weight: normal;
-  speak: none;
-  display: inline-block;
+  font: normal normal normal 14px/1 cutie;
   font-size: inherit;
+  speak: none;
   text-rendering: auto; 
   display: inline-block;
   text-decoration: inherit;
- /*width: 1em;
-  margin-right: .2em;*/
   text-align: center;
   /* opacity: .8; */
  
@@ -39,15 +34,6 @@
   font-variant: normal;
   text-transform: none; 
   text-rendering: auto;
- 
-  /* fix buttons height, for twitter bootstrap */
-  line-height: 1em;
- 
-  /* Animation center compensation - margins should be symmetric */
-  /* remove if not needed */
-  /*margin-left: .2em;*/
- 
-  /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
  
   /* Font smoothing. That was taken from TWBS */
