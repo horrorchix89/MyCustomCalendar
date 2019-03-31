@@ -20,12 +20,14 @@
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+.cutie {
   font-family: "cutie";
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
+  display: inline-block;
+  font-size: inherit;
+  text-rendering: auto; 
   display: inline-block;
   text-decoration: inherit;
  /*width: 1em;
@@ -39,7 +41,7 @@
   text-rendering: auto;
  
   /* fix buttons height, for twitter bootstrap */
-  line-height: 1;
+  line-height: 1em;
  
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
@@ -54,12 +56,6 @@
  
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
-}
-.cutie {
- display: inline-block;
- font: normal normal normal 14px/1 cutie;
- font-size: inherit;
- text-rendering: auto
 }
 .cf-xs {
     font-size: .25em;
@@ -85,7 +81,7 @@
   font-size: 5em;
 }
 .cf-ew {
-  width: 1.28571429em;
+  width: 1em;
   text-align: center;
 }
 /*
@@ -97,10 +93,7 @@
   -webkit-animation: spin 2s 1 linear;
   animation: spin 2s 1 linear;
 }
-.animate-spin[class^="icon-"]:before,
-.animate-spin[class^="icon-"]:before {
-  display:block !important;
-}
+
 @-moz-keyframes spin {
   0% {
     -webkit-transform: rotate(0deg);
