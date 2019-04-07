@@ -21,11 +21,18 @@
 */
  
 .cutie {
-  font: normal normal normal 14px/1 cutie;
+  font-family: cutie;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: normal;
   font-size: inherit;
   speak: none;
   text-rendering: auto; 
   display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
   text-decoration: inherit;
   text-align: center;
   /* opacity: .8; */
@@ -66,10 +73,11 @@
 .cf-5x {
   font-size: 5em;
 }
-.cf-ew {
+.cf-equal-w {
   width: 1em;
   text-align: center;
 }
+
 /*
    Animation example, for spinners
 */
