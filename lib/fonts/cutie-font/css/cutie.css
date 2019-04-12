@@ -79,14 +79,12 @@
   text-align: center;
 }
 
-/*
-   Animation example, for spinners
-*/
+/* Animation example, for spinners */
 .animate-spin {
-  -moz-animation: spin 2s 1 linear;
-  -o-animation: spin 2s 1 linear;
-  -webkit-animation: spin 2s 1 linear;
-  animation: spin 2s 1 linear;
+  -moz-animation: spin 2s linear;
+  -o-animation: spin 2s linear;
+  -webkit-animation: spin 2s linear;
+  animation: spin 2s linear;
 }
 
 @-moz-keyframes spin {
