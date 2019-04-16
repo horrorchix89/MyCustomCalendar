@@ -6,7 +6,7 @@
        url('../font/cutie.woff?65673543') format('woff'),
        url('../font/cutie.ttf?65673543') format('truetype'),
        url('../font/cutie.svg?65673543#cutie') format('svg');
-  font-weight: 400;
+  font-weight: normal;
   font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -21,73 +21,72 @@
 */
  
 .cutie {
-  font-family: 'cutie';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
   display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-  speak: none;
+  font: normal normal normal 14px/1 'cutie';
+  font-size: inherit;
   text-rendering: auto;
-  text-decoration: none;
-  text-align: center;
-  /* opacity: .8; */
- 
-  /* For safety - reset parent styles, that can break glyph codes*/
-  font-variant: normal;
-  /* font-size: 120%; */
- 
-  /* Font smoothing. That was taken from TWBS */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-transform: none;
+  word-wrap: normal;
+  white-space: nowrap;
+  speak: none;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  
+  /* opacity: .8; */
  
-  /* Uncomment for 3D effect */
-  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  font-variant: normal;
+  
+  /* font-size: 120%; */
 }
 
-.cf-xs {
-    font-size: .25em;
+.cute-3d {
+   text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
 }
-
-.cf-sm {
-    font-size: .5em
+/*------------------------
+  change icon size
+-------------------------*/
+.cute-xs {
+  font-size: .5em;
 }
-.cf-lg {
+.cute-sm {
+  font-size: .75em;
+}
+.cute-md {
+  font-size: .875em;
+}
+.cute-lg {
   font-size: 1.33333333em;
   line-height: 0.75em;
   vertical-align: -15%;
 }
-.cf-2x {
+.cute-2x {
   font-size: 2em;
 }
-.cf-3x {
+.cute-3x {
   font-size: 3em;
 }
-.cf-4x {
+.cute-4x {
   font-size: 4em;
 }
-.cf-5x {
+.cute-5x {
   font-size: 5em;
 }
-.cf-equal-w {
-  width: 1em;
+.cute-fw {
+  width: 1.286em;
   text-align: center;
 }
 
 /* Animation example, for spinners */
-.animate-spin {
-  -moz-animation: spin 2s linear;
-  -o-animation: spin 2s linear;
-  -webkit-animation: spin 2s linear;
-  animation: spin 2s linear;
+.cute-spin {
+  -moz-animation: cute-spin 2s linear;
+  -webkit-animation: cute-spin 2s linear;
+  animation: cute-spin 2s linear;
 }
 
-@-moz-keyframes spin {
+@-moz-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -97,7 +96,7 @@
     transform: rotate(359deg);
   }
 }
-@-webkit-keyframes spin {
+@-webkit-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -107,7 +106,7 @@
     transform: rotate(359deg);
   }
 }
-@-o-keyframes spin {
+@-o-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -117,7 +116,7 @@
     transform: rotate(359deg);
   }
 }
-@-ms-keyframes spin {
+@-ms-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -127,14 +126,20 @@
     transform: rotate(359deg);
   }
 }
-@keyframes spin {
+@keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
   }
 }
 
