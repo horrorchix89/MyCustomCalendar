@@ -63,7 +63,7 @@
    // ==============================
    Iconpicker.DEFAULTS = {
       align: 'center',
-      arrowClass: 'cutie',
+      arrowClass: '',
       arrowNextIconClass: 'icon-ios-arrow-forward',
       arrowPrevIconClass: 'icon-ios-arrow-back',
       cols: 4,
