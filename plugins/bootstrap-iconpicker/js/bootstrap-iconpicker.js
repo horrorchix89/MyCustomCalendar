@@ -10,8 +10,8 @@
 
 ! function ($) {
    var data = {
-         iconClass: "cutie",
-         iconClassFix: "",
+         iconClass: 'cutie',
+         iconClassFix: '',
          icons: [],
          allVersions: [{
             version: "1.0.0",
@@ -63,7 +63,7 @@
    // ==============================
    Iconpicker.DEFAULTS = {
       align: 'center',
-      arrowClass: '',
+      arrowClass: 'cutie',
       arrowNextIconClass: 'icon-ios-arrow-forward',
       arrowPrevIconClass: 'icon-ios-arrow-back',
       cols: 4,
