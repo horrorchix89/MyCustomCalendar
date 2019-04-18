@@ -10,7 +10,7 @@
 
 ! function ($) {
    var data = {
-         iconClass: "",
+         iconClass: "cutie",
          iconClassFix: "",
          icons: [],
          allVersions: [{
@@ -20,7 +20,7 @@
       },
       l = data.allVersions.length;
    data.icons = data.allVersions[l - 1].icons,
-      $.iconset_cutiesicon = data
+      $.iconset_cutie = data
 }(jQuery);
 
 ! function ($) {
@@ -56,7 +56,7 @@
    // ==============================
    Iconpicker.ICONSET = {
       _custom: null,
-      cutiesicons: $.iconset_cutiesicon || Iconpicker.ICONSET_EMPTY
+      cutie: $.iconset_cutie || Iconpicker.ICONSET_EMPTY
    };
 
    // ICONPICKER DEFAULTS
@@ -68,7 +68,7 @@
       arrowPrevIconClass: 'icon-ios-arrow-back',
       cols: 4,
       icon: '',
-      iconset: 'cutiesicons',
+      iconset: 'cutie',
       iconsetVersion: 'lastest',
       header: true,
       labelHeader: '{0} / {1}',
