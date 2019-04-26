@@ -22,18 +22,18 @@
  
 .cutie {
   display: inline-block;
-  font: normal normal normal 14px/1 'cutie';
-  font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "cutie";
+  font-size: 16px;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1em;
+  text-rendering: optimizeLegibility;
   text-transform: none;
-  word-wrap: normal;
-  white-space: nowrap;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
   speak: none;
   text-decoration: none;
-  text-align: center;
-  vertical-align: middle;
   
   /* opacity: .8; */
  
@@ -51,98 +51,102 @@
 .cute-xs {
   font-size: .5em;
 }
+
 .cute-sm {
   font-size: .75em;
 }
+
 .cute-md {
   font-size: .875em;
 }
+
 .cute-lg {
-  font-size: 1.33333333em;
+  font-size: 1.333em;
   line-height: 0.75em;
-  vertical-align: -15%;
+  vertical-align: -.0667em;
 }
+
+.cute-1x {
+  font-size: 1em;
+}
+  
 .cute-2x {
   font-size: 2em;
 }
+
 .cute-3x {
   font-size: 3em;
 }
+
 .cute-4x {
   font-size: 4em;
 }
+
 .cute-5x {
   font-size: 5em;
 }
+
 .cute-fw {
-  width: 1.286em;
+  width: 1.25em;
   text-align: center;
 }
 
+.cutie-border {
+  border: solid 0.08em #eee;
+  border-radius: .1em;
+  padding: .2em .25em .15em; 
+}
+
 /* Animation example, for spinners */
-.cute-spin {
-  -moz-animation: cute-spin 2s linear;
+.cute-spin-1x {
   -webkit-animation: cute-spin 2s linear;
-  animation: cute-spin 2s linear;
+     -moz-animation: cute-spin 2s linear;
+          animation: cute-spin 2s linear;
+}
+
+.cute-spin {
+  -webkit-animation: cute-spin 2s infinite linear;
+     -moz-animation: cute-spin 2s infinite linear;
+          animation: cute-spin 2s infinite linear;
 }
 
 @-moz-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
+    -webkit-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @-webkit-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-@-o-keyframes cute-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-@-ms-keyframes cute-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(359deg);
-    transform: rotate(359deg);
-  }
-}
-@keyframes cute-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 
+@keyframes cute-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+       -moz-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+       -moz-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
  
 .icon-angle-double-down:before { content: '\f103'; } /* '' */
 .icon-angle-double-left:before { content: '\e83e'; } /* '' */
