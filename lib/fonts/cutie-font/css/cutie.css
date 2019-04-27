@@ -31,7 +31,6 @@
   text-transform: none;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-smoothing: antialiased;
   speak: none;
   text-decoration: none;
   
@@ -91,7 +90,7 @@
   text-align: center;
 }
 
-.cutie-border {
+.cute-border {
   border: solid 0.08em #eee;
   border-radius: .1em;
   padding: .2em .25em .15em; 
