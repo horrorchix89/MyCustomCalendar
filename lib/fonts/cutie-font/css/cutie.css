@@ -6,7 +6,7 @@
        url('../font/cutie.woff?65673543') format('woff'),
        url('../font/cutie.ttf?65673543') format('truetype'),
        url('../font/cutie.svg?65673543#cutie') format('svg');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
@@ -21,12 +21,12 @@
 */
  
 .cutie {
-  display: inline-block;
   font-family: "cutie";
   font-size: 16px;
   font-style: normal;
+  font-weight: 400;
   font-variant: normal;
-  line-height: 1em;
+  line-height: 1;
   text-rendering: optimizeLegibility;
   text-transform: none;
   -moz-osx-font-smoothing: grayscale;
@@ -35,15 +35,9 @@
   text-decoration: none;
   
   /* opacity: .8; */
- 
-  font-variant: normal;
-  
   /* font-size: 120%; */
 }
 
-.cute-3d {
-   text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
-}
 /*------------------------
   change icon size
 -------------------------*/
@@ -85,6 +79,13 @@
   font-size: 5em;
 }
 
+/*------------------------
+  change icon options
+-------------------------*/
+.cute-3d {
+   text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+}
+
 .cute-fw {
   width: 1.25em;
   text-align: center;
@@ -96,7 +97,7 @@
   padding: .2em .25em .15em; 
 }
 
-/* Animation example, for spinners */
+/* Animation for spinners */
 .cute-spin-1x {
   -webkit-animation: cute-spin 2s linear;
      -moz-animation: cute-spin 2s linear;
@@ -121,6 +122,7 @@
             transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
