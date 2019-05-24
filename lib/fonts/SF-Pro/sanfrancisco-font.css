@@ -99,29 +99,29 @@
 @font-face {
     font-family: 'SF Pro Text 300';
     src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_light.eot");
-    /* (C) 2015 Apple Inc. All rights reserved.*/
 }
 
 /** Regular */
 @font-face {
-    font-family: 'SF Pro Text';
-    font-style: normal;
-    font-weight: 400;
-    src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-Regular.otf");
-    src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.eot");
-    src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.woff2") format("woff2"), 
-      url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.woff") format("woff"), 
-      url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.ttf") format("truetype");
-    /* (C) 2015 Apple Inc. All rights reserved.*/
+	font-family: 'SF Pro Text';
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.eot");
+	src: local('☺︎'), 
+    url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-Regular.otf") format("opentype"),
+    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.woff2") format("woff2"), 
+    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.woff") format("woff"), 
+    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular.ttf") format("truetype");
 }
 
 /** Regular Italic */
 @font-face {
-  font-family: "SF Pro Text";
-  font-weight: 400;
-  font-style: italic;
-  src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-RegularItalic.otf");
-  src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular-italic.woff2") format("woff2"), 
+	font-family: 'SF Pro Text';
+	font-style: italic;
+	font-weight: 400;
+	src: local('☺︎'), 
+    url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-RegularItalic.otf") format("opentype"),
+    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular-italic.woff2") format("woff2"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular-italic.woff") format("woff"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_regular-italic.ttf") format("truetype");
 }
@@ -131,8 +131,8 @@
   font-family: "SF Pro Text";
   font-style: normal;
   font-weight: 500;
-  src: url("horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-Medium.otf");
   src: local('â˜ºï¸Ž'), 
+    url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-Medium.otf") format("opentype"),
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium.woff2") format("woff2"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium.woff") format("woff"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium.ttf") format("truetype");
@@ -143,9 +143,8 @@
   font-family: "SF Pro Text";
   font-weight: 500;
   font-style: italic;
-  src: url("horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-MediumItalic.otf");
-  src: local('â˜ºï¸Ž'),
-    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium-italic.woff2") format("woff2"), 
+  src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-MediumItalic.otf") format("opentype");
+  src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium-italic.woff2") format("woff2"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium-italic.woff") format("woff"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_medium-italic.ttf") format("truetype");
 }
@@ -189,9 +188,9 @@
 @font-face {
   font-family: "SF Pro Text";
   font-weight: 700;
+  font-style: normal;
   src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Text-Bold.otf");
-  src: local('â˜ºï¸Ž'), 
-    url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_bold.woff2") format("woff2"), 
+  src: url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_bold.woff2") format("woff2"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_bold.woff") format("woff"), 
     url("https://www.apple.com/wss/fonts/SF-Pro-Text/v2/sf-pro-text_bold.ttf") format("truetype");
 }
