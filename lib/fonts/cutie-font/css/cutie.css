@@ -22,17 +22,23 @@
  
 .cutie {
   font-family: "cutie";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  font-variant: normal;
-  line-height: 1;
-  text-rendering: optimizeLegibility;
-  text-transform: none;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  speak: none;
-  text-decoration: none;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    font-variant: normal;
+    speak: none;
+    text-decoration: none
   
   /* opacity: .8; */
   /* font-size: 120%; */
