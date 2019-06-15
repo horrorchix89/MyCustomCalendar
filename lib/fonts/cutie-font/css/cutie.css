@@ -27,17 +27,13 @@
   display: inline-block;
   font-size: inherit;
   font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
   line-height: 1;
   letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-OS X-font-smoothing: grayscale;
-  text-align: center;
-  font-variant: normal;
+  -moz-osx-font-smoothing: grayscale;
   speak: none;
   text-decoration: none
   
@@ -107,55 +103,37 @@
 /* Animation for spinners */
 .cute-spin-1x {
   -webkit-animation: cute-spin 2s linear;
-     -moz-animation: cute-spin 2s linear;
           animation: cute-spin 2s linear;
 }
 
 .cute-spin {
   -webkit-animation: cute-spin 2s infinite linear;
-     -moz-animation: cute-spin 2s infinite linear;
           animation: cute-spin 2s infinite linear;
-}
-
-@-moz-keyframes cute-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-       -moz-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
 }
 
 @-webkit-keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-       -moz-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
 
 @keyframes cute-spin {
   0% {
     -webkit-transform: rotate(0deg);
-       -moz-transform: rotate(0deg);
             transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(360deg);
-       -moz-transform: rotate(360deg);
-            transform: rotate(360deg);
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
   }
 }
  
+/* cutie icon list*/
 .icon-angle-double-down:before { content: '\f103'; } /* '' */
 .icon-angle-double-left:before { content: '\e83e'; } /* '' */
 .icon-angle-double-right:before { content: '\e83d'; } /* '' */
