@@ -22,19 +22,20 @@
  
 .cutie {
   font-family: "cutie";
-  font-weight: 400;
+  color: inherit;
   display: inline-block;
-  font-size: inherit;
   font-style: normal;
+  font-weight: normal;
+  font-size: inherit;
+  line-height: 1;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
   font-variant: normal;
-  text-transform: none;
   text-rendering: auto;
-  line-height: 1em;
-  letter-spacing: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   speak: none;
-  text-decoration: none
   
   /* opacity: .8; */
   /* font-size: 120%; */
