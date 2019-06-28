@@ -123,22 +123,22 @@
 }
 
 @-webkit-keyframes cute-spin {
-  0% {
+  from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  100% {
+  to {
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg);
   }
 }
 
 @keyframes cute-spin {
-  0% {
+  from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  100% {
+  to {
     -webkit-transform: rotate(359deg);
             transform: rotate(359deg);
   }
