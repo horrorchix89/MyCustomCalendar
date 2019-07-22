@@ -25,17 +25,19 @@
   color: inherit;
   display: inline-block;
   font-style: normal;
-  font-weight: normal;
-  font-size: inherit;
+  font-variant: normal;
+  font-weight: 400;
   line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
   text-decoration: none;
   position: relative;
   z-index: 1;
-  font-variant: normal;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  speak: none;
   
   /* opacity: .8; */
   /* font-size: 120%; */

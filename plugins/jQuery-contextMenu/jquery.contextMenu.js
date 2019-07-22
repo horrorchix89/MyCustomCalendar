@@ -1335,13 +1335,13 @@
                                 item._icon = item.icon.call(this, this, $t, key, item);
                             } else {
                                 if (typeof(item.icon) === 'string' && (
-                                    item.icon.substring(0, 4) === 'fa '
-                                    || item.icon.substring(0, 4) === 'fa '
-                                    || item.icon.substring(0, 4) === 'fa '
-                                    || item.icon.substring(0, 4) === 'fa ')
+                                    item.icon.substring(0, 4) === 'fab '
+                                    || item.icon.substring(0, 4) === 'fas '
+                                    || item.icon.substring(0, 4) === 'far '
+                                    || item.icon.substring(0, 4) === 'fal ')
                                 ) {
                                     // to enable font awesome
-                                    $t.addClass(root.classNames.icon + ' ' + root.classNames.icon + '--fa4');
+                                    $t.addClass(root.classNames.icon + ' ' + root.classNames.icon + '--fa5');
                                     item._icon = $('<i class="' + item.icon + '"></i>');
                                 } else if (typeof(item.icon) === 'string' && item.icon.substring(0, 3) === 'fa-') {
                                     item._icon = root.classNames.icon + ' ' + root.classNames.icon + '--fa fa ' + item.icon;
