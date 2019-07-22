@@ -112,16 +112,16 @@
 /* Animation for spinners */
 .cute-spin-1x {
   display: block;
-  height: 0.8125;
-  line-height: 0.91;
+  height: 0.8125em;
+  line-height: 0.91em;
   -webkit-animation: cute-spin 2s linear;
           animation: cute-spin 2s linear;
 }
 
 .cute-spin {
   display: block;
-  height: 0.8125;
-  line-height: 0.91;
+  height: 0.8125em;
+  line-height: 0.91em;
   -webkit-animation: cute-spin 2s infinite linear;
           animation: cute-spin 2s infinite linear;
 }
