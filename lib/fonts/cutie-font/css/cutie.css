@@ -1,13 +1,13 @@
 @font-face {
-  font-family: ‘cutie’;
+  font-family: 'cutie';
+  font-style: normal;
+  font-weight: 400;
   src: url(‘../font/cutie.eot?65673543’);
   src: url(‘../font/cutie.eot?65673543#iefix’) format(‘embedded-opentype’),
        url(‘../font/cutie.woff2?65673543’) format(‘woff2’),
        url(‘../font/cutie.woff?65673543’) format(‘woff’),
        url(‘../font/cutie.ttf?65673543’) format(‘truetype’),
        url(‘../font/cutie.svg?65673543#cutie’) format(‘svg’);
-  font-weight: 400;
-  font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -21,19 +21,22 @@
 */
  
 .cutie {
-  font-family: cutie;
-  color: inherit;
+  font-family: 'cutie';
   display: inline-block;
   font-size: inherit;
-  line-height: 1;
-  text-transform: none;
+  font-style: normal;
+	font-weight: normal;
+	text-align: center;
+	text-transform: none;
+	line-height: 1;
+	letter-spacing: normal;
   white-space: nowrap;
-  speak: none;
   word-wrap: normal;
-  text-decoration: none;
-  text-rendering: auto;
+  direction: ltr;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
+  speak: none;
   
   /* opacity: .8; */
   /* font-size: 120%; */
@@ -84,7 +87,7 @@
   change icon options
 -————————*/
 .cute-3d {
-   text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3);
+   text-shadow: 1px 1px 2px rgba(127, 127, 127, 0.4);
 }
 
 .cute-fw {
@@ -92,6 +95,12 @@
   text-align: center;
 }
 
+.cute-center {
+  margin-right: .2em;
+  margin-left: .2em;
+  text-align: center;
+}
+  
 .cute-border {
   position: relative;
   z-index: 1;
@@ -127,7 +136,6 @@
 }
 
 @-webkit-keyframes cute-spin {
-<<<<<<< HEAD
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -139,7 +147,6 @@
 }
 
 @keyframes cute-spin {
-<<<<<<< HEAD
   from {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
