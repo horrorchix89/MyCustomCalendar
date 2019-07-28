@@ -21,8 +21,7 @@
 */
  
 .cutie {
-  font-family: cutie;
-  color: inherit;
+  font-family: 'cutie';
   display: inline-block;
   font-size: inherit;
   line-height: 1;
