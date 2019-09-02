@@ -586,6 +586,23 @@
 }
 
 @font-face {
+  font-family: 'SF Mono';
+  font-style: italic;
+  font-weight: 400;
+  src: local('â˜ºï¸Ž'), url("https://www.apple.com/wss/fonts/SF-Mono/v1/sf-mono_regular-italic.woff") format("woff"), url("https://www.apple.com/wss/fonts/SF-Mono/v1/sf-mono_regular-italic.ttf") format("truetype");
+  /* (C) 2015 Apple Inc. All rights reserved.*/
+}
+
+@font-face {
+  font-family: 'SF Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://www.apple.com/wss/fonts/SF-Mono/v1/sf-mono_regular.eot");
+  src: local('â˜ºï¸Ž'), url("https://www.apple.com/wss/fonts/SF-Mono/v1/sf-mono_regular.woff") format("woff"), url("https://www.apple.com/wss/fonts/SF-Mono/v1/sf-mono_regular.ttf") format("truetype");
+  /* (C) 2015 Apple Inc. All rights reserved.*/
+}
+
+@font-face {
      font-family:'SF Pro Text';
      font-style:normal;
      font-weight:400;

@@ -19,7 +19,7 @@
          }]
       },
       l = data.allVersions.length;
-   data.icons = data.allVersions[l - 1].icons,
+      data.icons = data.allVersions[l - 1].icons,
       $.iconset_cutie = data
 }(jQuery);
 
@@ -31,7 +31,7 @@
    var Iconpicker = function (element, options) {
 
       if (typeof $.fn.popover === 'undefined' || typeof $.fn.popover.Constructor.VERSION === 'undefined') {
-         throw new TypeError('Bootstrap iconpicker require Bootstrap popover');
+         throw new TypeError('Bootstrap iconpicker requires Bootstrap Popover');
       }
 
       this.$element = $(element);
