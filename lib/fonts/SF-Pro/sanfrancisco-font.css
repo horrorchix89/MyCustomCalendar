@@ -19,9 +19,9 @@
 	font-weight:100;
   src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Display-Ultralight.otf");
 	src:local('â˜ºï¸Ž'), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.woff2") format("woff2"), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.woff") format("woff"), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.ttf") format("truetype");
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.woff2") format("woff2"), 
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.woff") format("woff"), 
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight.ttf") format("truetype");
 	/* (C) 2015 Apple Inc. All rights reserved.*/
 }
 
@@ -31,9 +31,9 @@
 	font-weight:100;
   src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Display-UltralightItalic.otf");
 	src:local('â˜ºï¸Ž'), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.woff2") format("woff2"), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.woff") format("woff"), 
-	url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.ttf") format("truetype");
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.woff2") format("woff2"), 
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.woff") format("woff"), 
+	url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_ultralight-italic.ttf") format("truetype");
 	/* (C) 2015 Apple Inc. All rights reserved.*/
 }
 
@@ -63,7 +63,7 @@
 
 @font-face {
 	font-family:'SF Pro Display 200';
-	src:url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_thin.eot");
+	src:url("//www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_thin.eot");
 	/* (C) 2015 Apple Inc. All rights reserved.*/
 }
 
@@ -71,7 +71,7 @@
 	font-family:'SF Pro Display';
 	font-style:normal;
 	font-weight:300;
-  src: url("https://horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Display-Light.otf");
+  src: url("//horrorchix89.github.io/MyCustomCalendar/lib/fonts/SF-Pro/SF-Pro-Display-Light.otf");
 	src:local('â˜ºï¸Ž'), url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_light.woff2") format("woff2"), url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_light.woff") format("woff"), url("https://www.apple.com/wss/fonts/SF-Pro-Display/v2/sf-pro-display_light.ttf") format("truetype");
 	/* (C) 2015 Apple Inc. All rights reserved.*/
 }
