@@ -1,13 +1,12 @@
 @font-face {
   font-family: 'cutie';
+  src: url('../font/cutie.eot?51404835');
+  src: url('../font/cutie.eot?51404835#iefix') format('embedded-opentype'),
+       url('../font/cutie.woff?51404835') format('woff'),
+       url('../font/cutie.ttf?51404835') format('truetype'),
+       url('../font/cutie.svg?51404835#cutie') format('svg');
+  font-weight: normal;    
   font-style: normal;
-  font-weight: 400;
-  src: url('../font/cutie.eot?65673543');
-  src: url('../font/cutie.eot?65673543#iefix') format('embedded-opentype'),
-       url('../font/cutie.woff2?65673543') format(‘woff2’),
-       url('../font/cutie.woff?65673543') format(‘woff’),
-       url('../font/cutie.ttf?65673543') format(‘truetype’),
-       url('../font/cutie.svg?65673543#cutie') format(‘svg’);
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -21,19 +20,19 @@
 */
  
 .cutie {
-  font-family: 'cutie';
-  font-weight: 400;
-  font-style: normal;
-  font-size: inherit;
   display: inline-block;
-  line-height: 1;
-  letter-spacing: normal;
+  font-family: 'cutie';
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
   text-transform: none;
-  text-rendering: optimizeLegibility;
+  line-height: 1;
+  vertical-align: middle;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  pointer-events: none;
-  speak: none;
+  letter-spacing: normal;
+  text-align: center;
   
   /* opacity: .8; */
   /* font-size: 120%; */
@@ -56,15 +55,12 @@
 .ci-1x {
   font-size: 1em;
 }
-
 .ci-2x {
   font-size: 2em;
 }
-
 .ci-3x {
   font-size: 3em;
 }
-
 .ci-4x {
   font-size: 4em;
 }
@@ -72,7 +68,7 @@
   font-size: 5em;
 }
 .ci-fw {
-  width: 1.25em;
+  width: calc(20 / 1em);
   text-align: center;
 }
 
@@ -208,51 +204,25 @@ change icon options
   border-radius: 22.347%;
 }
 
-.cutie.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; 
-}
-.cutie.sr-only-focusable:active,
-.cutie.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-}
-
 /* Animation for spinners */
-.ci-spin-1x {
-  display: block;
-  /*width: 100%;
-  height: 0.8125em;
-  line-height: 0.91em;*/
-  -webkit-animation: ci-spin 1.5s linear;
-          animation: ci-spin 1.5s linear;
+.ci-spinaround {
+  display: inline-block;
+  -webkit-animation: cutie-spin 1.5s linear;
+          animation: cutie-spin 1.5s linear;
 }
 
 .ci-spin {
-  display: block;
-  /*width: 100%;
-  height: 0.8125em;
-  line-height: 0.91em;*/
-  -webkit-animation: ci-spin 2s infinite linear;
-          animation: ci-spin 2s infinite linear;
+  display: inline-block;
+  -webkit-animation: cutie-spin 2s infinite linear;
+          animation: cutie-spin 2s infinite linear;
 }
 
-@keyframes ci-spin {
+@keyframes cutie-spin {
   0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(1turn);
+  100% {
+    transform: rotate(359deg);
   }
 }
  
