@@ -14,8 +14,10 @@
 }*/
 
 .iconpicker {
+  display: inline-block;
    min-width: 33.5px;
-   padding: .25rem
+   padding: .25rem;
+  text-align: center
 }
 
 .iconpicker input.search-control {
