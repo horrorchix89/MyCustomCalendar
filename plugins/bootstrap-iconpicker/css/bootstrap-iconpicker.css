@@ -14,14 +14,17 @@
 }*/
 
 .iconpicker {
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
    min-width: 33.5px;
    padding: .25rem
 }
 
-.iconpicker input.search-control {
+/*.iconpicker input.search-control {
    margin-bottom: 6px;
    margin-top: 6px
-}
+}*/
 
 div.iconpicker.left .table-icons {
    margin-right: auto
@@ -52,7 +55,7 @@ div.iconpicker.right .table-icons {
 }
 
 .table-icons i {
-   font-size: 16px;
+   font-size: 1rem;
    
 }
 
@@ -66,13 +69,12 @@ div.iconpicker.right .table-icons {
 }
 
 .iconpicker-popover.popover {
-   font-family: "Roboto", sans-serif;
+   /*font-family: "Roboto", sans-serif;*/
    font-size: .75rem;
    margin-top: 0;
-   z-index: 1050 !important;
+   z-index: 1050;
    border: 1px solid #ced4da;
    border-radius: .25rem;
-   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.25);
    box-shadow: 0 5px 10px rgba(0,0,0,.25)
 }
 

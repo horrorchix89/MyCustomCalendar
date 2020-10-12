@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'cutie';
+  font-style: normal;
+  font-weight: 400;
   src: url('../font/cutie.eot?51404835');
   src: url('../font/cutie.eot?51404835#iefix') format('embedded-opentype'),
        url('../font/cutie.woff?51404835') format('woff'),
        url('../font/cutie.ttf?51404835') format('truetype'),
        url('../font/cutie.svg?51404835#cutie') format('svg');
-  font-weight: normal;    
-  font-style: normal;
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -20,148 +20,51 @@
 */
  
 .cutie {
-  display: inline-block;
   font-family: 'cutie';
-  speak: none;
+  position: relative;
+  display: inline-block;
+  line-height: 1;
   font-style: normal;
-  font-weight: 400;
+  font-weight: normal;
+  text-decoration: none;
+  text-align: center;
   font-variant: normal;
   text-transform: none;
-  line-height: 1;
+  font-size: inherit;
+  letter-spacing: normal;
+  speak: none;
   vertical-align: middle;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: normal;
-  text-align: center;
+  z-index: 1;
   
   /* opacity: .8; */
   /* font-size: 120%; */
 }
 
-/*————————
-  change icon size
--————————*/
-.ci-xs {
-  font-size: .75em;
-}
-.ci-sm {
-  font-size: .875em;
-}
+/* Rules for sizing the icon. */
+.ci-18 { font-size: 18px; }
+.ci-24 { font-size: 24px; }
+.ci-36 { font-size: 36px; }
+.ci-48 { font-size: 48px; }
+.ci-xs { font-size: .75em; }
+.ci-sm { font-size: .875em; }
 .ci-lg {
-  font-size: 1.333em;
-  line-height: 0.75em;
-  vertical-align: -0.0667em;
+  font-size: 1.33333em;
+  line-height: 0.75;
+  /*vertical-align: -0.0667em;*/
+  vertical-align: -15%;
 }
-.ci-1x {
-  font-size: 1em;
-}
-.ci-2x {
-  font-size: 2em;
-}
-.ci-3x {
-  font-size: 3em;
-}
-.ci-4x {
-  font-size: 4em;
-}
-.ci-5x {
-  font-size: 5em;
-}
+.ci-1x { font-size: 1em; }
+.ci-2x { font-size: 2em; }
+.ci-3x { font-size: 3em; }
+.ci-4x { font-size: 4em; }
+.ci-5x { font-size: 5em; }
+
 .ci-fw {
-  width: calc(20 / 1em);
+  width: 1.3em;
   text-align: center;
-}
-
-.icon-100,
-.icon-80,
-.icon-90 {
-  height: 100px;
-  width: 100px;
-  line-height: 100px;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block
-}
-
-.icon-80,
-.icon-90 {
-  height: 90px;
-  width: 90px;
-  line-height: 86px
-}
-
-.icon-80 {
-  height: 80px;
-  width: 80px;
-  line-height: 76px
-}
-
-.icon-10,
-.icon-20,
-.icon-30,
-.icon-40,
-.icon-50,
-.icon-60,
-.icon-70 {
-  height: 70px;
-  width: 70px;
-  line-height: 66px;
-  vertical-align: middle;
-  text-align: center;
-  display: inline-block
-}
-
-.icon-10,
-.icon-20,
-.icon-30,
-.icon-40,
-.icon-50,
-.icon-60 {
-  height: 60px;
-  width: 60px;
-  line-height: 55px
-}
-
-.icon-10,
-.icon-20,
-.icon-30,
-.icon-40,
-.icon-50 {
-  height: 50px;
-  width: 50px;
-  line-height: 47px
-}
-
-.icon-10,
-.icon-20,
-.icon-30,
-.icon-40 {
-  height: 40px;
-  width: 40px;
-  line-height: 36px
-}
-
-.icon-10,
-.icon-20,
-.icon-30 {
-  height: 30px;
-  width: 30px;
-  line-height: 28px
-}
-
-.icon-10,
-.icon-20 {
-  height: 20px;
-  width: 20px;
-  line-height: 17px;
-  font-size: .8em
-}
-
-.icon-10 {
-  height: 10px;
-  width: 10px;
-  line-height: 8px;
-  font-size: .5em
 }
 
 /*————————
@@ -170,13 +73,18 @@ change icon options
 .ci-3d {
    text-shadow: 1px 1px 2px rgba(127, 127, 127, 0.3);
 }
-
+.circle::before {
+  border-style: solid;
+  border-radius: 1em;
+  line-height: 1.15;
+  box-sizing: border-box;
+  padding: .1em
+}
 .ci-center {
   margin-right: .2em;
   margin-left: .2em;
   text-align: center;
 }
-  
 .ci-border {
   position: relative;
   z-index: 1;
@@ -184,9 +92,10 @@ change icon options
   height: 2.2em;
   line-height: 1;
   vertical-align: middle;
-  border: solid .08em #dedede;
+  border: .08em solid #D5DAE4;
+  border-radius: .3em;
+  padding: .2em .25em .15em;
 }
-
 .ci-border::before {
   position: absolute;
   left: 0;
@@ -194,322 +103,326 @@ change icon options
   text-align: center;
   line-height: inherit;
 }
-
 .ci-border.circle, 
 .cutie.circle {
   border-radius: 50%;
+  padding: 0.1em;
 }
 .cute-border.rounded, 
 .cutie.rounded{
   border-radius: 22.347%;
 }
+.ci-pull-left {
+  float: left;
+  margin-right: .3em
+}
+
+.ci-pull-right {
+  float: right;
+  margin-left: .3em
+}
 
 /* Animation for spinners */
 .ci-spinaround {
-  display: inline-block;
-  -webkit-animation: cutie-spin 1.5s linear;
-          animation: cutie-spin 1.5s linear;
+  animation: cutie-spin 1.5s linear;
 }
-
 .ci-spin {
-  display: inline-block;
-  -webkit-animation: cutie-spin 2s infinite linear;
-          animation: cutie-spin 2s infinite linear;
+  animation: cutie-spin 2s linear infinite;
 }
 
 @keyframes cutie-spin {
   0% {
     transform: rotate(0deg);
   }
-  100% {
+  to {
     transform: rotate(359deg);
   }
 }
  
 /* cutie icon list*/
-.icon-angle-double-down:before{content:'\f103';}
+.icon-angle-double-down::before{content:'\f103';}
 /* 'ï„ƒ' */
-.icon-angle-double-left:before{content:'\e83e';}
+.icon-angle-double-left::before{content:'\e83e';}
 /* 'î ¾' */
-.icon-angle-double-right:before{content:'\e83d';}
+.icon-angle-double-right::before{content:'\e83d';}
 /* 'î ½' */
-.icon-angle-double-up:before{content:'\f102';}
+.icon-angle-double-up::before{content:'\f102';}
 /* 'ï„‚' */
-.icon-angle-down:before{content:'\f107';}
+.icon-angle-down::before{content:'\f107';}
 /* 'ï„‡' */
-.icon-angle-left:before{content:'\f104';}
+.icon-angle-left::before{content:'\f104';}
 /* 'ï„„' */
-.icon-angle-right:before{content:'\f105';}
+.icon-angle-right::before{content:'\f105';}
 /* 'ï„…' */
-.icon-angle-up:before{content:'\f106';}
+.icon-angle-up::before{content:'\f106';}
 /* 'ï„†' */
-.icon-angry:before{content:'\f556';}
+.icon-angry::before{content:'\f556';}
 /* 'ï•–' */
-.icon-attention-circled:before{content:'\e83a';}
+.icon-attention-circled::before{content:'\e83a';}
 /* 'î º' */
-.icon-attention:before{content:'\e804';}
+.icon-attention::before{content:'\e804';}
 /* 'î „' */
-.icon-block:before{content:'\e827';}
+.icon-block::before{content:'\e827';}
 /* 'î §' */
-.icon-calendar-o:before{content:'\f133';}
+.icon-calendar-o::before{content:'\f133';}
 /* 'ï„³' */
-.icon-calendar:before{content:'\e817';}
+.icon-calendar::before{content:'\e817';}
 /* 'î —' */
-.icon-car-model-s:before{content:'\f2c1';}
+.icon-car-model-s::before{content:'\f2c1';}
 /* 'ï‹' */
-.icon-check-circle:before{content:'\f17c';}
+.icon-check-circle::before{content:'\f17c';}
 /* 'ï…¼' */
-.icon-check-square-alt:before{content:'\e818';}
+.icon-check-square-alt::before{content:'\e818';}
 /* 'î ˜' */
-.icon-check-square:before{content:'\f17e';}
+.icon-check-square::before{content:'\f17e';}
 /* 'ï…¾' */
-.icon-check:before{content:'\f17b';}
+.icon-check::before{content:'\f17b';}
 /* 'ï…»' */
-.icon-checkmark:before{content:'\f122';}
+.icon-checkmark::before{content:'\f122';}
 /* 'ï„¢' */
-.icon-clock-alt:before{content:'\f017';}
+.icon-clock-alt::before{content:'\f017';}
 /* 'ï€—' */
-.icon-clock:before{content:'\e80f';}
+.icon-clock::before{content:'\e80f';}
 /* 'î ' */
-.icon-close:before{content:'\e81f';}
+.icon-close::before{content:'\e81f';}
 /* 'î Ÿ' */
-.icon-cog-alt:before{content:'\e808';}
+.icon-cog-alt::before{content:'\e808';}
 /* 'î ˆ' */
-.icon-cog:before{content:'\e807';}
+.icon-cog::before{content:'\e807';}
 /* 'î ‡' */
-.icon-diamond-alt:before{content:'\e82c';}
+.icon-diamond-alt::before{content:'\e82c';}
 /* 'î ¬' */
-.icon-diamond-o:before{content:'\f3a5';}
+.icon-diamond-o::before{content:'\f3a5';}
 /* 'ïŽ¥' */
-.icon-diamond-sm:before{content:'\f1b9';}
+.icon-diamond-sm::before{content:'\f1b9';}
 /* 'ï†¹' */
-.icon-diamond:before{content:'\f219';}
+.icon-diamond::before{content:'\f219';}
 /* 'ïˆ™' */
-.icon-dizzy:before{content:'\f567';}
+.icon-dizzy::before{content:'\f567';}
 /* 'ï•§' */
-.icon-earth:before{content:'\f276';}
+.icon-earth::before{content:'\f276';}
 /* 'ï‰¶' */
-.icon-edit-pencil:before{content:'\e80b';}
+.icon-edit-pencil::before{content:'\e80b';}
 /* 'î ‹' */
-.icon-edit-square:before{content:'\e80c';}
+.icon-edit-square::before{content:'\e80c';}
 /* 'î Œ' */
-.icon-external-link:before{content:'\f1d2';}
+.icon-external-link::before{content:'\f1d2';}
 /* 'ï‡’' */
-.icon-flushed:before{content:'\f579';}
+.icon-flushed::before{content:'\f579';}
 /* 'ï•¹' */
-.icon-frown-open:before{content:'\f57a';}
+.icon-frown-open::before{content:'\f57a';}
 /* 'ï•º' */
-.icon-frown:before{content:'\e811';}
+.icon-frown::before{content:'\e811';}
 /* 'î ‘' */
-.icon-glass:before{content:'\e830';}
+.icon-glass::before{content:'\e830';}
 /* 'î °' */
-.icon-grimace:before{content:'\f57f';}
+.icon-grimace::before{content:'\f57f';}
 /* 'ï•¿' */
-.icon-grin-alt:before{content:'\f581';}
+.icon-grin-alt::before{content:'\f581';}
 /* 'ï–' */
-.icon-grin-beam-sweat:before{content:'\f583';}
+.icon-grin-beam-sweat::before{content:'\f583';}
 /* 'ï–ƒ' */
-.icon-grin-beam:before{content:'\f582';}
+.icon-grin-beam::before{content:'\f582';}
 /* 'ï–‚' */
-.icon-grin-hearts:before{content:'\f584';}
+.icon-grin-hearts::before{content:'\f584';}
 /* 'ï–„' */
-.icon-grin-squint-tears:before{content:'\f586';}
+.icon-grin-squint-tears::before{content:'\f586';}
 /* 'ï–†' */
-.icon-grin-squint:before{content:'\f585';}
+.icon-grin-squint::before{content:'\f585';}
 /* 'ï–…' */
-.icon-grin-stars:before{content:'\f587';}
+.icon-grin-stars::before{content:'\f587';}
 /* 'ï–‡' */
-.icon-grin-tears:before{content:'\f588';}
+.icon-grin-tears::before{content:'\f588';}
 /* 'ï–ˆ' */
-.icon-grin-tongue-squint:before{content:'\f58a';}
+.icon-grin-tongue-squint::before{content:'\f58a';}
 /* 'ï–Š' */
-.icon-grin-tongue-wink:before{content:'\f58b';}
+.icon-grin-tongue-wink::before{content:'\f58b';}
 /* 'ï–‹' */
-.icon-grin-tongue:before{content:'\f589';}
+.icon-grin-tongue::before{content:'\f589';}
 /* 'ï–‰' */
-.icon-grin-wink:before{content:'\f58c';}
+.icon-grin-wink::before{content:'\f58c';}
 /* 'ï–Œ' */
-.icon-grin:before{content:'\f580';}
+.icon-grin::before{content:'\f580';}
 /* 'ï–€' */
-.icon-heart-alt-o:before{content:'\e801';}
+.icon-heart-alt-o::before{content:'\e801';}
 /* 'î ' */
-.icon-heart-alt:before{content:'\e800';}
+.icon-heart-alt::before{content:'\e800';}
 /* 'î €' */
-.icon-heart-broken:before{content:'\f31d';}
+.icon-heart-broken::before{content:'\f31d';}
 /* 'ïŒ' */
-.icon-heart:before{content:'\f141';}
+.icon-heart::before{content:'\f141';}
 /* 'ï…' */
-.icon-ios-add-circle-outline:before{content:'\f100';}
+.icon-ios-add-circle-outline::before{content:'\f100';}
 /* 'ï„€' */
-.icon-ios-add-circle:before{content:'\f101';}
+.icon-ios-add-circle::before{content:'\f101';}
 /* 'ï„' */
-.icon-ios-add:before{content:'\e819';}
+.icon-ios-add::before{content:'\e819';}
 /* 'î ™' */
-.icon-ios-arrow-back:before{content:'\e828';}
+.icon-ios-arrow-back::before{content:'\e828';}
 /* 'î ¨' */
-.icon-ios-arrow-down:before{content:'\e829';}
+.icon-ios-arrow-down::before{content:'\e829';}
 /* 'î ©' */
-.icon-ios-arrow-forward:before{content:'\e82a';}
+.icon-ios-arrow-forward::before{content:'\e82a';}
 /* 'î ª' */
-.icon-ios-arrow-up:before{content:'\e82b';}
+.icon-ios-arrow-up::before{content:'\e82b';}
 /* 'î «' */
-.icon-ios-car:before{content:'\f140';}
+.icon-ios-car::before{content:'\f140';}
 /* 'ï…€' */
-.icon-ios-checkbox-outline:before{content:'\f147';}
+.icon-ios-checkbox-outline::before{content:'\f147';}
 /* 'ï…‡' */
-.icon-ios-checkbox:before{content:'\f148';}
+.icon-ios-checkbox::before{content:'\f148';}
 /* 'ï…ˆ' */
-.icon-ios-checkmark-circle-outline:before{content:'\f149';}
+.icon-ios-checkmark-circle-outline::before{content:'\f149';}
 /* 'ï…‰' */
-.icon-ios-checkmark-circle:before{content:'\f14a';}
+.icon-ios-checkmark-circle::before{content:'\f14a';}
 /* 'ï…Š' */
-.icon-ios-checkmark:before{content:'\e81a';}
+.icon-ios-checkmark::before{content:'\e81a';}
 /* 'î š' */
-.icon-ios-close-circle-outline:before{content:'\f14d';}
+.icon-ios-close-circle-outline::before{content:'\f14d';}
 /* 'ï…' */
-.icon-ios-close-circle:before{content:'\f14e';}
+.icon-ios-close-circle::before{content:'\f14e';}
 /* 'ï…Ž' */
-.icon-ios-close:before{content:'\e81b';}
+.icon-ios-close::before{content:'\e81b';}
 /* 'î ›' */
-.icon-ios-create:before{content:'\f165';}
+.icon-ios-create::before{content:'\f165';}
 /* 'ï…¥' */
-.icon-ios-email-outline:before{content:'\f422';}
+.icon-ios-email-outline::before{content:'\f422';}
 /* 'ï¢' */
-.icon-ios-email:before{content:'\f423';}
+.icon-ios-email::before{content:'\f423';}
 /* 'ï£' */
-.icon-ios-heart-o:before{content:'\f19b';}
+.icon-ios-heart-o::before{content:'\f19b';}
 /* 'ï†›' */
-.icon-ios-heart:before{content:'\f443';}
+.icon-ios-heart::before{content:'\f443';}
 /* 'ï‘ƒ' */
-.icon-ios-home-outline:before{content:'\f447';}
+.icon-ios-home-outline::before{content:'\f447';}
 /* 'ï‘‡' */
-.icon-ios-home:before{content:'\f448';}
+.icon-ios-home::before{content:'\f448';}
 /* 'ï‘ˆ' */
-.icon-ios-location-outline:before{content:'\f455';}
+.icon-ios-location-outline::before{content:'\f455';}
 /* 'ï‘•' */
-.icon-ios-location:before{content:'\f456';}
+.icon-ios-location::before{content:'\f456';}
 /* 'ï‘–' */
-.icon-ios-mail:before{content:'\f1b8';}
+.icon-ios-mail::before{content:'\f1b8';}
 /* 'ï†¸' */
-.icon-ios-moon:before{content:'\e814';}
+.icon-ios-moon::before{content:'\e814';}
 /* 'î ”' */
-.icon-ios-navigate-outline:before{content:'\f46d';}
+.icon-ios-navigate-outline::before{content:'\f46d';}
 /* 'ï‘­' */
-.icon-ios-navigate:before{content:'\f46e';}
+.icon-ios-navigate::before{content:'\f46e';}
 /* 'ï‘®' */
-.icon-ios-rose-outline:before{content:'\f4a2';}
+.icon-ios-rose-outline::before{content:'\f4a2';}
 /* 'ï’¢' */
-.icon-ios-rose:before{content:'\f4a3';}
+.icon-ios-rose::before{content:'\f4a3';}
 /* 'ï’£' */
-.icon-ios-send:before{content:'\f20c';}
+.icon-ios-send::before{content:'\f20c';}
 /* 'ïˆŒ' */
-.icon-ios-star-outline:before{content:'\e821';}
+.icon-ios-star-outline::before{content:'\e821';}
 /* 'î ¡' */
-.icon-ios-star:before{content:'\e822';}
+.icon-ios-star::before{content:'\e822';}
 /* 'î ¢' */
-.icon-ios-trash-outline:before{content:'\f4c4';}
+.icon-ios-trash-outline::before{content:'\f4c4';}
 /* 'ï“„' */
-.icon-ios-trash:before{content:'\f4c5';}
+.icon-ios-trash::before{content:'\f4c5';}
 /* 'ï“…' */
-.icon-ios-world-outline:before{content:'\f4d2';}
+.icon-ios-world-outline::before{content:'\f4d2';}
 /* 'ï“’' */
-.icon-ios-world:before{content:'\f4d3';}
+.icon-ios-world::before{content:'\f4d3';}
 /* 'ï““' */
-.icon-iphone:before{content:'\f1fa';}
+.icon-iphone::before{content:'\f1fa';}
 /* 'ï‡º' */
-.icon-kiss-beam:before{content:'\f597';}
+.icon-kiss-beam::before{content:'\f597';}
 /* 'ï–—' */
-.icon-kiss-wink-heart:before{content:'\f598';}
+.icon-kiss-wink-heart::before{content:'\f598';}
 /* 'ï–˜' */
-.icon-kiss:before{content:'\f596';}
+.icon-kiss::before{content:'\f596';}
 /* 'ï––' */
-.icon-laugh-beam:before{content:'\f59a';}
+.icon-laugh-beam::before{content:'\f59a';}
 /* 'ï–š' */
-.icon-laugh-squint:before{content:'\f59b';}
+.icon-laugh-squint::before{content:'\f59b';}
 /* 'ï–›' */
-.icon-laugh-wink:before{content:'\f59c';}
+.icon-laugh-wink::before{content:'\f59c';}
 /* 'ï–œ' */
-.icon-laugh:before{content:'\f599';}
+.icon-laugh::before{content:'\f599';}
 /* 'ï–™' */
-.icon-link-ext:before{content:'\f08e';}
+.icon-link-ext::before{content:'\f08e';}
 /* 'ï‚Ž' */
-.icon-location:before{content:'\e82d';}
+.icon-location::before{content:'\e82d';}
 /* 'î ­' */
-.icon-logo-instagram:before{content:'\f23e';}
+.icon-logo-instagram::before{content:'\f23e';}
 /* 'ïˆ¾' */
-.icon-meh-blank:before{content:'\f5a4';}
+.icon-meh-blank::before{content:'\f5a4';}
 /* 'ï–¤' */
-.icon-meh-rolling-eyes:before{content:'\f5a5';}
+.icon-meh-rolling-eyes::before{content:'\f5a5';}
 /* 'ï–¥' */
-.icon-meh:before{content:'\e812';}
+.icon-meh::before{content:'\e812';}
 /* 'î ’' */
-.icon-moon-outline:before{content:'\f186';}
+.icon-moon-outline::before{content:'\f186';}
 /* 'ï††' */
-.icon-navigate-alt:before{content:'\f124';}
+.icon-navigate-alt::before{content:'\f124';}
 /* 'ï„¤' */
-.icon-navigate:before{content:'\f2a3';}
+.icon-navigate::before{content:'\f2a3';}
 /* 'ïŠ£' */
-.icon-paper-plane-o:before{content:'\f1d9';}
+.icon-paper-plane-o::before{content:'\f1d9';}
 /* 'ï‡™' */
-.icon-paper-plane:before{content:'\f1d8';}
+.icon-paper-plane::before{content:'\f1d8';}
 /* 'ï‡˜' */
-.icon-plane:before{content:'\e806';}
+.icon-plane::before{content:'\e806';}
 /* 'î †' */
-.icon-sad-cry:before{content:'\f5b3';}
+.icon-sad-cry::before{content:'\f5b3';}
 /* 'ï–³' */
-.icon-sad-tear:before{content:'\f5b4';}
+.icon-sad-tear::before{content:'\f5b4';}
 /* 'ï–´' */
-.icon-search:before{content:'\e813';}
+.icon-search::before{content:'\e813';}
 /* 'î “' */
-.icon-settings:before{content:'\f2ad';}
+.icon-settings::before{content:'\f2ad';}
 /* 'ïŠ­' */
-.icon-smile-beam:before{content:'\f5b8';}
+.icon-smile-beam::before{content:'\f5b8';}
 /* 'ï–¸' */
-.icon-smile-wink:before{content:'\f4da';}
+.icon-smile-wink::before{content:'\f4da';}
 /* 'ï“š' */
-.icon-smile:before{content:'\e810';}
+.icon-smile::before{content:'\e810';}
 /* 'î ' */
-.icon-snowflake-o:before{content:'\f2dc';}
+.icon-snowflake-o::before{content:'\f2dc';}
 /* 'ï‹œ' */
-.icon-social-apple-outline:before{content:'\f226';}
+.icon-social-apple-outline::before{content:'\f226';}
 /* 'ïˆ¦' */
-.icon-social-apple:before{content:'\f227';}
+.icon-social-apple::before{content:'\f227';}
 /* 'ïˆ§' */
-.icon-social-facebook-outline:before{content:'\f230';}
+.icon-social-facebook-outline::before{content:'\f230';}
 /* 'ïˆ°' */
-.icon-social-facebook:before{content:'\f231';}
+.icon-social-facebook::before{content:'\f231';}
 /* 'ïˆ±' */
-.icon-social-instagram-outline:before{content:'\f350';}
+.icon-social-instagram-outline::before{content:'\f350';}
 /* 'ï' */
-.icon-social-instagram:before{content:'\f351';}
+.icon-social-instagram::before{content:'\f351';}
 /* 'ï‘' */
-.icon-social-twitter-outline:before{content:'\f242';}
+.icon-social-twitter-outline::before{content:'\f242';}
 /* 'ï‰‚' */
-.icon-social-twitter:before{content:'\f243';}
+.icon-social-twitter::before{content:'\f243';}
 /* 'ï‰ƒ' */
-.icon-star-outline:before{content:'\e81d';}
+.icon-star-outline::before{content:'\e81d';}
 /* 'î ' */
-.icon-star:before{content:'\e81c';}
+.icon-star::before{content:'\e81c';}
 /* 'î œ' */
-.icon-suitcase:before{content:'\f0f2';}
+.icon-suitcase::before{content:'\f0f2';}
 /* 'ïƒ²' */
-.icon-sun-inv:before{content:'\e815';}
+.icon-sun-inv::before{content:'\e815';}
 /* 'î •' */
-.icon-sun:before{content:'\e82f';}
+.icon-sun::before{content:'\e82f';}
 /* 'î ¯' */
-.icon-surprise:before{content:'\f5c2';}
+.icon-surprise::before{content:'\f5c2';}
 /* 'ï—‚' */
-.icon-th-large:before{content:'\e802';}
+.icon-th-large::before{content:'\e802';}
 /* 'î ‚' */
-.icon-th-list:before{content:'\e80d';}
+.icon-th-list::before{content:'\e80d';}
 /* 'î ' */
-.icon-th:before{content:'\e80a';}
+.icon-th::before{content:'\e80a';}
 /* 'î Š' */
-.icon-tired:before{content:'\f5c8';}
+.icon-tired::before{content:'\f5c8';}
 /* 'ï—ˆ' */
-.icon-umbrella:before{content:'\f2b7';}
+.icon-umbrella::before{content:'\f2b7';}
 /* 'ïŠ·' */
-.icon-user:before{content:'\e816';}
+.icon-user::before{content:'\e816';}
 /* 'î –' */
-.icon-world-globe:before{content:'\e803';}
+.icon-world-globe::before{content:'\e803';}
 /* 'î ƒ' */
