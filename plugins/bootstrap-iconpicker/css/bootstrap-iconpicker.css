@@ -14,11 +14,14 @@
 }*/
 
 .iconpicker {
-   display: inline-flex !important;
-   justify-content: center;
-   align-items: center;
    min-width: 33.5px;
    padding: .25rem;
+}
+
+button.iconpicker {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
 }
 
 /*.iconpicker input.search-control {
