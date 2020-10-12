@@ -14,7 +14,7 @@
 }*/
 
 .iconpicker {
-   display: inline-flex;
+   display: inline-flex !important;
    justify-content: center;
    align-items: center;
    min-width: 33.5px;
