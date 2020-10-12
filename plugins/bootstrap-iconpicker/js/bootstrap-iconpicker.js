@@ -23,7 +23,7 @@
   $.iconset_cutie = data
 }(jQuery);
 
-;(function($){
+!function($){
    "use strict";
 
    // ICONPICKER PUBLIC CLASS DEFINITION
