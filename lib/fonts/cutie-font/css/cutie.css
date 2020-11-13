@@ -2,11 +2,11 @@
   font-family: 'cutie';
   font-style: normal;
   font-weight: 400;
-  src: url('../font/cutie.eot?51404835');
-  src: url('../font/cutie.eot?51404835#iefix') format('embedded-opentype'),
-       url('../font/cutie.woff?51404835') format('woff'),
-       url('../font/cutie.ttf?51404835') format('truetype'),
-       url('../font/cutie.svg?51404835#cutie') format('svg');
+  src: url('/fonts/cutie-font/font/cutie.eot?51404835');
+  src: url('/fonts/cutie-font/font/cutie.eot?51404835#iefix') format('embedded-opentype'),
+       url('/fonts/cutie-font/font/cutie.woff?51404835') format('woff'),
+       url('/fonts/cutie-font/font/cutie.ttf?51404835') format('truetype'),
+       url('/fonts/cutie-font/font/cutie.svg?51404835#cutie') format('svg');
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
@@ -20,39 +20,32 @@
 */
  
 .cutie {
-  font-family: 'cutie';
-  position: relative;
   display: inline-block;
-  line-height: 1;
+  font-family: 'cutie';
+  font-size: inherit;
+  speak: none;
   font-style: normal;
   font-weight: normal;
-  text-decoration: none;
-  text-align: center;
   font-variant: normal;
   text-transform: none;
-  font-size: inherit;
+  line-height: 1;
+  text-align: center;
   letter-spacing: normal;
-  speak: none;
   vertical-align: middle;
+  white-space: nowrap;
   -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  z-index: 1;
   
   /* opacity: .8; */
   /* font-size: 120%; */
 }
 
 /* Rules for sizing the icon. */
-.ci-18 { font-size: 18px; }
-.ci-24 { font-size: 24px; }
-.ci-36 { font-size: 36px; }
-.ci-48 { font-size: 48px; }
 .ci-xs { font-size: .75em; }
 .ci-sm { font-size: .875em; }
 .ci-lg {
   font-size: 1.33333em;
-  line-height: 0.75;
+  line-height: 0.75em;
   /*vertical-align: -0.0667em;*/
   vertical-align: -15%;
 }
@@ -63,7 +56,8 @@
 .ci-5x { font-size: 5em; }
 
 .ci-fw {
-  width: 1.3em;
+  /*width: 1.25em;*/
+  width: 1.28571429em;
   text-align: center;
 }
 
@@ -88,9 +82,9 @@ change icon options
 .ci-border {
   position: relative;
   z-index: 1;
-  width: 2.2em;
-  height: 2.2em;
-  line-height: 1;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
   vertical-align: middle;
   border: .08em solid #D5DAE4;
   border-radius: .3em;
@@ -124,20 +118,28 @@ change icon options
 
 /* Animation for spinners */
 .ci-spinaround {
-  animation: cutie-spin 1.5s linear;
+  animation: cutie-spin 1s linear;
+  display: inline-block;
 }
 .ci-spin {
   animation: cutie-spin 2s linear infinite;
+  display: inline-block;
 }
 
 @keyframes cutie-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*@keyframes cutie-spin {
   0% {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
   }
-}
+}*/
  
 /* cutie icon list*/
 .icon-angle-double-down::before{content:'\f103';}
@@ -184,7 +186,9 @@ change icon options
 /* 'ï€—' */
 .icon-clock::before{content:'\e80f';}
 /* 'î ' */
-.icon-close::before{content:'\e81f';}
+.icon-close::before,
+.icon-remove::before,
+.icon-times::before{content:'\e81f';}
 /* 'î Ÿ' */
 .icon-cog-alt::before{content:'\e808';}
 /* 'î ˆ' */
