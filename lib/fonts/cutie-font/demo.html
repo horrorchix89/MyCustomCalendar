@@ -229,11 +229,23 @@
       .i-code {
       display: none;
       }
-      .demo-icon {
+      
+      @font-face {
       font-family: 'cutie';
-      font-style: normal;
-      font-weight: normal;
-      speak: none;
+  src: url('../font/cutie.eot?51404835');
+  src: url('../font/cutie.eot?51404835#iefix') format('embedded-opentype'),
+       url('../font/cutie.woff?51404835') format('woff'),
+       url('../font/cutie.ttf?51404835') format('truetype'),
+       url('../font/cutie.svg?51404835#cutie') format('svg');
+  font-weight: normal;    
+  font-style: normal;
+}
+
+.demo-icon {
+  font-family: 'cutie';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
       display: inline-block;
       text-decoration: inherit;
       width: 1em;
@@ -258,9 +270,7 @@
       /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
       }
     </style>
-    <link rel="stylesheet" href="css/animation.css">
-    <link rel="stylesheet" href="css/cutie.css">
-    <!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
+    <link rel="stylesheet" href="css/animation.css"><!--[if IE 7]><link rel="stylesheet" href="css/" + font.fontname + "-ie7.css"><![endif]-->
     <script>
       function toggleCodes(on) {
         var obj = document.getElementById('icons');

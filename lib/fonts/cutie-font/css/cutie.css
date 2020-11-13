@@ -2,11 +2,11 @@
   font-family: 'cutie';
   font-style: normal;
   font-weight: 400;
-  src: url('/fonts/cutie-font/font/cutie.eot?51404835');
-  src: url('/fonts/cutie-font/font/cutie.eot?51404835#iefix') format('embedded-opentype'),
-       url('/fonts/cutie-font/font/cutie.woff?51404835') format('woff'),
-       url('/fonts/cutie-font/font/cutie.ttf?51404835') format('truetype'),
-       url('/fonts/cutie-font/font/cutie.svg?51404835#cutie') format('svg');
+  src: url('../font/cutie.eot?51404835');
+  src: url('../font/cutie.eot?51404835#iefix') format('embedded-opentype'),
+       url('../font/cutie.woff?51404835') format('woff'),
+       url('../font/cutie.ttf?51404835') format('truetype'),
+       url('../font/cutie.svg?51404835#cutie') format('svg');
 }
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
