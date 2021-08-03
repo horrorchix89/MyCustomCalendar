@@ -1,0 +1,55 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$gray-base:    #000 !default;
+$gray-darkest: lighten($gray-base, 7%) !default;
+$gray-darker:  lighten($gray-base, 13.5%) !default; // #222
+$gray-dark:    lighten($gray-base, 20%) !default;
+$gray:         lighten($gray-base, 33%) !default;
+//$gray:        lighten($gray-base, 33.5%)
+$gray-light:   lighten($gray-base, 46%) !default;
+//$gray-light:lighten($gray-base, 46.7%) !default;
+$gray-lighten: lighten($gray-base, 65%) !default;
+$gray-lighter: lighten($gray-base, 84%) !default;
+$gray-lightest:lighten($gray-base, 93.5%) !default; // #eee
+
+$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+
+$btn-default-color:  #333 !default;
+$btn-default-bg:     #fff !default;
+$btn-default-border: #ccc !default;
+
+$btn-hover-bg-shade:       15% !default;
+$btn-hover-bg-tint:        15% !default;
+$btn-hover-border-shade:   20% !default;
+$btn-hover-border-tint:    10% !default;
+$btn-active-bg-shade:      20% !default;
+$btn-active-bg-tint:       20% !default;
+$btn-active-border-shade:  25% !default;
+$btn-active-border-tint:   10% !default;
+
+
+$border-color:             $gray-300 !default;
+
+$border-radius:            6px !default;
+$border-radius-md:         8px !default;
+$border-radius-sm:         4px !default;
+$border-radius-lg:         12px !default;
+$border-radius-icon:       50% !default;
+
+// scss-docs-start aspect-ratios
+$aspect-ratios: (
+  "1x1":  100%,
+  "4x3":  calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
+) !default;
+// scss-docs-end aspect-ratios
+
+$border-radius-circle:     50% !default;

@@ -1,0 +1,95 @@
+// Mixins
+$level: 1;
+$darkThreshold: 25;
+$lightThreshold: 95;
+
+@mixin boxShadow($level) {
+  @if $level == 1 {
+    box-shadow: 0 1px 3px rgba($black, 0.12), 0 1px 2px rgba($black, 0.2);
+  }
+
+  @else if $level == 2 {
+    box-shadow: 0 2px 6px rgba($black, 0.16), 0 3px 6px rgba($black, 0.23);
+  }
+  
+  @else if $level == 3 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 4px 20px rgba(0, 0, 0, 0.19);
+  }
+    
+  @else if $level == 4 {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  }
+
+  @else if $level == 5 {
+    box-shadow: 0 8px 24px rgba($black, 0.19), 0 6px 6px rgba($black, 0.23);
+  }
+
+  @else if $level == 6 {
+    box-shadow: 0 12px 36px rgba($black, 0.2), 0 10px 10px rgba($black, 0.22);
+  }
+
+  @else if $level == 7 {
+    box-shadow: 0 16px 48px rgba($black, 0.3), 0 0 28px rgba($black, 0.22);
+  }
+}
+
+@mixin boxShadowSingle($level) {
+  @if $level == 1 {
+    box-shadow: 0 0 15px 2px rgba($black, 0.2);
+  }
+  
+  @else if $level == 2 {
+    box-shadow: 0 2px 40px rgba($black, 0.2);
+  }
+}
+
+@mixin insetShadow($level) {
+  @if $level == 1 { //insetshadow
+    box-shadow: inset 0 1px 2px rgba($black, 0.075);
+  }
+  
+  @else if $level == 2 {
+    box-shadow: inset 0 2px 4px rgba($black, 0.15);
+  }
+  
+  @else if $level == 3 {
+    box-shadow: inset 0 4px 6px rgba($black, 0.15);
+  }
+}
+
+@mixin boxShadowMult($level) {
+  @if $level == 1 {
+    box-shadow: 0 8px 10px 1px rgba($black, 0.14), 0 3px 14px 2px rgba($black, 0.12), 0 5px 5px -3px rgba($black, 0.2);
+  }
+}
+
+@mixin colorShadow($level, $color) {
+  @if $color == null {
+    @color: $blue;
+  }
+  $shadowTint: if(lightness($color) <= $darkThreshold, desaturate($color, 20), darken(desaturate($color, 20), 30));
+  
+  @if $level == 1 {
+    box-shadow: 0 2px 4px rgba($shadowTint, 0.2), 0 4px 8px rgba($shadowTint, 0.15);
+  }
+  
+  @else if $level == 2 {
+    box-shadow: 0 4px 6px -1px rgba($shadowTint, 0.2), 0 2px 4px -1px rgba($shadowTint, 0.15);
+  }
+  
+  @else if $level == 3 {
+    box-shadow: 0 10px 15px -3px rgba($shadowTint, 0.2), 0 4px 6px -2px rgba($shadowTint, 0.15);
+  }
+  
+  @else if $level == 4 {
+    box-shadow: 0 20px 25px -5px rgba($shadowTint, 0.2), 0 10px 10px -5px rgba($shadowTint, 0.15);
+  }
+  
+  @else if $level == 5 {
+    box-shadow: 0 25px 50px -12px rgba($shadowTint, 0.25);
+  }
+  
+  @else if $level == 6 {
+    box-shadow: 0 35px 60px -15px rgba($shadowTint, 0.3);
+  }
+}

@@ -1,0 +1,80 @@
+// Request a color level
+// scss-docs-start color-level
+@function color-level($color: $primary, $level: 0) {
+  $color-base: if($level > 0, $black, $white);
+  $level: abs($level);
+
+  @return mix($color-base, $color, $level * $theme-color-interval);
+}
+// scss-docs-end color-level
+
+@function bs-tint($color, $level) {
+  @return mix(white, $color, $level * 8%);
+}
+
+@function bs-shade($color, $level) {
+  @return mix(black, $color, $level * 8%);
+}
+
+// Add percentage of white to a color
+@function tint($color, $percent) {
+  @return mix(white, $color, $percent);
+}
+
+// Add percentage of black to a color
+@function shade($color, $percent) {
+  @return mix(black, $color, $percent);
+}
+
+// Color contrast
+@function color-yiq($color, $dark: darken($color, 35%), $light: lighten($color, 45%)) {
+  $r: red($color);
+  $g: green($color);
+  $b: blue($color);
+
+  $yiq: (($r*299) + ($g*587) + ($b*114)) / 1000;
+
+  @return if($yiq >= $yiq-threshold, $dark, $light);
+}
+
+@function yiq($color) {
+  $red  : red($color);
+  $green: green($color);
+  $blue : blue($color);
+  
+  @return (($red*299) + ($green*587) + ($blue*114));
+}
+
+@function color-contrast($background, $dark:#000, $light:#fff) {
+  @if yiq($background) >= 128 {
+    @return $dark;
+  } @else {
+    @return $light;
+  }
+}
+
+/// Scales a color to be darker if it's light, or lighter if it's dark. Use this function to tint a color appropriate to its lightness.
+///
+/// @param {Color} $color - Color to scale.
+/// @param {Percentage} $scale [5%] - Amount to scale up or down.
+/// @param {Percentage} $threshold [40%] - Threshold of lightness to check against.
+///
+/// @returns {Color} A scaled color.
+@function smart-scale($color, $scale: 5%, $threshold: 40%) {
+  @if lightness($color) > $threshold {
+    $scale: -$scale;
+  }
+  @return scale-color($color, $lightness: $scale);
+}
+
+// Black and White Opacity Functions
+@function black($opacity) {
+  @return rgba(black, $opacity)
+}
+@function white($opacity) {
+  @return rgba(white, $opacity)
+}
+
+.half-black {
+  background: black(0.5);
+}

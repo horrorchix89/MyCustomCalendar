@@ -1,0 +1,15 @@
+// Gradient backgrounds
+@mixin bg-gradient($parent, $gradient) {
+  #{$parent} {
+    background: $gradient;
+  }
+}
+// Gradient text
+@mixin text-gradient($parent, $gradient) {
+  #{$parent} {
+    background-image: $gradient;
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
